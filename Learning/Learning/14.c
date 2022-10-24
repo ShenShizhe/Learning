@@ -1,9 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 # include <stdio.h>
 
-int main_ (void)
+int main_14 (void)
 {
-    printf("Hello World!This is a test!!!");
+    printf("This is a test!!!");
     return 0;
 
 }
