@@ -2,7 +2,7 @@
 # include <stdio.h>
 //变量的作用域与生命周期
 int global = 2022;
-void test()
+void test0()
 {
     printf("test()--%d\n", global);
 }
@@ -14,7 +14,7 @@ int main_04(void)
     int num1 = 1;
     //printf("num1= %d\n", num1);
     //printf("num2= %d\n", num2);//error，num2不在当前的作用域内
-    //test();//调用test
+    //test0();//调用test
     //printf("%d\n", global);
     /*运行结果：
             num1= 1

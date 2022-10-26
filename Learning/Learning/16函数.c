@@ -13,11 +13,6 @@
 //}
 //上述代码，写成函数如下：
 #include <stdio.h>
-int Add(int x, int y)
-{
-	int z = x + y;
-	return z;
-}
 int main_16()
 {
 	int num1 = 0;
