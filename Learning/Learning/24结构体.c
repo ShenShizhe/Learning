@@ -16,7 +16,7 @@ struct Book
     char name[20];//C语言程序设计
     short price;//55
 };//此处分号不可缺少，作用：结束类型定义
-int main (void)
+int main_24 (void)
 {
     //利用结构体类型，创建一个该类型的结构体变b1.name,b1.price量
     struct Book b1 ={"C语言程序设计",55};
