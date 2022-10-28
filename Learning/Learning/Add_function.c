@@ -1,35 +1,37 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-//两个数相加
+//1.两个数相加
 int Add(int x, int y)
 {
 	int z = x + y;
 	return z;
 }
-//求两个数最大值
+//2.求两个数最大值
 int Max(int x, int y)
 {
 	return (x >= y ? x : y);
 }
-//判断一个数是否为奇数
+//3.判断一个数是否为奇数
 int Judgment_odd_number(int a)
 {
 	if (a % 2 == 1)
 		printf("该数是一个奇数\n");
 	else
 		printf("该数不是奇数\n");
+	return 0;
 }
-//输出1~X之间的奇数
-int Odd_number(int x)
-{	
+//4.输出1~X之间的奇数
+int Odd_number_x(int x)
+{
 	int i = 1;
 	while (i < x)
-	{		
+	{
 		printf("%d  ", i);
 		i += 2;
-	}	
+	}
+	return 0;
 }
-//switch确定星期
+//5.switch确定星期
 int Week(void)
 {
 	int day = 0;
@@ -62,8 +64,9 @@ int Week(void)
 		printf("您输入有误，不在规定范围内");
 		break;
 	}
+	return 0;
 }
-// switch确定是否为工作日
+//6.switch确定是否为工作日
 int Work(void)
 {
 	int day = 0;
@@ -86,4 +89,37 @@ int Work(void)
 		printf("您输入有误，不在规定范围内");
 		break;
 	}
+	return 0;
+}
+//7.在屏幕上打印1~x的数字
+int Number_x(int x)
+{
+	int i = 1;
+	while (i <= x)
+	{
+		printf("%d ", i);
+		i++;
+	}
+	return 0;
+}
+//8.计算n的阶乘
+int Factorial_n(int n)
+{
+	int factorial = 1;
+	for (int i = 1; i <= n; i++)
+		factorial *= i;
+	printf("%d\n", factorial);
+	return 0;
+}
+//9.计算1！+2！+3！+……+10!(1~n的阶乘和)
+int Factorial_1n(int x)
+{
+	int j = 0, ret = 1, sum = 0;
+	for (j = 1; j <= x; j++)
+	{
+		ret = ret * j;
+		sum += ret;
+	}
+	printf("%d\n", sum);
+	return 0;
 }

@@ -45,7 +45,7 @@ int main_25 (void)
     //判断一个数是否为奇数[Add_function.c——————Judgment_odd_number]
     Judgment_odd_number(age);
     //输出1~X之间的奇数[Add_function.c——————Odd_number]
-    Odd_number(age);
+    Odd_number_x(age);
     //switch 语句 switch确定今天日期[Add_function.c——————Week]
     Week();//switch 内的参数类型必须为整形 case 后必须为整形常量表达式
     // switch确定是否为工作日[Add_function.c——————Work]

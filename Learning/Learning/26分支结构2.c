@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 # include <stdio.h>
 //分支结构的一道测试题
-int main (void)
+int main_26 (void)
 {
     int n = 1, m = 2;
 	switch (n)
