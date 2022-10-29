@@ -1,5 +1,8 @@
-#define _CRT_SECURE_NO_WARNINGS 1
-#include <stdio.h>
+# define _CRT_SECURE_NO_WARNINGS 1
+# include <stdio.h>
+# include <string.h>
+# include <Windows.h>
+# include <stdlib.h>
 //1.两个数相加
 int Add(int x, int y)
 {
@@ -123,3 +126,71 @@ int Factorial_1n(int x)
 	printf("%d\n", sum);
 	return 0;
 }
+//10.从大到小输出三个数
+int number_max_min(void)
+{
+	int number1 = 0, number2 = 0, number3 = 0;
+	printf("请输入三个数：\n");
+	scanf("%d%d%d", &number1, &number2, &number3);
+	if (number1 < number2)
+	{
+		int temp = number1;
+		number1 = number2;
+		number2 = temp;
+	}
+	if (number1 < number3)
+	{
+		int temp = number1;
+		number1 = number3;
+		number3 = temp;
+	}
+	if (number2 < number3)
+	{
+		int temp = number2;
+		number2 = number3;
+		number3 = temp;
+	}
+	printf("%d %d %d\n", number1, number2, number3);//算法实现number1最大，number2次之，number3最小
+	return 0;
+}
+//11.给定两个数，求其最大公约数(辗转相除法)
+int Common_divisor(void)
+{
+	int number1 = 0, number2 = 0, remainder = 0;
+	printf("请输入两个数：\n");
+	scanf("%d%d", &number1, &number2);
+	while (remainder = number1 % number2)
+	{
+		//remainder = number1 % number2;
+		number1 = number2;
+		number2 = remainder;
+	}
+	printf("%d\n", number2);
+	return 0;
+}
+//12.在一个有序数组中查找具体的某个数字n,编写int binsearch(int x,int v[],int n)
+//功能：在v[0]<=v[1]<=v[2]<=……<=[n-1]的数组中查找x(二分查找法)
+int Lookup_arrays_sequentially(int arr[], int n)
+{
+	int sz = sizeof(arr) / sizeof(arr[0]);//计算元素个数
+	int left = 0;//左下标
+	int right = sz - 1;//右下标
+	while (left <= right)
+	{
+		int mid = (left + right) / 2;
+		if (arr[mid] > n)
+			right = mid - 1;
+		else if (arr[mid] < n)
+			left = mid + 1;
+		else
+		{
+			printf("找到了，下标是：%d\n", mid);
+			break;
+		}
+	}
+	if (left > right)
+		printf("找不到\n");
+	return 0;
+}
+
+
