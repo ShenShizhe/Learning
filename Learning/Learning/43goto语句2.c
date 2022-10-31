@@ -6,7 +6,7 @@
 # include <Windows.h>
 
 
-int main(void)
+int main_43(void)
 {
 	char input[20] = { 0 };
 	system("color a");
