@@ -1,1 +1,1 @@
-1
+- [Gmae_1](https://github.com/ShenShizhe/Learning/tree/master/Learning/Game/Game_1)
