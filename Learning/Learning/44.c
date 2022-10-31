@@ -6,8 +6,9 @@
 # include <Windows.h>
 
 
-int main_44(void)
+int main(void)
 {
+
 
 	return 0;
 
