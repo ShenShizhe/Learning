@@ -3,16 +3,20 @@
 # include <string.h>
 # include <Windows.h>
 # include <stdlib.h>
-//1.两个数相加
+# include <math.h>
+//1.两个数相加(求和)
 int Add(int x, int y)
 {
 	int z = x + y;
-	return z;
+	//return z;
+	printf("%d\n", z);
 }
 //2.求两个数最大值
 int Max(int x, int y)
 {
-	return (x >= y ? x : y);
+	int z;
+	z = (x >= y ? x : y);
+	printf("%d\n", z);
 }
 //3.判断一个数是否为奇数
 int Judgment_odd_number(int a)
@@ -192,5 +196,34 @@ int Lookup_arrays_sequentially(int arr[], int n)
 		printf("找不到\n");
 	return 0;
 }
-
+//13.交换两个整数
+void Swap(int* a, int* b)
+{
+	int temp = 0;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+//14. 写一个函数可以判断一个数是不是素数。
+int prime_number(int x)
+{
+	int i = 0;
+	for (i = 1; i <= sqrt(x); i++)
+		if (x % i == 0)
+		{
+			return 0;
+		}
+		else if (x % i != 0)
+		{
+			continue;
+			if (i == sqrt(x))
+			{
+				return 1;
+			}
+		}
+}
+//prime number
+//15. 写一个函数判断一年是不是闰年。
+//16. 写一个函数，实现一个整形有序数组的二分查找。
+//17. 写一个函数，每调用一次这个函数，就会将num 的值增加1。
 
