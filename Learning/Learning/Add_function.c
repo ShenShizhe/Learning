@@ -5,7 +5,7 @@
 # include <stdlib.h>
 # include <math.h>
 //1.两个数相加(求和)
-int Add(int x, int y)
+int Add_two_number(int x, int y)
 {
 	int z = x + y;
 	//return z;
@@ -205,25 +205,52 @@ void Swap(int* a, int* b)
 	*b = temp;
 }
 //14. 写一个函数可以判断一个数是不是素数。
-int prime_number(int x)
+int is_prime_number(int x)
 {
-	int i = 0;
-	for (i = 1; i <= sqrt(x); i++)
+	for (int i = 2; i <= sqrt(x); i++)
+	{
 		if (x % i == 0)
-		{
 			return 0;
-		}
-		else if (x % i != 0)
-		{
-			continue;
-			if (i == sqrt(x))
-			{
-				return 1;
-			}
-		}
+	}
+	return 1;
 }
 //prime number
 //15. 写一个函数判断一年是不是闰年。
+int is_leap_year(int y)
+{
+	if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0))
+		return 1;
+	else
+		return 0;
+}
 //16. 写一个函数，实现一个整形有序数组的二分查找。
-//17. 写一个函数，每调用一次这个函数，就会将num 的值增加1。
+int binary_search(int arr[], int k, int sz)
+{
+	//算法的实现
+	int left = 0;//左下标
+	int right = sz - 1;//右下标
+	while (left <= right)
+	{
+		int mid = (left + right) / 2;//中间下标
+		if (arr[mid] < k)
+		{
+			left = mid + 1;
+		}
+		else if (arr[mid] > k)
+		{
+			right = mid - 1;
+		}
+		else
+		{
+			return mid;
+		}
+	}
+	return -1;
+}
 
+
+//17. 写一个函数，每调用一次这个函数，就会将num 的值增加1。
+void Add(int* p)
+{
+	(*p)++;
+}

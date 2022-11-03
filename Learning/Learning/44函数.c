@@ -6,7 +6,7 @@
 # include <Windows.h>
 
 
-int main(void)
+int main_44(void)
 {
 	/*
 	常用文档
@@ -53,11 +53,10 @@ int main(void)
 	//Max(a, b);
 //****************************************************
 //（交换两个数Add_function.c——————Swap）
-	//int a = 3, b = 4;
-	//printf("a=%d,b=%d\n", a, b);
-	//Swap(&a, &b);
-	//printf("a=%d,b=%d\n", a, b);
-//****************************************************
+	int a = 3, b = 4;
+	printf("a=%d,b=%d\n", a, b);
+	Swap(&a, &b);
+	printf("a=%d,b=%d\n", a, b);
 	return 0;
 
 }
