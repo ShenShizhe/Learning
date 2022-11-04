@@ -4,7 +4,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <Windows.h>
-
+# include "Function.h"
 
 int main_50(void)
 {

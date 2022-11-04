@@ -7,9 +7,7 @@
 //1.两个数相加(求和)
 int Add_two_number(int x, int y)
 {
-	int z = x + y;
-	//return z;
-	printf("%d\n", z);
+	return x + y;
 }
 //2.求两个数最大值
 int Max(int x, int y)
@@ -253,4 +251,11 @@ int binary_search(int arr[], int k, int sz)
 void Add(int* p)
 {
 	(*p)++;
+}
+//18.接受一个整数值(无符号)，按照打印顺序打印他的每一位。例如：1234,输出1 2 3 4.
+void print(int n)
+{
+	if (n > 9)
+		print(n / 10);
+	printf("%d ", n % 10);
 }

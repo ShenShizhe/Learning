@@ -13,7 +13,7 @@
 
 
 
-int main(void)
+int main_45(void)
 {
 	//1. 写一个函数可以判断一个数是不是素数。[Add_function.c——————is_prime_number]
 	//for (int i = 1; i < 20; i++)
@@ -27,7 +27,7 @@ int main(void)
 	//	if (1 == is_leap_year(year))
 	//		printf("%d ", year);
 	//}
-	//3. 写一个函数，实现一个整形有序数组的二分查找。[Add_function.c——————]
+	//3. 写一个函数，实现一个整形有序数组的二分查找。[Add_function.c——————binary_search]
 	//找到返回下标，否则返回-1
 	//int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
 	//int k = 9;
@@ -38,7 +38,7 @@ int main(void)
 	//else
 	//	printf("找到了,下标是：%d\n", ret);
 
-	//4. 写一个函数，每调用一次这个函数，就会将num 的值增加1。
+	//4. 写一个函数，每调用一次这个函数，就会将num 的值增加1。[Add_function.c——————Add]
 	int num = 0;
 
 	Add(&num);
