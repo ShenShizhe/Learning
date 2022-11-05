@@ -110,11 +110,19 @@ int Number_x(int x)
 //8.计算n的阶乘
 int Factorial_n(int n)
 {
-	int factorial = 1;
-	for (int i = 1; i <= n; i++)
-		factorial *= i;
-	printf("%d\n", factorial);
-	return 0;
+	//方法一(循环解决)
+	//int factorial = 1;
+	//for (int i = 1; i <= n; i++)
+	//	factorial *= i;
+	//printf("%d\n", factorial);
+	//return 0;
+	//方法二(递归方案)
+	(n <= 1) ? 1 : (n * Factorial_n(n - 1));
+	/*if (n <= 1)
+		return 1;
+	else
+		return n * Factorial_n(n - 1);*/
+
 }
 //9.计算1！+2！+3！+……+10!(1~n的阶乘和)
 int Factorial_1n(int x)
@@ -253,9 +261,88 @@ void Add(int* p)
 	(*p)++;
 }
 //18.接受一个整数值(无符号)，按照打印顺序打印他的每一位。例如：1234,输出1 2 3 4.
-void print(int n)
+void Sequential_printing(int n)//1234
 {
 	if (n > 9)
-		print(n / 10);
-	printf("%d ", n % 10);
+		Sequential_printing(n / 10);//123
+	printf("%d ", n % 10);//4
 }
+//19、编写函数不允许创建临时变量，求字符串的长度。
+int my_strlen(char* str)
+{
+	//计算字符串长度
+	//方法一
+	/*int count = 0;
+	while (*str != '\0')
+	{
+		count++;
+		str++;
+	}
+	return count;*/
+	//方法二
+	(*str != '\0') ? (1 + my_strlen(str + 1)) : 0;
+
+	//if (*str != '\0')
+	//	return 1 + my_strlen(str + 1);
+	//else
+	//	return 0;
+}
+//20、求第n个斐波那契数
+int Fibonacci_sequence(int n)
+{
+	//方法一(递归)
+	//(n <= 2) ? 1 : (Fibonacci_sequence(n - 1) + Fibonacci_sequence(n - 2));
+
+	//if (n <= 2)
+	//{
+
+	//	return 1;
+	//}
+	//else
+	//{
+	//	return Fibonacci_sequence(n - 1) + Fibonacci_sequence(n - 2);
+	//}
+	//方法二(循环)
+	int a = 1, b = 1, c = 1;
+	while (n > 2)
+	{
+		c = a + b;
+		a = b;
+		b = c;
+		n--;
+	}
+	return c;
+}
+//21、汉诺塔问题
+void Tower_of_Hanoi_move(int x, int y)
+{
+	printf("%c->%c\n", x, y);
+}
+//Tower_of_Hanoi_move中的实参与Tower_of_Hanoi函数中的形参相对应，而Tower_of_Hanoi函数中形参a，b，c所对应的值也是在有规律的变化
+void Tower_of_Hanoi(int n, char a, char b, char c)
+{
+	if (n == 1)
+	{
+		Tower_of_Hanoi_move(a, c);
+	}
+	else
+	{
+		Tower_of_Hanoi(n - 1, a, c, b);//将A座上的n-1个盘子借助C座移向B座
+		Tower_of_Hanoi_move(a, c);//将A座上最后一个盘子移向C座
+		Tower_of_Hanoi(n - 1, b, a, c);//将B座上的n-1个盘子借助A座移向C座
+	}
+}
+//22、青蛙跳台阶问题
+int Frog_jumping(long int n)
+{
+	if (n == 1)
+	{
+		return 1;
+	}
+	if (n == 2)
+	{
+		return 2;
+	}
+	return Frog_jumping(n - 1) + Frog_jumping(n - 2);
+}
+
