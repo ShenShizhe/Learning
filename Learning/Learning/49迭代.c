@@ -6,7 +6,7 @@
 # include <Windows.h>
 # include "Function.h"
 
-int main(void)
+int main_49(void)
 {
 	//************************************************************************
 	//练习1.求n的阶乘。（不考虑溢出）[Function.c————Factorial_n]
@@ -36,7 +36,7 @@ int main(void)
 	printf("请输入台阶的总数(n):");
 	scanf("%d", &n);
 	long int frequency = Frog_jumping(n);
-	printf("%d\n", frequency);
+	printf("%ld\n", frequency);
 
 	return 0;
 

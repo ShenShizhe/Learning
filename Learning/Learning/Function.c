@@ -267,7 +267,7 @@ void Sequential_printing(int n)//1234
 		Sequential_printing(n / 10);//123
 	printf("%d ", n % 10);//4
 }
-//19、编写函数不允许创建临时变量，求字符串的长度。
+//19.编写函数不允许创建临时变量，求字符串的长度。
 int my_strlen(char* str)
 {
 	//计算字符串长度
@@ -287,7 +287,7 @@ int my_strlen(char* str)
 	//else
 	//	return 0;
 }
-//20、求第n个斐波那契数
+//20.求第n个斐波那契数
 int Fibonacci_sequence(int n)
 {
 	//方法一(递归)
@@ -313,7 +313,7 @@ int Fibonacci_sequence(int n)
 	}
 	return c;
 }
-//21、汉诺塔问题
+//21.汉诺塔问题
 void Tower_of_Hanoi_move(int x, int y)
 {
 	printf("%c->%c\n", x, y);
@@ -332,7 +332,7 @@ void Tower_of_Hanoi(int n, char a, char b, char c)
 		Tower_of_Hanoi(n - 1, b, a, c);//将B座上的n-1个盘子借助A座移向C座
 	}
 }
-//22、青蛙跳台阶问题
+//22.青蛙跳台阶问题
 int Frog_jumping(long int n)
 {
 	if (n == 1)
@@ -345,4 +345,27 @@ int Frog_jumping(long int n)
 	}
 	return Frog_jumping(n - 1) + Frog_jumping(n - 2);
 }
-
+//23.冒泡排序
+void Bubbling_sort(int arr[], int sz)
+{
+	//确定需要排序的趟数
+	//int sz = sizeof(arr) / sizeof(arr[0]);
+	for (int i = 0; i < sz - 1; i++)
+	{
+		//假设一趟需要排序的数据已经有序
+		int flag = 1;
+		//每一趟冒泡排序的内容
+		for (int j = 0; j < sz - 1 - i; j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				int temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+				flag = 0;//本趟排序数据不完全有序
+			}
+		}
+		if (flag)
+			break;
+	}
+}

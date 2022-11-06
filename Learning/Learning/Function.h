@@ -38,13 +38,15 @@ int binary_search(int arr[], int k, int sz);
 void Add(int* p);
 //18.接受一个整数值(无符号)，按照打印顺序打印他的每一位。例如：1234,输出1 2 3 4.
 void Sequential_printing(int n);
-//19、编写函数不允许创建临时变量，求字符串的长度。
+//19.编写函数不允许创建临时变量，求字符串的长度。
 int my_strlen(char* str);
-//20、求第n个斐波那契数
+//20.求第n个斐波那契数
 int Fibonacci_sequence(int n);
-//21、50汉诺塔问题
+//21.汉诺塔问题
 void Tower_of_Hanoi_move(int x, int y);
 void Tower_of_Hanoi(int n, char a, char b, char c);
-//22、青蛙跳台阶问题
+//22.青蛙跳台阶问题
 int Frog_jumping(long int n);
+//23.冒泡排序
+void Bubbling_sort(int arr[], int sz);
 # endif
