@@ -6,7 +6,7 @@
 # include <Windows.h>
 # include "Function.h"
 
-int main(void)
+int main_55(void)
 {
 	//数组名就是数组首元素的地址，他的值是数组首元素的值
 	int arr[] = { 9,8,0,1,2,3,4,5,6,7 };
