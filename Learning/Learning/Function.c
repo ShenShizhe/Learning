@@ -4,28 +4,28 @@
 # include <Windows.h>
 # include <stdlib.h>
 # include <math.h>
-//1.Á½¸öÊıÏà¼Ó(ÇóºÍ)
+//1.ä¸¤ä¸ªæ•°ç›¸åŠ (æ±‚å’Œ)
 int Add_two_number(int x, int y)
 {
 	return x + y;
 }
-//2.ÇóÁ½¸öÊı×î´óÖµ
+//2.æ±‚ä¸¤ä¸ªæ•°æœ€å¤§å€¼
 int Max(int x, int y)
 {
 	int z;
 	z = (x >= y ? x : y);
 	printf("%d\n", z);
 }
-//3.ÅĞ¶ÏÒ»¸öÊıÊÇ·ñÎªÆæÊı
+//3.åˆ¤æ–­ä¸€ä¸ªæ•°æ˜¯å¦ä¸ºå¥‡æ•°
 int Judgment_odd_number(int a)
 {
 	if (a % 2 == 1)
-		printf("¸ÃÊıÊÇÒ»¸öÆæÊı\n");
+		printf("è¯¥æ•°æ˜¯ä¸€ä¸ªå¥‡æ•°\n");
 	else
-		printf("¸ÃÊı²»ÊÇÆæÊı\n");
+		printf("è¯¥æ•°ä¸æ˜¯å¥‡æ•°\n");
 	return 0;
 }
-//4.Êä³ö1~XÖ®¼äµÄÆæÊı
+//4.è¾“å‡º1~Xä¹‹é—´çš„å¥‡æ•°
 int Odd_number_x(int x)
 {
 	int i = 1;
@@ -36,46 +36,46 @@ int Odd_number_x(int x)
 	}
 	return 0;
 }
-//5.switchÈ·¶¨ĞÇÆÚ
+//5.switchç¡®å®šæ˜ŸæœŸ
 int Week(void)
 {
 	int day = 0;
-	printf("\nÇëÊäÈë1~7µÄÈÎÒâÒ»¸öÊı×Ö£º");
+	printf("\nè¯·è¾“å…¥1~7çš„ä»»æ„ä¸€ä¸ªæ•°å­—ï¼š");
 	scanf("%d", &day);
 	switch (day)
 	{
 	case 1:
-		printf("½ñÌìÊÇĞÇÆÚÒ»\n");
+		printf("ä»Šå¤©æ˜¯æ˜ŸæœŸä¸€\n");
 		break;
 	case 2:
-		printf("½ñÌìÊÇĞÇÆÚ¶ş\n");
+		printf("ä»Šå¤©æ˜¯æ˜ŸæœŸäºŒ\n");
 		break;
 	case 3:
-		printf("½ñÌìÊÇĞÇÆÚÈı\n");
+		printf("ä»Šå¤©æ˜¯æ˜ŸæœŸä¸‰\n");
 		break;
 	case 4:
-		printf("½ñÌìÊÇĞÇÆÚËÄ\n");
+		printf("ä»Šå¤©æ˜¯æ˜ŸæœŸå››\n");
 		break;
 	case 5:
-		printf("½ñÌìÊÇĞÇÆÚÎå\n");
+		printf("ä»Šå¤©æ˜¯æ˜ŸæœŸäº”\n");
 		break;
 	case 6:
-		printf("½ñÌìÊÇĞÇÆÚÁù\n");
+		printf("ä»Šå¤©æ˜¯æ˜ŸæœŸå…­\n");
 		break;
 	case 7:
-		printf("½ñÌìÊÇĞÇÆÚÌì\n");
+		printf("ä»Šå¤©æ˜¯æ˜ŸæœŸå¤©\n");
 		break;
 	default:
-		printf("ÄúÊäÈëÓĞÎó£¬²»ÔÚ¹æ¶¨·¶Î§ÄÚ");
+		printf("æ‚¨è¾“å…¥æœ‰è¯¯ï¼Œä¸åœ¨è§„å®šèŒƒå›´å†…");
 		break;
 	}
 	return 0;
 }
-//6.switchÈ·¶¨ÊÇ·ñÎª¹¤×÷ÈÕ
+//6.switchç¡®å®šæ˜¯å¦ä¸ºå·¥ä½œæ—¥
 int Work(void)
 {
 	int day = 0;
-	printf("\nÇëÊäÈë1~7µÄÈÎÒâÒ»¸öÊı×Ö£º");
+	printf("\nè¯·è¾“å…¥1~7çš„ä»»æ„ä¸€ä¸ªæ•°å­—ï¼š");
 	scanf("%d", &day);
 	switch (day)
 	{
@@ -84,19 +84,19 @@ int Work(void)
 	case 3:
 	case 4:
 	case 5:
-		printf("½ñÌìÊÇ¹¤×÷ÈÕ\n");
+		printf("ä»Šå¤©æ˜¯å·¥ä½œæ—¥\n");
 		break;
 	case 6:
 	case 7:
-		printf("½ñÌìÊÇĞİÏ¢ÈÕ\n");
+		printf("ä»Šå¤©æ˜¯ä¼‘æ¯æ—¥\n");
 		break;
 	default:
-		printf("ÄúÊäÈëÓĞÎó£¬²»ÔÚ¹æ¶¨·¶Î§ÄÚ");
+		printf("æ‚¨è¾“å…¥æœ‰è¯¯ï¼Œä¸åœ¨è§„å®šèŒƒå›´å†…");
 		break;
 	}
 	return 0;
 }
-//7.ÔÚÆÁÄ»ÉÏ´òÓ¡1~xµÄÊı×Ö
+//7.åœ¨å±å¹•ä¸Šæ‰“å°1~xçš„æ•°å­—
 int Number_x(int x)
 {
 	int i = 1;
@@ -107,16 +107,16 @@ int Number_x(int x)
 	}
 	return 0;
 }
-//8.¼ÆËãnµÄ½×³Ë
+//8.è®¡ç®—nçš„é˜¶ä¹˜
 int Factorial_n(int n)
 {
-	//·½·¨Ò»(Ñ­»·½â¾ö)
+	//æ–¹æ³•ä¸€(å¾ªç¯è§£å†³)
 	//int factorial = 1;
 	//for (int i = 1; i <= n; i++)
 	//	factorial *= i;
 	//printf("%d\n", factorial);
 	//return 0;
-	//·½·¨¶ş(µİ¹é·½°¸)
+	//æ–¹æ³•äºŒ(é€’å½’æ–¹æ¡ˆ)
 	(n <= 1) ? 1 : (n * Factorial_n(n - 1));
 	/*if (n <= 1)
 		return 1;
@@ -124,7 +124,7 @@ int Factorial_n(int n)
 		return n * Factorial_n(n - 1);*/
 
 }
-//9.¼ÆËã1£¡+2£¡+3£¡+¡­¡­+10!(1~nµÄ½×³ËºÍ)
+//9.è®¡ç®—1ï¼+2ï¼+3ï¼+â€¦â€¦+10!(1~nçš„é˜¶ä¹˜å’Œ)
 int Factorial_1n(int x)
 {
 	int j = 0, ret = 1, sum = 0;
@@ -136,11 +136,11 @@ int Factorial_1n(int x)
 	printf("%d\n", sum);
 	return 0;
 }
-//10.´Ó´óµ½Ğ¡Êä³öÈı¸öÊı
+//10.ä»å¤§åˆ°å°è¾“å‡ºä¸‰ä¸ªæ•°
 int number_max_min(void)
 {
 	int number1 = 0, number2 = 0, number3 = 0;
-	printf("ÇëÊäÈëÈı¸öÊı£º\n");
+	printf("è¯·è¾“å…¥ä¸‰ä¸ªæ•°ï¼š\n");
 	scanf("%d%d%d", &number1, &number2, &number3);
 	if (number1 < number2)
 	{
@@ -160,14 +160,14 @@ int number_max_min(void)
 		number2 = number3;
 		number3 = temp;
 	}
-	printf("%d %d %d\n", number1, number2, number3);//Ëã·¨ÊµÏÖnumber1×î´ó£¬number2´ÎÖ®£¬number3×îĞ¡
+	printf("%d %d %d\n", number1, number2, number3);//ç®—æ³•å®ç°number1æœ€å¤§ï¼Œnumber2æ¬¡ä¹‹ï¼Œnumber3æœ€å°
 	return 0;
 }
-//11.¸ø¶¨Á½¸öÊı£¬ÇóÆä×î´ó¹«Ô¼Êı(Õ·×ªÏà³ı·¨)
+//11.ç»™å®šä¸¤ä¸ªæ•°ï¼Œæ±‚å…¶æœ€å¤§å…¬çº¦æ•°(è¾—è½¬ç›¸é™¤æ³•)
 int Common_divisor(void)
 {
 	int number1 = 0, number2 = 0, remainder = 0;
-	printf("ÇëÊäÈëÁ½¸öÊı£º\n");
+	printf("è¯·è¾“å…¥ä¸¤ä¸ªæ•°ï¼š\n");
 	scanf("%d%d", &number1, &number2);
 	while (remainder = number1 % number2)
 	{
@@ -178,13 +178,13 @@ int Common_divisor(void)
 	printf("%d\n", number2);
 	return 0;
 }
-//12.ÔÚÒ»¸öÓĞĞòÊı×éÖĞ²éÕÒ¾ßÌåµÄÄ³¸öÊı×Ön,±àĞ´int binsearch(int x,int v[],int n)
-//¹¦ÄÜ£ºÔÚv[0]<=v[1]<=v[2]<=¡­¡­<=[n-1]µÄÊı×éÖĞ²éÕÒx(¶ş·Ö²éÕÒ·¨)
+//12.åœ¨ä¸€ä¸ªæœ‰åºæ•°ç»„ä¸­æŸ¥æ‰¾å…·ä½“çš„æŸä¸ªæ•°å­—n,ç¼–å†™int binsearch(int x,int v[],int n)
+//åŠŸèƒ½ï¼šåœ¨v[0]<=v[1]<=v[2]<=â€¦â€¦<=[n-1]çš„æ•°ç»„ä¸­æŸ¥æ‰¾x(äºŒåˆ†æŸ¥æ‰¾æ³•)
 int Lookup_arrays_sequentially(int arr[], int n)
 {
-	int sz = sizeof(arr) / sizeof(arr[0]);//¼ÆËãÔªËØ¸öÊı
-	int left = 0;//×óÏÂ±ê
-	int right = sz - 1;//ÓÒÏÂ±ê
+	int sz = sizeof(arr) / sizeof(arr[0]);//è®¡ç®—å…ƒç´ ä¸ªæ•°
+	int left = 0;//å·¦ä¸‹æ ‡
+	int right = sz - 1;//å³ä¸‹æ ‡
 	while (left <= right)
 	{
 		int mid = (left + right) / 2;
@@ -194,15 +194,15 @@ int Lookup_arrays_sequentially(int arr[], int n)
 			left = mid + 1;
 		else
 		{
-			printf("ÕÒµ½ÁË£¬ÏÂ±êÊÇ£º%d\n", mid);
+			printf("æ‰¾åˆ°äº†ï¼Œä¸‹æ ‡æ˜¯ï¼š%d\n", mid);
 			break;
 		}
 	}
 	if (left > right)
-		printf("ÕÒ²»µ½\n");
+		printf("æ‰¾ä¸åˆ°\n");
 	return 0;
 }
-//13.½»»»Á½¸öÕûÊı
+//13.äº¤æ¢ä¸¤ä¸ªæ•´æ•°
 void Swap(int* a, int* b)
 {
 	int temp = 0;
@@ -210,7 +210,7 @@ void Swap(int* a, int* b)
 	*a = *b;
 	*b = temp;
 }
-//14. Ğ´Ò»¸öº¯Êı¿ÉÒÔÅĞ¶ÏÒ»¸öÊıÊÇ²»ÊÇËØÊı¡£
+//14. å†™ä¸€ä¸ªå‡½æ•°å¯ä»¥åˆ¤æ–­ä¸€ä¸ªæ•°æ˜¯ä¸æ˜¯ç´ æ•°ã€‚
 int is_prime_number(int x)
 {
 	for (int i = 2; i <= sqrt(x); i++)
@@ -221,7 +221,7 @@ int is_prime_number(int x)
 	return 1;
 }
 //prime number
-//15. Ğ´Ò»¸öº¯ÊıÅĞ¶ÏÒ»ÄêÊÇ²»ÊÇÈòÄê¡£
+//15. å†™ä¸€ä¸ªå‡½æ•°åˆ¤æ–­ä¸€å¹´æ˜¯ä¸æ˜¯é—°å¹´ã€‚
 int is_leap_year(int y)
 {
 	if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0))
@@ -229,15 +229,15 @@ int is_leap_year(int y)
 	else
 		return 0;
 }
-//16. Ğ´Ò»¸öº¯Êı£¬ÊµÏÖÒ»¸öÕûĞÎÓĞĞòÊı×éµÄ¶ş·Ö²éÕÒ¡£
+//16. å†™ä¸€ä¸ªå‡½æ•°ï¼Œå®ç°ä¸€ä¸ªæ•´å½¢æœ‰åºæ•°ç»„çš„äºŒåˆ†æŸ¥æ‰¾ã€‚
 int binary_search(int arr[], int k, int sz)
 {
-	//Ëã·¨µÄÊµÏÖ
-	int left = 0;//×óÏÂ±ê
-	int right = sz - 1;//ÓÒÏÂ±ê
+	//ç®—æ³•çš„å®ç°
+	int left = 0;//å·¦ä¸‹æ ‡
+	int right = sz - 1;//å³ä¸‹æ ‡
 	while (left <= right)
 	{
-		int mid = (left + right) / 2;//ÖĞ¼äÏÂ±ê
+		int mid = (left + right) / 2;//ä¸­é—´ä¸‹æ ‡
 		if (arr[mid] < k)
 		{
 			left = mid + 1;
@@ -255,23 +255,23 @@ int binary_search(int arr[], int k, int sz)
 }
 
 
-//17. Ğ´Ò»¸öº¯Êı£¬Ã¿µ÷ÓÃÒ»´ÎÕâ¸öº¯Êı£¬¾Í»á½«num µÄÖµÔö¼Ó1¡£
+//17. å†™ä¸€ä¸ªå‡½æ•°ï¼Œæ¯è°ƒç”¨ä¸€æ¬¡è¿™ä¸ªå‡½æ•°ï¼Œå°±ä¼šå°†num çš„å€¼å¢åŠ 1ã€‚
 void Add(int* p)
 {
 	(*p)++;
 }
-//18.½ÓÊÜÒ»¸öÕûÊıÖµ(ÎŞ·ûºÅ)£¬°´ÕÕ´òÓ¡Ë³Ğò´òÓ¡ËûµÄÃ¿Ò»Î»¡£ÀıÈç£º1234,Êä³ö1 2 3 4.
+//18.æ¥å—ä¸€ä¸ªæ•´æ•°å€¼(æ— ç¬¦å·)ï¼ŒæŒ‰ç…§æ‰“å°é¡ºåºæ‰“å°ä»–çš„æ¯ä¸€ä½ã€‚ä¾‹å¦‚ï¼š1234,è¾“å‡º1 2 3 4.
 void Sequential_printing(int n)//1234
 {
 	if (n > 9)
 		Sequential_printing(n / 10);//123
 	printf("%d ", n % 10);//4
 }
-//19.±àĞ´º¯Êı²»ÔÊĞí´´½¨ÁÙÊ±±äÁ¿£¬Çó×Ö·û´®µÄ³¤¶È¡£
+//19.ç¼–å†™å‡½æ•°ä¸å…è®¸åˆ›å»ºä¸´æ—¶å˜é‡ï¼Œæ±‚å­—ç¬¦ä¸²çš„é•¿åº¦ã€‚
 int my_strlen(char* str)
 {
-	//¼ÆËã×Ö·û´®³¤¶È
-	//·½·¨Ò»
+	//è®¡ç®—å­—ç¬¦ä¸²é•¿åº¦
+	//æ–¹æ³•ä¸€
 	/*int count = 0;
 	while (*str != '\0')
 	{
@@ -279,7 +279,7 @@ int my_strlen(char* str)
 		str++;
 	}
 	return count;*/
-	//·½·¨¶ş
+	//æ–¹æ³•äºŒ
 	(*str != '\0') ? (1 + my_strlen(str + 1)) : 0;
 
 	//if (*str != '\0')
@@ -287,10 +287,10 @@ int my_strlen(char* str)
 	//else
 	//	return 0;
 }
-//20.ÇóµÚn¸öì³²¨ÄÇÆõÊı
+//20.æ±‚ç¬¬nä¸ªæ–æ³¢é‚£å¥‘æ•°
 int Fibonacci_sequence(int n)
 {
-	//·½·¨Ò»(µİ¹é)
+	//æ–¹æ³•ä¸€(é€’å½’)
 	//(n <= 2) ? 1 : (Fibonacci_sequence(n - 1) + Fibonacci_sequence(n - 2));
 
 	//if (n <= 2)
@@ -302,7 +302,7 @@ int Fibonacci_sequence(int n)
 	//{
 	//	return Fibonacci_sequence(n - 1) + Fibonacci_sequence(n - 2);
 	//}
-	//·½·¨¶ş(Ñ­»·)
+	//æ–¹æ³•äºŒ(å¾ªç¯)
 	int a = 1, b = 1, c = 1;
 	while (n > 2)
 	{
@@ -313,12 +313,12 @@ int Fibonacci_sequence(int n)
 	}
 	return c;
 }
-//21.ººÅµËşÎÊÌâ
+//21.æ±‰è¯ºå¡”é—®é¢˜
 void Tower_of_Hanoi_move(int x, int y)
 {
 	printf("%c->%c\n", x, y);
 }
-//Tower_of_Hanoi_moveÖĞµÄÊµ²ÎÓëTower_of_Hanoiº¯ÊıÖĞµÄĞÎ²ÎÏà¶ÔÓ¦£¬¶øTower_of_Hanoiº¯ÊıÖĞĞÎ²Îa£¬b£¬cËù¶ÔÓ¦µÄÖµÒ²ÊÇÔÚÓĞ¹æÂÉµÄ±ä»¯
+//Tower_of_Hanoi_moveä¸­çš„å®å‚ä¸Tower_of_Hanoiå‡½æ•°ä¸­çš„å½¢å‚ç›¸å¯¹åº”ï¼Œè€ŒTower_of_Hanoiå‡½æ•°ä¸­å½¢å‚aï¼Œbï¼Œcæ‰€å¯¹åº”çš„å€¼ä¹Ÿæ˜¯åœ¨æœ‰è§„å¾‹çš„å˜åŒ–
 void Tower_of_Hanoi(int n, char a, char b, char c)
 {
 	if (n == 1)
@@ -327,12 +327,12 @@ void Tower_of_Hanoi(int n, char a, char b, char c)
 	}
 	else
 	{
-		Tower_of_Hanoi(n - 1, a, c, b);//½«A×ùÉÏµÄn-1¸öÅÌ×Ó½èÖúC×ùÒÆÏòB×ù
-		Tower_of_Hanoi_move(a, c);//½«A×ùÉÏ×îºóÒ»¸öÅÌ×ÓÒÆÏòC×ù
-		Tower_of_Hanoi(n - 1, b, a, c);//½«B×ùÉÏµÄn-1¸öÅÌ×Ó½èÖúA×ùÒÆÏòC×ù
+		Tower_of_Hanoi(n - 1, a, c, b);//å°†Aåº§ä¸Šçš„n-1ä¸ªç›˜å­å€ŸåŠ©Cåº§ç§»å‘Båº§
+		Tower_of_Hanoi_move(a, c);//å°†Aåº§ä¸Šæœ€åä¸€ä¸ªç›˜å­ç§»å‘Cåº§
+		Tower_of_Hanoi(n - 1, b, a, c);//å°†Båº§ä¸Šçš„n-1ä¸ªç›˜å­å€ŸåŠ©Aåº§ç§»å‘Cåº§
 	}
 }
-//22.ÇàÍÜÌøÌ¨½×ÎÊÌâ
+//22.é’è›™è·³å°é˜¶é—®é¢˜
 int Frog_jumping(long int n)
 {
 	if (n == 1)
@@ -345,16 +345,16 @@ int Frog_jumping(long int n)
 	}
 	return Frog_jumping(n - 1) + Frog_jumping(n - 2);
 }
-//23.Ã°ÅİÅÅĞò
+//23.å†’æ³¡æ’åº
 void Bubbling_sort(int arr[], int sz)
 {
-	//È·¶¨ĞèÒªÅÅĞòµÄÌËÊı
+	//ç¡®å®šéœ€è¦æ’åºçš„è¶Ÿæ•°
 	//int sz = sizeof(arr) / sizeof(arr[0]);
 	for (int i = 0; i < sz - 1; i++)
 	{
-		//¼ÙÉèÒ»ÌËĞèÒªÅÅĞòµÄÊı¾İÒÑ¾­ÓĞĞò
+		//å‡è®¾ä¸€è¶Ÿéœ€è¦æ’åºçš„æ•°æ®å·²ç»æœ‰åº
 		int flag = 1;
-		//Ã¿Ò»ÌËÃ°ÅİÅÅĞòµÄÄÚÈİ
+		//æ¯ä¸€è¶Ÿå†’æ³¡æ’åºçš„å†…å®¹
 		for (int j = 0; j < sz - 1 - i; j++)
 		{
 			if (arr[j] > arr[j + 1])
@@ -362,10 +362,13 @@ void Bubbling_sort(int arr[], int sz)
 				int temp = arr[j];
 				arr[j] = arr[j + 1];
 				arr[j + 1] = temp;
-				flag = 0;//±¾ÌËÅÅĞòÊı¾İ²»ÍêÈ«ÓĞĞò
+				flag = 0;//æœ¬è¶Ÿæ’åºæ•°æ®ä¸å®Œå…¨æœ‰åº
 			}
 		}
 		if (flag)
+		{
+		
 			break;
+		}
 	}
 }
