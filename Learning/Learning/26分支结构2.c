@@ -1,9 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 # include <stdio.h>
 //分支结构的一道测试题
-int main_26 (void)
+int main_26(void)
 {
-    int n = 1, m = 2;
+	int n = 1, m = 2;
 	switch (n)
 	{
 	case 1:
@@ -31,6 +31,6 @@ int main_26 (void)
 
 	//运行结果：
 	//		m=5     n=3
-    return 0;
+	return 0;
 
 }

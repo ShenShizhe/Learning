@@ -6,7 +6,7 @@
 int Add(int x, int y)---->static int Add(int x, int y)//error,将无法解析
 此处的static 改变了函数的链接属性(作用域),普通函数通过声明具有外部链接属性
 */
-extern int Add(int ,int );
+extern int Add(int, int);
 int main_21(void)
 {
 	int a = 10, b = 20;

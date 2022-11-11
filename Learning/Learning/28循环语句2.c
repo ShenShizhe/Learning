@@ -1,4 +1,4 @@
-ï»¿#define _CRT_SECURE_NO_WARNINGS 1
+#define _CRT_SECURE_NO_WARNINGS 1
 # include <stdio.h>
 
 int main_28(void)
@@ -10,19 +10,19 @@ int main_28(void)
 			continue;
 		printf("%c\n", ch);
 	}*/
-	//whileå¾ªçŽ¯ï¼Œå½“ç¨‹åºå¤æ‚ï¼Œä»£ç å—è¾ƒé•¿æ—¶[åˆå§‹åŒ–ã€åˆ¤æ–­ã€è°ƒæ•´]è¿™ä¸‰éƒ¨åˆ†åˆ†å¸ƒåˆ†æ•£ï¼Œä¸ä¾¿äºŽç¨‹åºçš„è°ƒæ”¹
-	//int i = 0;//åˆå§‹åŒ–
-	//while (i < 10)//åˆ¤æ–­
+	//whileÑ­»·£¬µ±³ÌÐò¸´ÔÓ£¬´úÂë¿é½Ï³¤Ê±[³õÊ¼»¯¡¢ÅÐ¶Ï¡¢µ÷Õû]ÕâÈý²¿·Ö·Ö²¼·ÖÉ¢£¬²»±ãÓÚ³ÌÐòµÄµ÷¸Ä
+	//int i = 0;//³õÊ¼»¯
+	//while (i < 10)//ÅÐ¶Ï
 	//{
-	//	//â€¦â€¦
-	//	i++;//è°ƒæ•´
+	//	//¡­¡­
+	//	i++;//µ÷Õû
 	//}
 
-	//forå¾ªçŽ¯
-	//for(è¡¨è¾¾å¼1;è¡¨è¾¾å¼2;è¡¨è¾¾å¼3)//è¡¨è¾¾å¼1:åˆå§‹åŒ–éƒ¨åˆ†ã€è¡¨è¾¾å¼2ï¼šåˆ¤æ–­éƒ¨åˆ†ã€è¡¨è¾¾å¼3ï¼šè°ƒæ•´éƒ¨åˆ†
-	//	å¾ªçŽ¯è¯­å¥;
+	//forÑ­»·
+	//for(±í´ïÊ½1;±í´ïÊ½2;±í´ïÊ½3)//±í´ïÊ½1:³õÊ¼»¯²¿·Ö¡¢±í´ïÊ½2£ºÅÐ¶Ï²¿·Ö¡¢±í´ïÊ½3£ºµ÷Õû²¿·Ö
+	//	Ñ­»·Óï¾ä;
 
-	//é‡‡ç”¨forå¾ªçŽ¯æ‰“å°1~10
+	//²ÉÓÃforÑ­»·´òÓ¡1~10
 	for (int i = 1; i <= 10; i++)
 	{
 		if (i == 5)
@@ -32,7 +32,7 @@ int main_28(void)
 	}
 	printf("\n");
 	/*
-	forå¾ªçŽ¯çš„ä¸‰ä¸ªéƒ¨åˆ†å‡å¯çœç•¥ï¼Œå¦‚æžœåˆ¤æ–­éƒ¨åˆ†çœç•¥ï¼Œé‚£ä¹ˆç»“æžœæ’ä¸ºçœŸ
+	forÑ­»·µÄÈý¸ö²¿·Ö¾ù¿ÉÊ¡ÂÔ£¬Èç¹ûÅÐ¶Ï²¿·ÖÊ¡ÂÔ£¬ÄÇÃ´½á¹ûºãÎªÕæ
 	*/
 	//int i = 0, j = 0;
 	//for (; i < 10; i++)
@@ -40,7 +40,7 @@ int main_28(void)
 	//	for (; j < 10; j++)
 	//		printf("HAHA\n");
 	//}
-	//è¿è¡Œç»“æžœï¼š
+	//ÔËÐÐ½á¹û£º
 	//	HAHA
 	//	HAHA
 	//	HAHA
@@ -54,13 +54,13 @@ int main_28(void)
 
 	printf("*************\n");
 	//*************
-	//è¯¥ç¨‹åºå¾ªçŽ¯äº†å‡ æ¬¡ï¼Ÿ
+	//¸Ã³ÌÐòÑ­»·ÁË¼¸´Î£¿
 	/*int i = 0, j = 0;
 	for (i = 0, j = 0; j = 0; j++)
 		j++;
 	printf("%d\n", j);
 	printf("*************\n");*/
-	//doâ€¦â€¦whileå¾ªçŽ¯ï¼Œæ‰“å°1~10çš„æ•°å­—
+	//do¡­¡­whileÑ­»·£¬´òÓ¡1~10µÄÊý×Ö
 	int i = 1;
 	do
 	{
