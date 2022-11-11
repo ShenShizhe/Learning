@@ -233,7 +233,7 @@ void Three_sons_chess_test()
 	} while (input);
 }
 
-int main(void)
+int main_56(void)
 {
 	Three_sons_chess_test();
 
