@@ -41,11 +41,11 @@ int main_45(void)
 	//4. 写一个函数，每调用一次这个函数，就会将num 的值增加1。[Add_function.c——————Add]
 	int num = 0;
 
-	Add(&num);
+	Add_two_number(&num);
 	printf("num = %d\n", num);
-	Add(&num);
+	Add_two_number(&num);
 	printf("num = %d\n", num);
-	Add(&num);
+	Add_two_number(&num);
 	printf("num = %d\n", num);
 
 

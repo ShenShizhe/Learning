@@ -20,7 +20,7 @@ int main_16()
 	int sum = 0;
 	printf("输入两个操作数:>");
 	scanf("%d %d", &num1, &num2);
-	sum = Add(num1, num2);
+	sum = Add_two_number(num1, num2);
 	printf("sum = %d\n", sum);
 	return 0;
 }
