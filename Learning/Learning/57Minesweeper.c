@@ -160,7 +160,7 @@ void Minesweeper_test()
 		}
 	} while (input != 1);
 }
-int main(void)
+int main_57(void)
 {
 	Minesweeper_test();
 	return 0;
