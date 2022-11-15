@@ -6,7 +6,7 @@
 # include <Windows.h>
 # include <time.h>
 
-int main(void)
+int main_58(void)
 {
 	//1、除法与取模运算
 	//int  a = 5 / 2;//商2余1
