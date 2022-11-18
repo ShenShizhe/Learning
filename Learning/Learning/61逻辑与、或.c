@@ -33,14 +33,14 @@ int main(void)
 
 	//条件操作符(三目操作符)
 	//exp1？exp2:exp3;
-	/*int a = 0, b = 0;*/
+	int a = 0, b = 0;
 
 	//if-else表达式
 	/*if (a > 5)
 		b = 3;
 	else
 		b = -3;*/
-		//b = (a > 5) ? 3 : (-5);
+	b = (a > 5) ? 3 : (-5);
 
 
 	return 0;
