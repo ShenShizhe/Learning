@@ -6,7 +6,7 @@
 # include <Windows.h>
 # include <time.h>
 
-int main(void)
+int main_61(void)
 {
 
 	//int a = 3;
