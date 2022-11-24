@@ -39,5 +39,6 @@ int main(void)
 	printf("%s\n", ps->id);
 	//结构体指针->成员名
 
+
 	return 0;
 }
