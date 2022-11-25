@@ -15,7 +15,7 @@ struct Stu
 	int age;
 	char id[20];
 };
-int main(void)
+int main_63(void)
 {
 	//访问一个结构的成员[. 结构体 .成员名][->结构体指针->成员名]
 
