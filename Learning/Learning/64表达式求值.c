@@ -32,7 +32,7 @@ int main_64(void)
 	//10000000|00000000|00000000|01111110---д­Ты
 
 
-	char c = 1;
+	c = 1;
 	printf("%u\n", sizeof(c));//1
 	printf("%u\n", sizeof(+c));//4
 	printf("%u\n", sizeof(!c));//1

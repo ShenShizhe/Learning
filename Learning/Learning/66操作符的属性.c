@@ -11,7 +11,7 @@
 //	static int count = 1;
 //	return ++count;
 //}
-int main(void)
+int main_66(void)
 {
 	/*
 	操作符三个属性：优先级、结合性、控制求值顺序
@@ -33,14 +33,14 @@ int main(void)
 	i = i-- - --i * (i = -3) * i++ + ++i;
 
 	//4
-	int answer;
-	answer = fun() - fun() * fun();
-	printf("%d\n", answer);
+	//int answer;
+	//answer = fun() - fun() * fun();
+	//printf("%d\n", answer);
 
 
 	//5
-	int i = 1;
-	int a = (++i) + (++i) + (++i);
+	i = 1;
+	a = (++i) + (++i) + (++i);
 	//2 3 4 5
 	printf("a=%d\n", a);
 	return 0;
