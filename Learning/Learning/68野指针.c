@@ -46,5 +46,6 @@ int main_68(void)
 	4.指针使用之前检查有效性
 	*/
 
+
 	return 0;
 }

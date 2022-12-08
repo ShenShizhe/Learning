@@ -49,4 +49,6 @@ void Tower_of_Hanoi(int n, char a, char b, char c);
 int Frog_jumping(long int n);
 //23.冒泡排序
 void Bubbling_sort(int arr[], int sz);
+//24.strlen求字符串的长度
+int my_strlen_pointer(char* str);
 # endif
