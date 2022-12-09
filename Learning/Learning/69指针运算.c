@@ -6,7 +6,7 @@
 #include <Windows.h>
 #include <time.h>
 #include "Function.h"
-int main(void)
+int main_69(void)
 {
 	/*
 	Ö¸Õë+-ÕûÊı
