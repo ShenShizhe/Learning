@@ -373,7 +373,7 @@ void Bubbling_sort(int arr[], int sz)
 	}
 }
 //24.strlen求字符串的长度
-int my_strlen_pointer5(char* str)
+int my_strlen_pointer(char* str)
 {
 	char* start = str;
 	char* end = str;
