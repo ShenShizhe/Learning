@@ -64,27 +64,27 @@
 //	}
 //}
 //Ëã·¨Îå
-//#include <assert.h>
-//void my_strcopy(char* dest, const char* src)
-//{
-//	assert(dest != NULL);
-//	assert(src != NULL);
-//	while (*dest++ = *src++)
-//	{
-//		;
-//	}
-//}
+#include <assert.h>
+void my_strcopy(char* dest, const char* src)
+{
+	assert(dest != NULL);
+	assert(src != NULL);
+	while (*dest++ = *src++)
+	{
+		;
+	}
+}
 
-//int main(void)
-//{
-//	//strcopy---×Ö·û´®¿½±´
-//	char arr1[] = "################";
-//	char arr2[] = "haha";
-//	my_strcopy(arr1, arr2);
-//	printf("%s\n", arr1);
-//
-//	return 0;
-//}
+int main_81(void)
+{
+	//strcopy---×Ö·û´®¿½±´
+	char arr1[] = "################";
+	char arr2[] = "haha";
+	my_strcopy(arr1, arr2);
+	printf("%s\n", arr1);
+
+	return 0;
+}
 
 
 
