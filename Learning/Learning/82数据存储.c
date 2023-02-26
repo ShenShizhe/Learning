@@ -108,3 +108,44 @@ int main_82(void)
 	//0100 0000 1011 0000 0000 0000 0000 0000--->0040b0000
 	return 0;
 }
+int main(void)
+{
+	/*char* s = "\t\"Name\\Address\"\n";
+	printf("%d\n", sizeof(s));*/
+
+
+	/*int a = 5, b = 6, c = 7, d = 8, m = 2, n = 2;
+	int k;
+	k = ((m = a > b) && (n = c > d));
+	printf("%d\n", k);*/
+
+
+	/*int x, y, z, k;
+	x = y = z = 0;
+	k = ((++x || ++y) && ++z);
+	printf("%d,%d,%d\n", x, y, z);*/
+
+
+
+	int a, b, c;
+	printf("请输入三个整数：\n");
+	scanf("%d%d%d", &a, &b, &c);
+
+
+	if (a > b && b > c)
+
+		printf("a>b>c\n");
+	else if (a > c && b < c)
+		printf("a>c>b\n");
+	else if (a < b && a > c)
+		printf("b>a>c\n");
+	else if (b > c && c > a)
+		printf("b>c>a\n");
+	else if (a < b && b < c)
+		printf("c>b>a\n");
+	else
+		printf("c>a>b\n");
+
+
+	return 0;
+}

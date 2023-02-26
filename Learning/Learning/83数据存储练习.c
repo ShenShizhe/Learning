@@ -105,19 +105,19 @@ a=-1,b=-1,c=255
 
 //8.
 //整型与浮点型在内存中存储的方式有区别
-int main(void)
-{
-	int n = 9;
-	float* pFloat = (float*)&n;
-	printf("n的值为：%d\n", n);
-	printf("*pFloat的值为：%f\n", *pFloat);
-
-
-	*pFloat = 9.0;
-	printf("n的值为：%d\n", n);
-	printf("*pFloat的值为：%f\n", *pFloat);
-	return 0;
-}
+//int main(void)
+//{
+//	int n = 9;
+//	float* pFloat = (float*)&n;
+//	printf("n的值为：%d\n", n);
+//	printf("*pFloat的值为：%f\n", *pFloat);
+//
+//
+//	*pFloat = 9.0;
+//	printf("n的值为：%d\n", n);
+//	printf("*pFloat的值为：%f\n", *pFloat);
+//	return 0;
+//}
 /*
 n的值为：9
 *pFloat的值为：0.000000
