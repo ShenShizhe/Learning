@@ -100,7 +100,7 @@ IEEE754规定浮点数V的存储方式：
 
 */
 
-int main_82(void)
+int main_82_1(void)
 {
 
 	float f = 5.5;
@@ -108,7 +108,7 @@ int main_82(void)
 	//0100 0000 1011 0000 0000 0000 0000 0000--->0040b0000
 	return 0;
 }
-int main(void)
+int main_82_2(void)
 {
 	/*char* s = "\t\"Name\\Address\"\n";
 	printf("%d\n", sizeof(s));*/
