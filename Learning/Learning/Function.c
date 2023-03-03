@@ -383,3 +383,32 @@ int my_strlen_pointer(char* str)
 	}
 	return end - start;
 }
+//25.新的冒泡排序
+void Swap_sort(char* buf1, char* buf2, int width)
+{
+	int i = 0;
+	for (; i < width; i++)
+	{
+		char temp = *buf1; *buf1 = *buf2; *buf2 = temp;
+		buf1++; buf2++;
+
+	}
+}
+void New_Bubbling_sort(void* base, int sz, int width, int(*Comper)(void* e1, void* e2))
+{
+	int i = 0;
+	for (; i <= sz; i++)
+	{
+		//每一趟比较的个数
+		int j = 0;
+		for (; j < sz - 1; j++)
+		{
+			//两个元素进行比较
+			if (Comper((char*)base + j * width, (char*)base + (j + 1) * width) > 0)//交换
+			{
+				//交换
+				Swap_sort((char*)base + j * width, (char*)base + (j + 1) * width, width);
+			}
+		}
+	}
+}

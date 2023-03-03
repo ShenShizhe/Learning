@@ -170,3 +170,55 @@
 //	//test2();
 //	return 0;
 //}
+
+//实现New_Bubbling_sort函数的程序员，他不知道未来排序的数据类型，也不能知道待比较的两个元素的类型
+int com_int_arr(const void* e1, const void* e2)
+{
+	return *(int*)e1 - *(int*)e2;
+}
+void test1()
+{
+	int arr[10] = { 9,8,6,12,65,34,21,18,25 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	//使用New_Bubbling_sort的程序员一定知道自己排序的是什么数据，就应该知道如何比较排序数组中的元素
+	New_Bubbling_sort(arr, sz, sizeof(arr[0]), com_int_arr);
+}
+int com_float_arr(const void* e1, const void* e2)
+{
+	return ((int)(*(float*)e1 > *(float*)e2));
+}
+void test2()
+{
+	float f[] = { 1.2,1.4,2.5,8.3,2.1,3.5,9.1,1.6,8.8,9.4 };//对浮点型数据进行排序
+	int sz = sizeof(f) / sizeof(f[0]);
+	New_Bubbling_sort(f, sz, sizeof(f[0]), com_float_arr);
+}
+struct Stu
+{
+	char name[10];
+	int age;
+};
+int com_struct_age(const void* e1, const void* e2)
+{
+	return ((struct Stu*)e1)->age - ((struct Stu*)e2)->age;
+}
+int com_struct_name(const void* e1, const void* e2)
+{
+	return strcmp(((struct Stu*)e1)->name, ((struct Stu*)e2)->name);
+}
+void test3()
+{
+
+	struct Stu s[6] = { {"zhangsan",16},{"lisi",34},{"wangwu",23},{"xdd",46},{"lidf",14},{"gjf",26} };//结构体数组，按年龄进行排序
+	int sz = sizeof(s) / sizeof(s[0]);
+	//New_Bubbling_sort(s, sz, sizeof(s[0]), com_struct_age);
+	New_Bubbling_sort(s, sz, sizeof(s[0]), com_struct_name);
+}
+int main(void)
+{
+
+	test1();
+	test2();
+	test3();
+	return 0;
+}
