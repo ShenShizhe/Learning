@@ -214,7 +214,7 @@ void test3()
 	//New_Bubbling_sort(s, sz, sizeof(s[0]), com_struct_age);
 	New_Bubbling_sort(s, sz, sizeof(s[0]), com_struct_name);
 }
-int main(void)
+int main_88(void)
 {
 
 	test1();
