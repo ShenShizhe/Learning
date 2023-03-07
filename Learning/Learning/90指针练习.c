@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
+#include <string.h>
 #include "Function.h"
 
 
@@ -55,5 +56,63 @@ int main__90__03(void)
 	int* ptr1 = (int*)(&a + 1);
 	int* ptr2 = (int*)((int)a + 1);
 	printf("%x,%x\n", ptr1[-1], *ptr2);//4,2000000
+	return 0;
+}
+
+//4.
+int main__90__04(void)
+{
+	int a[2][3] = { (0,1),(2,3),(4,5) };
+	int* p;
+	p = a[0];
+	printf("%d", p[0]);//1
+	return 0;
+}
+//5.
+int main__90__05(void)
+{
+	int a[5][5];
+	int(*p)[4];
+	p = a;
+	printf("%p,%d\n", &p[4][2] - &a[4][2], &p[4][2] - &a[4][2]);//FFFFFFFFFFFFFFFC,-4
+	//p[4][2]¡¾p[4]¡¿==*(p+4)+2    p[4][2]==*(*(p+4)+2)
+	return 0;
+}
+//6.
+int main__90__06(void)
+{
+	int aa[2][5] = { 1,2,3,4,5,6,7,8,9,10 };
+	int* ptr1 = (int*)(&aa + 1);
+	int* ptr2 = (int*)(*(aa + 1));
+
+	printf("%d,%d", *(ptr1 - 1), *(ptr2 - 1));//10,5
+
+
+	return 0;
+}
+
+//7.
+
+int main__90__07(void)
+{
+	char* a[] = { "work","at","alibaba" };
+	char** pa = a;
+	pa++;
+	printf("%s\n", *pa);//at
+
+	return 0;
+}
+//8.
+
+int main(void)
+{
+	char* c[] = { "ENTER","NEW","FIRST" };
+	char** cp[] = { c + 3,c + 2,c + 1,c };
+	char*** cpp = cp;
+
+	printf("%s\n", **++cpp);
+	printf("%s\n", *-- * ++cpp + 3);
+	printf("%s\n", *cpp[-2] + 3);
+	printf("%s\n", cpp[-1][-1] + 1);
 	return 0;
 }
