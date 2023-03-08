@@ -106,13 +106,14 @@ int main__90__07(void)
 
 int main(void)
 {
-	char* c[] = { "ENTER","NEW","FIRST" };
+	char* c[] = { "ENTER","NEW","POINT","FIRST" };
 	char** cp[] = { c + 3,c + 2,c + 1,c };
 	char*** cpp = cp;
 
-	printf("%s\n", **++cpp);
-	printf("%s\n", *-- * ++cpp + 3);
-	printf("%s\n", *cpp[-2] + 3);
-	printf("%s\n", cpp[-1][-1] + 1);
+	printf("%s\n", **++cpp);//POINT
+	printf("%s\n", *-- * ++cpp + 3);//ER
+	printf("%s\n", *cpp[-2] + 3);//ST
+	printf("%s\n", cpp[-1][-1] + 1);//EW
+
 	return 0;
 }
