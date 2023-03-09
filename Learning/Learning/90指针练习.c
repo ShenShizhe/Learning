@@ -104,7 +104,7 @@ int main__90__07(void)
 }
 //8.
 
-int main(void)
+int main__90__08(void)
 {
 	char* c[] = { "ENTER","NEW","POINT","FIRST" };
 	char** cp[] = { c + 3,c + 2,c + 1,c };
