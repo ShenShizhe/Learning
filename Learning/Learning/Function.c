@@ -412,3 +412,19 @@ void New_Bubbling_sort(void* base, int sz, int width, int(*Comper)(void* e1, voi
 		}
 	}
 }
+//26.逆序字符串的内容
+void reverse(char* str)
+{
+	//assert(str);
+	int len = strlen(str);
+	char* left = str;
+	char* right = str + len - 1;//最后一个字符的地址
+
+	while (left < right)
+	{
+		char temp = *left;
+		*left = *right;
+		*right = temp;
+		left++; right--;
+	}
+}
