@@ -116,6 +116,28 @@ Please enter a four-digit number: 1234
 int main_00_04(void)
 {
 
+	int i, j, sum;
+
+	for (i = 2; i <= 1000; i++) {
+		sum = 0;
+		for (j = 1; j <= i / 2; j++) {
+			if (i % j == 0) {
+				sum += j;
+			}
+		}
+		if (sum == i) {
+			printf("%d的因子是", i);
+			for (j = 1; j <= i / 2; j++) {
+				if (i % j == 0) {
+					printf("%d、", j);
+				}
+			}
+			printf("%d。\n", j);
+		}
+	}
+
+
+
 	return 0;
 }
 //5.输入一个数,判断输出1到这个数之间既能被3整除又能被7整除的数。
