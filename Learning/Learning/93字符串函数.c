@@ -3,11 +3,19 @@
 #include "Function.h"
 
 /*
-strlenã€1.è®¡æ•°å™¨æ³•ã€2.é€’å½’æ³•ã€3.æŒ‡é’ˆ-æŒ‡é’ˆæ³•ã€‘
+strlen¡¾1.¼ÆÊýÆ÷·¨¡¢2.µÝ¹é·¨¡¢3.Ö¸Õë-Ö¸Õë·¨¡¿
 
-å­—ç¬¦ä¸²ä»¥'\0'ä½œä¸ºç»“æŸæ ‡å¿—ï¼Œstrlenå‡½æ•°è¿”å›žæ˜¯åœ¨å­—ç¬¦ä¸²ä¸­'\0'å‰é¢å‡ºçŽ°çš„å­—ç¬¦ä¸ªæ•°ï¼ˆä¸åŒ…å«'\0'ï¼‰
-å‚æ•°æŒ‡å‘çš„å­—ç¬¦ä¸²å¿…é¡»è¦ä»¥'\0'ç»“æŸ
-å‡½æ•°çš„è¿”å€¼ä¸ºï¼šsize_tï¼Œæ˜¯æ— ç¬¦å·æ•´å½¢
+strlenº¯ÊýµÄÔ­ÐÍÍ¨³£ÉùÃ÷ÔÚstring.hÍ·ÎÄ¼þÖÐ£¬ÆäÔ­ÐÍÈçÏÂ£º
+
+size_t strlen(const char *s);
+
+
+ÆäÖÐ£¬`const char *s`ÊÇÒ»¸öÖ¸Ïò×Ö·û´®ÆðÊ¼µØÖ·µÄÖ¸Õë£¬¸Ãº¯Êý·µ»Ø²ÎÊý`s`ËùÖ¸ÏòµÄ×Ö·û´®µÄ³¤¶È£¬
+²»°üÀ¨×Ö·û´®Ä©Î²µÄ¿Õ×Ö·û'\0'¡£ÓÉÓÚº¯Êý·µ»ØÖµÀàÐÍÎª`size_t`£¬Òò´ËËüÄÜ¹»´¦Àí·Ç³£³¤µÄ×Ö·û´®¡£
+
+×Ö·û´®ÒÔ'\0'×÷Îª½áÊø±êÖ¾£¬strlenº¯Êý·µ»ØÊÇÔÚ×Ö·û´®ÖÐ'\0'Ç°Ãæ³öÏÖµÄ×Ö·û¸öÊý£¨²»°üº¬'\0'£©
+²ÎÊýÖ¸ÏòµÄ×Ö·û´®±ØÐëÒªÒÔ'\0'½áÊø
+º¯ÊýµÄ·µÖµÎª£ºsize_t£¬ÊÇÎÞ·ûºÅÕûÐÎ
 
 */
 #include <stdio.h>
@@ -27,13 +35,13 @@ int main_93_01_01(void)
 {
 	int len = my_strlen_count("abcdf");
 	printf("%d\n", len);
-	/*é”™è¯¯ç¤ºèŒƒï¼š
+	/*´íÎóÊ¾·¶£º
 	char arr[] = { 'a','b','c','d','e','f' };
 	int len = my_strlen(arr);*/
 
-	//strlenè¿”å›žå‚æ•°ä¸º:size_t(unsigned int),è¿›è¡Œè¿ç®—çš„ç»“æžœä¸€å®šæ˜¯å¤§äºŽ0çš„æ•°å­—
+	//strlen·µ»Ø²ÎÊýÎª:size_t(unsigned int),½øÐÐÔËËãµÄ½á¹ûÒ»¶¨ÊÇ´óÓÚ0µÄÊý×Ö
 	strlen("abc") - strlen("abcdef") > 0 ? printf("YES\n") : printf("NO\n");//YES
-	//my_strlen_countè¿”å›žå‚æ•°ä¸ºint
+	//my_strlen_count·µ»Ø²ÎÊýÎªint
 	my_strlen_count("abc") - my_strlen_count("abcdef") > 0 ? printf("YES\n") : printf("NO\n");//NO
 
 	return 0;
@@ -55,7 +63,7 @@ int string_length_recursive(char* str) {
 int main_93_01_02() {
 	char str[] = "Hello,world!";
 	int len = string_length_recursive(str);
-	printf("'%s' è¯¥å­—ç¬¦ä¸²é•¿åº¦ä¸ºï¼š %d\n", str, len);
+	printf("'%s' ¸Ã×Ö·û´®³¤¶ÈÎª£º %d\n", str, len);
 	return 0;
 }
 
@@ -74,7 +82,7 @@ int string_length_pointer(char* str) {
 int main_93_01_03() {
 	char str[] = "Hello, world!";
 	int len = string_length_pointer(str);
-	printf(" '%s' è¯¥å­—ç¬¦ä¸²é•¿åº¦ä¸ºï¼š %d\n", str, len);
+	printf(" '%s' ¸Ã×Ö·û´®³¤¶ÈÎª£º %d\n", str, len);
 	return 0;
 }
 
@@ -82,10 +90,22 @@ int main_93_01_03() {
 /*
 
 strcpy
-å­—ç¬¦ä¸²å¿…é¡»ä»¥'\0'ç»“æŸ
-ä¼šå°†æºå­—ç¬¦ä¸²ä¸­çš„'\0'æ‹·è´åˆ°ç›®æ ‡ç©ºé—´
-ç›®æ ‡ç©ºé—´å¿…é¡»è¶³å¤Ÿå¤§ï¼Œä»¥ç¡®ä¿èƒ½å­˜æ”¾æºå­—ç¬¦ä¸²
-ç›®æ ‡ç©ºé—´å¿…é¡»å¯å˜
+
+strcpyº¯ÊýµÄÔ­ÐÍÍ¨³£ÉùÃ÷ÔÚstring.hÍ·ÎÄ¼þÖÐ£¬ÆäÔ­ÐÍÈçÏÂ£º
+
+char* strcpy(char* dest, const char* src);
+
+
+ÆäÖÐ£¬`dest`ÊÇÒª¿½±´µ½µÄÄ¿±ê×Ö·û´®Ö¸Õë£¬`src`ÊÇÔ´×Ö·û´®Ö¸Õë¡£¸Ãº¯Êý½«Ô´×Ö·û´®(src)¸´ÖÆµ½Ä¿±ê×Ö·û´®(dest)£¬
+°üÀ¨×Ö·û´®Ä©Î²µÄ¿Õ×Ö·û('\0')£¬·µ»ØÖµÎª`dest`Ö¸Õë¡£
+
+ÐèÒª×¢ÒâµÄÊÇ£¬`dest`ËùÖ¸ÏòµÄÄ¿±êÊý×é±ØÐëÓÐ×ã¹»µÄ¿Õ¼äÀ´´æ´¢`src`Ö¸ÏòµÄ×Ö·û´®£¬·ñÔò¿ÉÄÜ»áµ¼ÖÂ»º³åÇøÒç³öºÍÎ´¶¨ÒåÐÐÎª¡£
+´ËÍâ£¬Èç¹û`src`Ö¸ÏòµÄ×Ö·û´®³¤¶È´óÓÚ`dest`ËùÖ¸ÏòµÄÄ¿±êÊý×é³¤¶È£¬ÔòÄ¿±ê×Ö·û´®½«²»»áÒÔ'\0'½áÎ²£¬ÕâÒ²»áµ¼ÖÂÎ´¶¨ÒåÐÐÎª¡£
+
+×Ö·û´®±ØÐëÒÔ'\0'½áÊø
+»á½«Ô´×Ö·û´®ÖÐµÄ'\0'¿½±´µ½Ä¿±ê¿Õ¼ä
+Ä¿±ê¿Õ¼ä±ØÐë×ã¹»´ó£¬ÒÔÈ·±£ÄÜ´æ·ÅÔ´×Ö·û´®
+Ä¿±ê¿Õ¼ä±ØÐë¿É±ä
 
 
 */
@@ -103,14 +123,14 @@ char* my_strcpy(char* dest, const char* src)
 	//	dest++;
 	//	src++;
 	//}
-	//*dest = *src;//æ‹·è´'\0'
+	//*dest = *src;//¿½±´'\0'
 
-	//æ‹·è´srcæŒ‡å‘çš„å­—ç¬¦ä¸²åˆ°destæŒ‡å‘çš„ç©ºé—´ï¼ŒåŒ…å«'\0'
+	//¿½±´srcÖ¸ÏòµÄ×Ö·û´®µ½destÖ¸ÏòµÄ¿Õ¼ä£¬°üº¬'\0'
 	while (*dest++ = *src++)
 	{
 		;
 	}
-	//è¿”å›žç›®çš„ç©ºé—´çš„èµ·å§‹åœ°å€
+	//·µ»ØÄ¿µÄ¿Õ¼äµÄÆðÊ¼µØÖ·
 	return ret;
 }
 int main_93_02_01()
@@ -119,13 +139,13 @@ int main_93_02_01()
 	char arr1[] = "abcdefghi";
 	char arr2[] = "hello";
 	/*
-	é”™è¯¯çš„å®šä¹‰ï¼Œæ²¡æœ‰'\0'ï¼Œæ‹·è´æ“ä½œæ—¶ï¼Œå®¹æ˜“å½¢æˆè¶Šç•Œè®¿é—®
+	´íÎóµÄ¶¨Òå£¬Ã»ÓÐ'\0'£¬¿½±´²Ù×÷Ê±£¬ÈÝÒ×ÐÎ³ÉÔ½½ç·ÃÎÊ
 	char arr2[] = { 'h','e','l','l','o' };
 
-	é”™è¯¯çš„å®šä¹‰ï¼Œarr2ä¸ºå¸¸é‡å­—ç¬¦ä¸²ï¼Œä¸è¿‡æ”¹
+	´íÎóµÄ¶¨Òå£¬arr2Îª³£Á¿×Ö·û´®£¬²»¹ý¸Ä
 	char* arr2="abcdef";
 	*/
-	my_strcpy(arr1, arr2);//arr2æ‹·è´åˆ°arr1ä¸­
+	my_strcpy(arr1, arr2);//arr2¿½±´µ½arr1ÖÐ
 	printf("%s\n", arr1);
 	return 0;
 }
@@ -133,9 +153,19 @@ int main_93_02_01()
 /*
 strcat
 
-æºå­—ç¬¦ä¸²å¿…é¡»ä»¥'\0'ç»“æŸ
-ç›®æ ‡ç©ºé—´å¿…é¡»è¶³å¤Ÿå¤§ï¼Œèƒ½å®¹çº³ä¸‹æºå­—ç¬¦ä¸²çš„å†…å®¹
-ç›®æ ‡ç©ºé—´å¯ä¿®æ”¹
+strcatº¯ÊýµÄÔ­ÐÍÍ¨³£ÉùÃ÷ÔÚstring.hÍ·ÎÄ¼þÖÐ£¬ÆäÔ­ÐÍÈçÏÂ£º
+
+char* strcat(char* dest, const char* src);
+
+ÆäÖÐ£¬`dest`ÊÇÒª×·¼Ó×Ö·û´®µÄÄ¿±ê×Ö·û´®Ö¸Õë£¬`src`ÊÇÒª×·¼Óµ½Ä¿±ê×Ö·û´®Ä©Î²µÄÔ´×Ö·û´®Ö¸Õë¡£
+¸Ãº¯Êý½«Ô´×Ö·û´®(src)×·¼Óµ½Ä¿±ê×Ö·û´®(dest)µÄÄ©Î²£¬²¢·µ»Ø`dest`Ö¸Õë¡£
+
+ÐèÒª×¢ÒâµÄÊÇ£¬`dest`ËùÖ¸ÏòµÄÄ¿±êÊý×é±ØÐëÓÐ×ã¹»µÄ¿Õ¼äÀ´´æ´¢`src`Ö¸ÏòµÄ×Ö·û´®£¬·ñÔò¿ÉÄÜ»áµ¼ÖÂ»º³åÇøÒç³öºÍÎ´¶¨ÒåÐÐÎª¡£
+´ËÍâ£¬Èç¹û`src`Ö¸ÏòµÄ×Ö·û´®³¤¶È´óÓÚ`dest`ËùÖ¸ÏòµÄÄ¿±êÊý×éÊ£Óà¿Õ¼ä£¬ÔòÄ¿±ê×Ö·û´®½«²»»áÒÔ'\0'½áÎ²£¬ÕâÒ²»áµ¼ÖÂÎ´¶¨ÒåÐÐÎª¡£
+
+Ô´×Ö·û´®±ØÐëÒÔ'\0'½áÊø
+Ä¿±ê¿Õ¼ä±ØÐë×ã¹»´ó£¬ÄÜÈÝÄÉÏÂÔ´×Ö·û´®µÄÄÚÈÝ
+Ä¿±ê¿Õ¼ä¿ÉÐÞ¸Ä
 
 */
 #include <stdio.h>
@@ -145,12 +175,12 @@ char* my_strcat(char* dest, const char* src)
 {
 	assert(dest && src);
 	char* ret = dest;
-	//æ‰¾åˆ°ç›®çš„å­—ç¬¦ä¸²ä¸­çš„'\0'
+	//ÕÒµ½Ä¿µÄ×Ö·û´®ÖÐµÄ'\0'
 	while (*dest)
 	{
 		dest++;
 	}
-	//è¿½åŠ 
+	//×·¼Ó
 	while (*dest++ = *src++)
 	{
 		;
@@ -163,14 +193,25 @@ int main_93_03()
 	char arr1[30] = "hello";
 	char arr2[] = "world";
 
-	my_strcat(arr1, arr2);//arr2è¿½åŠ åˆ°arr1ä¸­
+	my_strcat(arr1, arr2);//arr2×·¼Óµ½arr1ÖÐ
 	printf("%s\n", arr1);
 	return 0;
 }
 /*
 strcmp
 
-ç¬¬ä¸€ä¸ªå­—ç¬¦ä¸²å¤§äºŽç¬¬äºŒä¸ªå­—ç¬¦ä¸²ï¼Œåˆ™è¿”å›žå¤§äºŽ0çš„æ•°å­—ï¼Œç­‰äºŽåˆ™è¿”å›ž0ï¼Œå°äºŽåˆ™è¿”å›žå°äºŽ0çš„æ•°å­—
+strcmpº¯ÊýµÄÔ­ÐÍÍ¨³£ÉùÃ÷ÔÚstring.hÍ·ÎÄ¼þÖÐ£¬ÆäÔ­ÐÍÈçÏÂ£º
+
+int strcmp(const char* s1, const char* s2);
+
+ÆäÖÐ£¬`s1`ºÍ`s2`ÊÇÒª±È½ÏµÄÁ½¸ö×Ö·û´®Ö¸Õë¡£¸Ãº¯Êý°´ÕÕ×ÖµäÐò±È½ÏÁ½¸ö×Ö·û´®£¬²¢·µ»ØÒÔÏÂÈýÖÖÇé¿öÖ®Ò»£º
+
+- Èç¹û`s1`×Ö·û´®Ð¡ÓÚ`s2`×Ö·û´®£¬Ôò·µ»ØÒ»¸ö¸ºÕûÊý¡£
+- Èç¹û`s1`×Ö·û´®µÈÓÚ`s2`×Ö·û´®£¬Ôò·µ»Ø0¡£
+- Èç¹û`s1`×Ö·û´®´óÓÚ`s2`×Ö·û´®£¬Ôò·µ»ØÒ»¸öÕýÕûÊý¡£
+
+ÐèÒª×¢ÒâµÄÊÇ£¬¸Ãº¯ÊýÇø·Ö´óÐ¡Ð´£¬¼´´óÐ´×ÖÄ¸ºÍÐ¡Ð´×ÖÄ¸±»ÊÓÎª²»Í¬µÄ×Ö·û¡£
+µÚÒ»¸ö×Ö·û´®´óÓÚµÚ¶þ¸ö×Ö·û´®£¬Ôò·µ»Ø´óÓÚ0µÄÊý×Ö£¬µÈÓÚÔò·µ»Ø0£¬Ð¡ÓÚÔò·µ»ØÐ¡ÓÚ0µÄÊý×Ö
 
 */
 
@@ -184,20 +225,20 @@ int  my_strcmp(const char* str1, const char* str2)
 	while (*str1 == *str2)
 	{
 		if (*str1 == '\0')
-			return 0;//ç›¸ç­‰
+			return 0;//ÏàµÈ
 		str1++; str2++;
 	}
 	if (*str1 > *str2)
-		return 1;//å¤§äºŽ
+		return 1;//´óÓÚ
 	else
-		return -1;//å°äºŽ
+		return -1;//Ð¡ÓÚ
 
 }
 int main_93_04()
 {
 	char* p1 = "abcdef";
 	char* p2 = "aqcd";
-	int ret = my_strcmp(p1, p2);//æŒ‰ç…§å­—ç¬¦çš„ASCIIç è¿›è¡Œæ¯”è¾ƒ
+	int ret = my_strcmp(p1, p2);//°´ÕÕ×Ö·ûµÄASCIIÂë½øÐÐ±È½Ï
 	printf("%d\n", ret);
 	return 0;
 }
@@ -205,8 +246,19 @@ int main_93_04()
 /*
 strncpy
 
-æ‹·è´numä¸ªå­—ç¬¦ä»Žæºå­—ç¬¦ä¸²åˆ°ç›®æ ‡ç©ºé—´
-å¦‚æžœæºå­—ç¬¦ä¸²çš„é•¿åº¦å°äºŽnumï¼Œåˆ™æ‹·è´å®Œæºå­—ç¬¦ä¸²ä¹‹åŽï¼Œåœ¨ç›®æ ‡çš„åŽé¢è¿½åŠ '\0',ç›´åˆ°numä¸ª
+strncpyº¯ÊýµÄÔ­ÐÍÍ¨³£ÉùÃ÷ÔÚstring.hÍ·ÎÄ¼þÖÐ£¬ÆäÔ­ÐÍÈçÏÂ£º
+
+char* strncpy(char* dest, const char* src, size_t n);
+
+
+ÆäÖÐ£¬`dest`ÊÇÒª¿½±´µ½µÄÄ¿±ê×Ö·û´®Ö¸Õë£¬`src`ÊÇÔ´×Ö·û´®Ö¸Õë£¬`n`ÊÇÒª¿½±´µÄ×Ö·ûÊý¡£
+¸Ãº¯Êý½«Ô´×Ö·û´®(src)µÄÇ°n¸ö×Ö·û¸´ÖÆµ½Ä¿±ê×Ö·û´®(dest)£¬Èç¹ûsrcµÄ³¤¶ÈÐ¡ÓÚn£¬ÔòÊ£Óà²¿·ÖÓÃ¿Õ×Ö·û('\0')Ìî³ä£¬·µ»ØÖµÎª`dest`Ö¸Õë¡£
+
+ÐèÒª×¢ÒâµÄÊÇ£¬`dest`ËùÖ¸ÏòµÄÄ¿±êÊý×é±ØÐëÓÐ×ã¹»µÄ¿Õ¼äÀ´´æ´¢`src`Ö¸ÏòµÄ×Ö·û´®£¬·ñÔò¿ÉÄÜ»áµ¼ÖÂ»º³åÇøÒç³öºÍÎ´¶¨ÒåÐÐÎª¡£
+´ËÍâ£¬Èç¹û`src`Ö¸ÏòµÄ×Ö·û´®³¤¶ÈÐ¡ÓÚn£¬ÔòÄ¿±ê×Ö·û´®½«²»»áÒÔ'\0'½áÎ²£¬ÕâÒ²»áµ¼ÖÂÎ´¶¨ÒåÐÐÎª¡£
+
+¿½±´n¸ö×Ö·û´ÓÔ´×Ö·û´®µ½Ä¿±ê¿Õ¼ä
+Èç¹ûÔ´×Ö·û´®µÄ³¤¶ÈÐ¡ÓÚn£¬Ôò¿½±´ÍêÔ´×Ö·û´®Ö®ºó£¬ÔÚÄ¿±êµÄºóÃæ×·¼Ó'\0',Ö±µ½n¸ö
 */
 #include <stdio.h>
 #include <string.h>
@@ -233,7 +285,15 @@ int main_93_05()
 
 strncat
 
+strncatº¯ÊýµÄÔ­ÐÍÍ¨³£ÉùÃ÷ÔÚstring.hÍ·ÎÄ¼þÖÐ£¬ÆäÔ­ÐÍÈçÏÂ£º
 
+char* strncat(char* dest, const char* src, size_t n);
+
+ÆäÖÐ£¬`dest`ÊÇÒª×·¼Ó×Ö·û´®µÄÄ¿±ê×Ö·û´®Ö¸Õë£¬`src`ÊÇÒª×·¼Óµ½Ä¿±ê×Ö·û´®Ä©Î²µÄÔ´×Ö·û´®Ö¸Õë£¬`n`ÊÇÒª×·¼ÓµÄ×Ö·ûÊý¡£
+¸Ãº¯Êý½«Ô´×Ö·û´®(src)µÄÇ°n¸ö×Ö·û×·¼Óµ½Ä¿±ê×Ö·û´®(dest)µÄÄ©Î²£¬²¢·µ»Ø`dest`Ö¸Õë¡£
+
+ÐèÒª×¢ÒâµÄÊÇ£¬`dest`ËùÖ¸ÏòµÄÄ¿±êÊý×é±ØÐëÓÐ×ã¹»µÄ¿Õ¼äÀ´´æ´¢`src`Ö¸ÏòµÄ×Ö·û´®ºÍ×·¼ÓµÄ×Ö·û£¬
+·ñÔò¿ÉÄÜ»áµ¼ÖÂ»º³åÇøÒç³öºÍÎ´¶¨ÒåÐÐÎª¡£´ËÍâ£¬Èç¹û`src`Ö¸ÏòµÄ×Ö·û´®³¤¶ÈÐ¡ÓÚn£¬ÔòÄ¿±ê×Ö·û´®½«²»»áÒÔ'\0'½áÎ²£¬ÕâÒ²»áµ¼ÖÂÎ´¶¨ÒåÐÐÎª¡£
 */
 #include <stdio.h>
 #include <string.h>
@@ -250,21 +310,21 @@ int main_93_06()
 
 strncmp
 
-strncmpå‡½æ•°æ˜¯Cè¯­è¨€ä¸­çš„å­—ç¬¦ä¸²æ¯”è¾ƒå‡½æ•°ï¼Œç”¨äºŽæ¯”è¾ƒä¸¤ä¸ªå­—ç¬¦ä¸²çš„å‰nä¸ªå­—ç¬¦æ˜¯å¦ç›¸åŒã€‚å®ƒçš„å‡½æ•°åŽŸåž‹å¦‚ä¸‹ï¼š
+strncmpº¯ÊýÊÇCÓïÑÔÖÐµÄ×Ö·û´®±È½Ïº¯Êý£¬ÓÃÓÚ±È½ÏÁ½¸ö×Ö·û´®µÄÇ°n¸ö×Ö·ûÊÇ·ñÏàÍ¬¡£ËüµÄº¯ÊýÔ­ÐÍÈçÏÂ£º
 
 
 int strncmp(const char *s1, const char *s2, size_t n);
 
 
-å…¶ä¸­ï¼Œ`s1`å’Œ`s2`æ˜¯éœ€è¦æ¯”è¾ƒçš„ä¸¤ä¸ªå­—ç¬¦ä¸²ï¼Œ`n`æ˜¯éœ€è¦æ¯”è¾ƒçš„å­—ç¬¦æ•°ã€‚
+ÆäÖÐ£¬`s1`ºÍ`s2`ÊÇÐèÒª±È½ÏµÄÁ½¸ö×Ö·û´®£¬`n`ÊÇÐèÒª±È½ÏµÄ×Ö·ûÊý¡£
 
-å‡½æ•°è¿”å›žå€¼å¦‚ä¸‹ï¼š
+º¯Êý·µ»ØÖµÈçÏÂ£º
 
-- è‹¥`s1`å’Œ`s2`çš„å‰nä¸ªå­—ç¬¦éƒ½ç›¸ç­‰ï¼Œåˆ™è¿”å›ž0ï¼›
-- è‹¥` s1`å’Œ`s2`çš„å‰nä¸ªå­—ç¬¦ä¸ç›¸ç­‰ï¼Œåˆ™è¿”å›žå®ƒä»¬ä¹‹é—´ç¬¬ä¸€ä¸ªä¸ç›¸ç­‰å­—ç¬¦çš„ASCIIç å·®å€¼ï¼ˆå³`s1[i] - s2[i]`ï¼‰ï¼›
-- è‹¥` s1`æˆ–`s2`çš„é•¿åº¦å°äºŽnï¼Œåˆ™æ¯”è¾ƒåˆ°å…¶ä¸­ä¸€ä¸ªå­—ç¬¦ä¸²ç»“æŸä¸ºæ­¢ã€‚
+- Èô`s1`ºÍ`s2`µÄÇ°n¸ö×Ö·û¶¼ÏàµÈ£¬Ôò·µ»Ø0£»
+- Èô` s1`ºÍ`s2`µÄÇ°n¸ö×Ö·û²»ÏàµÈ£¬Ôò·µ»ØËüÃÇÖ®¼äµÚÒ»¸ö²»ÏàµÈ×Ö·ûµÄASCIIÂë²îÖµ£¨¼´`s1[i] - s2[i]`£©£»
+- Èô` s1`»ò`s2`µÄ³¤¶ÈÐ¡ÓÚn£¬Ôò±È½Ïµ½ÆäÖÐÒ»¸ö×Ö·û´®½áÊøÎªÖ¹¡£
 
-`strncmp`å‡½æ•°é€šå¸¸ç”¨äºŽå­—ç¬¦ä¸²æŽ’åºã€æŸ¥æ‰¾å’Œæ¯”è¾ƒæ“ä½œï¼Œæ¯”å¦‚åœ¨æŒ‰å­—å…¸åºæŽ’åˆ—æ—¶ä½¿ç”¨ã€‚
+`strncmp`º¯ÊýÍ¨³£ÓÃÓÚ×Ö·û´®ÅÅÐò¡¢²éÕÒºÍ±È½Ï²Ù×÷£¬±ÈÈçÔÚ°´×ÖµäÐòÅÅÁÐÊ±Ê¹ÓÃ¡£
 */
 #include <stdio.h>
 #include <string.h>
@@ -280,21 +340,21 @@ int main_93_07()
 	return 0;
 }
 /*
-strstrâ€”â€”â€”â€”â€”â€”â€”â€”KMPç®—æ³•
+strstr¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ªKMPËã·¨
 
-`strstr`å‡½æ•°æ˜¯Cè¯­è¨€ä¸­çš„å­—ç¬¦ä¸²æŸ¥æ‰¾å‡½æ•°ï¼Œç”¨äºŽåœ¨ä¸€ä¸ªå­—ç¬¦ä¸²ä¸­æŸ¥æ‰¾å¦ä¸€ä¸ªå­—ç¬¦ä¸²çš„å‡ºçŽ°ä½ç½®ã€‚å®ƒçš„å‡½æ•°åŽŸåž‹å¦‚ä¸‹ï¼š
+`strstr`º¯ÊýÊÇCÓïÑÔÖÐµÄ×Ö·û´®²éÕÒº¯Êý£¬ÓÃÓÚÔÚÒ»¸ö×Ö·û´®ÖÐ²éÕÒÁíÒ»¸ö×Ö·û´®µÄ³öÏÖÎ»ÖÃ¡£ËüµÄº¯ÊýÔ­ÐÍÈçÏÂ£º
 
 char* strstr(const char* str1, const char* str2);
 
 
-å…¶ä¸­ï¼Œ`str1`æ˜¯éœ€è¦è¢«æŸ¥æ‰¾çš„å­—ç¬¦ä¸²ï¼Œ`str2`æ˜¯éœ€è¦æŸ¥æ‰¾çš„å­—ç¬¦ä¸²ã€‚
+ÆäÖÐ£¬`str1`ÊÇÐèÒª±»²éÕÒµÄ×Ö·û´®£¬`str2`ÊÇÐèÒª²éÕÒµÄ×Ö·û´®¡£
 
-å‡½æ•°è¿”å›žå€¼å¦‚ä¸‹ï¼š
+º¯Êý·µ»ØÖµÈçÏÂ£º
 
-- è‹¥`str2`æ˜¯`str1`çš„å­ä¸²ï¼Œåˆ™è¿”å›ž`str2`åœ¨`str1`ä¸­ç¬¬ä¸€æ¬¡å‡ºçŽ°çš„ä½ç½®ï¼ˆå³æŒ‡å‘è¯¥ä½ç½®çš„æŒ‡é’ˆï¼‰ï¼›
-- è‹¥`str2`ä¸æ˜¯`str1`çš„å­ä¸²ï¼Œåˆ™è¿”å›ž`NULL`ã€‚
+- Èô`str2`ÊÇ`str1`µÄ×Ó´®£¬Ôò·µ»Ø`str2`ÔÚ`str1`ÖÐµÚÒ»´Î³öÏÖµÄÎ»ÖÃ£¨¼´Ö¸Ïò¸ÃÎ»ÖÃµÄÖ¸Õë£©£»
+- Èô`str2`²»ÊÇ`str1`µÄ×Ó´®£¬Ôò·µ»Ø`NULL`¡£
 
-`strstr`å‡½æ•°é€šå¸¸ç”¨äºŽä»Žæ–‡æœ¬ä¸­æŸ¥æ‰¾æŸä¸ªå…³é”®å­—æˆ–è€…å­å­—ç¬¦ä¸²çš„ä½ç½®ï¼Œæ¯”å¦‚åœ¨å®žçŽ°å­—ç¬¦ä¸²åŒ¹é…ç®—æ³•æ—¶ä½¿ç”¨ã€‚
+`strstr`º¯ÊýÍ¨³£ÓÃÓÚ´ÓÎÄ±¾ÖÐ²éÕÒÄ³¸ö¹Ø¼ü×Ö»òÕß×Ó×Ö·û´®µÄÎ»ÖÃ£¬±ÈÈçÔÚÊµÏÖ×Ö·û´®Æ¥ÅäËã·¨Ê±Ê¹ÓÃ¡£
 */
 #include <stdio.h>
 #include <string.h>
@@ -340,23 +400,23 @@ strtok
 
 
 
-strtokå‡½æ•°çš„å‡½æ•°åŽŸåž‹å¦‚ä¸‹ï¼š
+strtokº¯ÊýµÄº¯ÊýÔ­ÐÍÈçÏÂ£º
 
 char * strtok(char * str, const char * sep);
 
-å…¶ä¸­ï¼Œ`str` æ˜¯å¾…åˆ†è§£çš„å­—ç¬¦ä¸²ï¼Œ`sep` æ˜¯ä½œä¸ºåˆ†éš”ç¬¦çš„å­—ç¬¦ä¸²ã€‚å‡½æ•°è¿”å›žå€¼æ˜¯æŒ‡å‘ä¸‹ä¸€ä¸ªå­å­—ç¬¦ä¸²çš„æŒ‡é’ˆï¼Œå¦‚æžœæ²¡æœ‰æ›´å¤šçš„å­å­—ç¬¦ä¸²ï¼Œåˆ™è¿”å›ž NULLã€‚
+ÆäÖÐ£¬`str` ÊÇ´ý·Ö½âµÄ×Ö·û´®£¬`sep` ÊÇ×÷Îª·Ö¸ô·ûµÄ×Ö·û´®¡£º¯Êý·µ»ØÖµÊÇÖ¸ÏòÏÂÒ»¸ö×Ó×Ö·û´®µÄÖ¸Õë£¬Èç¹ûÃ»ÓÐ¸ü¶àµÄ×Ó×Ö·û´®£¬Ôò·µ»Ø NULL¡£
 
-éœ€è¦æ³¨æ„çš„æ˜¯ï¼Œ`strtok` å‡½æ•°ä¼šä¿®æ”¹è¾“å…¥çš„ `str` å­—ç¬¦ä¸²ï¼Œå°†åˆ†éš”ç¬¦ä½ç½®æ›¿æ¢ä¸º NULL å­—ç¬¦ï¼Œå› æ­¤åœ¨ä½¿ç”¨å®Œ `strtok` å‡½æ•°ä¹‹åŽï¼Œ
-åŽŸå§‹çš„å­—ç¬¦ä¸²å¯èƒ½å·²ç»è¢«ä¿®æ”¹äº†ã€‚å¦‚æžœéœ€è¦ä¿ç•™åŽŸå§‹çš„å­—ç¬¦ä¸²ï¼Œå¯ä»¥å…ˆå°†å…¶å¤åˆ¶ä¸€ä»½å†è¿›è¡Œæ“ä½œã€‚
+ÐèÒª×¢ÒâµÄÊÇ£¬`strtok` º¯Êý»áÐÞ¸ÄÊäÈëµÄ `str` ×Ö·û´®£¬½«·Ö¸ô·ûÎ»ÖÃÌæ»»Îª NULL ×Ö·û£¬Òò´ËÔÚÊ¹ÓÃÍê `strtok` º¯ÊýÖ®ºó£¬
+Ô­Ê¼µÄ×Ö·û´®¿ÉÄÜÒÑ¾­±»ÐÞ¸ÄÁË¡£Èç¹ûÐèÒª±£ÁôÔ­Ê¼µÄ×Ö·û´®£¬¿ÉÒÔÏÈ½«Æä¸´ÖÆÒ»·ÝÔÙ½øÐÐ²Ù×÷¡£
 
 
-sep å‚æ•°æ˜¯ä¸€ä¸ªå­—ç¬¦ä¸²ï¼Œå®šä¹‰äº†ç”¨ä½œåˆ†éš”ç¬¦çš„å­—ç¬¦é›†åˆ
-ç¬¬ä¸€ä¸ªå‚æ•°æŒ‡å®šä¸€ä¸ªå­—ç¬¦ä¸²ï¼ŒåŒ…å«0ä¸ªæˆ–è€…å¤šä¸ªç”±sepå­—ç¬¦ä¸²ä¸­çš„ä¸€ä¸ªæˆ–è€…å¤šä¸ªåˆ†éš”ç¬¦åˆ†å‰²çš„æ ‡è®°
-strtokå‡½æ•°æ‰¾åˆ°strä¸­çš„ä¸‹ä¸€ä¸ªæ ‡è®°ï¼Œå¹¶å°†å…¶ç”¨\0ç»“å°¾ï¼Œè¿”å›žä¸€ä¸ªæŒ‡å‘è¿™ä¸ªæ ‡è®°çš„æŒ‡é’ˆã€‚
-	(æ³¨:strtokå‡½æ•°ä¼šæ”¹å˜è¢«æ“ä½œçš„å­—ç¬¦ä¸²ï¼Œæ‰€ä»¥åœ¨ä½¿ç”¨strtokå‡½æ•°åˆ‡åˆ†çš„å­—ç¬¦ä¸²ä¸€èˆ¬éƒ½æ˜¯ä¸´æ—¶æ‹·è´çš„å†…å®¹å¹¶ä¸”å¯ä¿®æ”¹ã€‚)
-strtokå‡½æ•°çš„ç¬¬ä¸€ä¸ªå‚æ•°ä¸ä¸ºNULLï¼Œå‡½æ•°å°†æ‰¾åˆ°strä¸­ç¬¬ä¸€ä¸ªæ ‡è®°ï¼Œstrtokå‡½æ•°å°†ä¿å­˜å®ƒåœ¨å­—ç¬¦ä¸²ä¸­çš„ä½ç½®ã€‚
-strtokå‡½æ•°çš„ç¬¬ä¸€ä¸ªå‚æ•°ä¸ºNuLLï¼Œå‡½æ•°å°†åœ¨åŒä¸€ä¸ªå­—ç¬¦ä¸²ä¸­è¢«ä¿å­˜çš„ä½ç½®å¼€å§‹ï¼ŒæŸ¥æ‰¾ä¸‹ä¸€ä¸ªæ ‡è®°ã€‚
-å¦‚æžœå­—ç¬¦ä¸²ä¸­ä¸å­˜åœ¨æ›´å¤šçš„æ ‡è®°ï¼Œåˆ™è¿”å›žNULLæŒ‡é’ˆã€‚
+sep ²ÎÊýÊÇÒ»¸ö×Ö·û´®£¬¶¨ÒåÁËÓÃ×÷·Ö¸ô·ûµÄ×Ö·û¼¯ºÏ
+µÚÒ»¸ö²ÎÊýÖ¸¶¨Ò»¸ö×Ö·û´®£¬°üº¬0¸ö»òÕß¶à¸öÓÉsep×Ö·û´®ÖÐµÄÒ»¸ö»òÕß¶à¸ö·Ö¸ô·û·Ö¸îµÄ±ê¼Ç
+strtokº¯ÊýÕÒµ½strÖÐµÄÏÂÒ»¸ö±ê¼Ç£¬²¢½«ÆäÓÃ\0½áÎ²£¬·µ»ØÒ»¸öÖ¸ÏòÕâ¸ö±ê¼ÇµÄÖ¸Õë¡£
+	(×¢:strtokº¯Êý»á¸Ä±ä±»²Ù×÷µÄ×Ö·û´®£¬ËùÒÔÔÚÊ¹ÓÃstrtokº¯ÊýÇÐ·ÖµÄ×Ö·û´®Ò»°ã¶¼ÊÇÁÙÊ±¿½±´µÄÄÚÈÝ²¢ÇÒ¿ÉÐÞ¸Ä¡£)
+strtokº¯ÊýµÄµÚÒ»¸ö²ÎÊý²»ÎªNULL£¬º¯Êý½«ÕÒµ½strÖÐµÚÒ»¸ö±ê¼Ç£¬strtokº¯Êý½«±£´æËüÔÚ×Ö·û´®ÖÐµÄÎ»ÖÃ¡£
+strtokº¯ÊýµÄµÚÒ»¸ö²ÎÊýÎªNuLL£¬º¯Êý½«ÔÚÍ¬Ò»¸ö×Ö·û´®ÖÐ±»±£´æµÄÎ»ÖÃ¿ªÊ¼£¬²éÕÒÏÂÒ»¸ö±ê¼Ç¡£
+Èç¹û×Ö·û´®ÖÐ²»´æÔÚ¸ü¶àµÄ±ê¼Ç£¬Ôò·µ»ØNULLÖ¸Õë¡£
 */
 
 
@@ -390,17 +450,25 @@ int main_93_09()
 /*
 strerror
 
+strerrorº¯ÊýµÄÔ­ÐÍÍ¨³£ÉùÃ÷ÔÚstring.hÍ·ÎÄ¼þÖÐ£¬ÆäÔ­ÐÍÈçÏÂ£º
+
+char* strerror(int errnum);
+
+
+ÆäÖÐ£¬`errnum`ÊÇÒ»¸öÕûÊý²ÎÊý£¬±íÊ¾´íÎóºÅ¡£¸Ãº¯Êý·µ»ØÖ¸Ïò´íÎóÏûÏ¢×Ö·û´®µÄÖ¸Õë£¬ÃèÊöÁË`errnum`²ÎÊýËù´ú±íµÄ´íÎóÐÅÏ¢¡£
+
+ÐèÒª×¢ÒâµÄÊÇ£¬`strerror`º¯Êý·µ»ØµÄ´íÎóÏûÏ¢×Ö·û´®¿ÉÄÜÒòÆ½Ì¨¶øÒì¡£Ò»Ð©ÊµÏÖ½«¸Ãº¯Êý¶¨ÒåÎª¿ÉÖØÈë°æ±¾£¬¼´Ö§³Ö¶àÏß³Ì£¬ÕâÑù¿ÉÒÔ±ÜÃâÊ¹ÓÃÈ«¾Ö±äÁ¿´æ´¢´íÎóÏûÏ¢×Ö·û´®¡£
 char *strerror(int errnum);
 
-è¿”å›žé”™è¯¯ç ï¼Œæ‰€å¯¹åº”çš„é”™è¯¯ä¿¡æ¯
+·µ»Ø´íÎóÂë£¬Ëù¶ÔÓ¦µÄ´íÎóÐÅÏ¢
 */
 #include <errno.h>
 #include <string.h>
 #include <stdio.h>
 int main_93_10()
 {
-	//errnoæ˜¯ä¸€ä¸ªå…¨å±€çš„é”™è¯¯ç å˜é‡ï¼Œå½“Cè¯­è¨€çš„åº“å‡½æ•°åœ¨æ‰§è¡Œè¿‡ç¨‹ä¸­å‘ç”Ÿé”™è¯¯ï¼Œå°±ä¼šæŠŠå¯¹åº”çš„é”™è¯¯ç èµ‹å€¼åˆ°errnoä¸­
-	//char* str = strerror(errno);//é”™è¯¯ç ä¸Žé”™è¯¯ä¿¡æ¯ä¸€ä¸€å¯¹åº”
+	//errnoÊÇÒ»¸öÈ«¾ÖµÄ´íÎóÂë±äÁ¿£¬µ±CÓïÑÔµÄ¿âº¯ÊýÔÚÖ´ÐÐ¹ý³ÌÖÐ·¢Éú´íÎó£¬¾Í»á°Ñ¶ÔÓ¦µÄ´íÎóÂë¸³Öµµ½errnoÖÐ
+	//char* str = strerror(errno);//´íÎóÂëÓë´íÎóÐÅÏ¢Ò»Ò»¶ÔÓ¦
 	/*
 	0---No error
 	1---Operation not permitted
