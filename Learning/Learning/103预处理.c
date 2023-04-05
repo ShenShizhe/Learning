@@ -125,6 +125,80 @@ int main_103_3()
 }
 
 
+/*
+宏和函数
+
+
+为什么不用函数来完成？
+原因有二：
+1. 用于调用函数和从函数返回的代码可能比实际执行这个小型计算工作所需要的时间更多。所以宏比
+函数在程序的规模和速度方面更胜一筹。
+2. 更为重要的是函数的参数必须声明为特定的类型。所以函数只能在类型合适的表达式上使用。反之
+这个宏怎可以适用于整形、长整型、浮点型等可以用于>来比较的类型。宏是类型无关的。
+
+当然和宏相比函数也有劣势的地方：
+1. 每次使用宏的时候，一份宏定义的代码将插入到程序中。除非宏比较短，否则可能大幅度增加程序
+的长度。
+2. 宏是没法调试的。
+3. 宏由于类型无关，也就不够严谨。
+4. 宏可能会带来运算符优先级的问题，导致程容易出现错。
+宏有时候可以做函数做不到的事情。比如：宏的参数可以出现类型，但是函数做不到。
+*/
+
+//函数
+int Max_103(const int x, const int y)
+{
+	return(x > y ? x : y);
+}
+//宏
+#define MAX_103(X,Y) ((X)>(Y)?(X):(Y))
+
+
+int main_103_4()
+{
+	int a = 10, b = 20, max = 0;
+	max = Max_103(a, b);//函数调用的时候，会有函数的调用和返回的开销
+	printf("max=%d\n", max);
+	max = MAX_103(a, b);//预处理阶段完成替换
+	printf("max=%d\n", max);
+
+	printf("MAX =%d\n", MAX);
+#undef MAX
+	//printf("MAX =%d\n", MAX);//error【#undef MAX】已经移除对MAX的定义
+
+	return 0;
+}
 
 
 
+/*
+其他预处理指令
+#pragma once
+#pragma pack()
+#error
+#line
+*/
+#include <stddef.h>
+#include <stdio.h>
+struct S
+{
+	char c1;
+	int a;
+	char c2;
+};
+
+//模拟实现offsetof宏计算结构体成员的偏移量
+#define OFFSETOF(struct_name,member_name) (int)&(((struct_name*)0)->member_name)
+
+int main_103_5()
+{
+	//struct S s;
+
+	//运用offsetof宏计算结构体成员的偏移量
+	printf("%d\n", offsetof(struct S, c1));//0
+	printf("%d\n", offsetof(struct S, a));//4
+	printf("%d\n", offsetof(struct S, c2));//8
+
+
+	return 0;
+}
