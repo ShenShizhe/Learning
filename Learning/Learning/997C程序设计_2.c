@@ -602,7 +602,7 @@ x赋整数l ,y赋整数2 , a赋字符'A ',b赋字符'B ',c赋字符'C '。
 
 #include <stdio.h>
 
-int main_99_3_4_1()
+int main_997_3_4_1()
 {
 	int hour = 2, minute = 25; // 给定时间为2小时25分钟
 	printf("原始时间为：%d小时%d分钟\n", hour, minute);
@@ -616,7 +616,7 @@ int main_99_3_4_1()
 
 
 #include <stdio.h>
-int main_99_3_4_2()
+int main_997_3_4_2()
 {
 	printf("* * * * * * * * * * * * * * * \n");
 	printf("*         C LANGUAGE        *\n");
@@ -628,7 +628,7 @@ int main_99_3_4_2()
 //3．编写程序, 将摄氏温度(C)转换为华氏温度(F), 转换公式为 : F = 9C / 5 + 32
 
 #include <stdio.h>
-int main_99_3_4_3()
+int main_997_3_4_3()
 {
 	float celsius, fahrenheit; // 声明摄氏温度和华氏温度的变量
 	printf("请输入摄氏温度: ");
@@ -645,7 +645,7 @@ int main_99_3_4_3()
 #include <stdio.h>
 #include <math.h> 
 
-int main_99_3_4_4()
+int main_997_3_4_4()
 {
 	double a, n, p, interest;
 
@@ -667,7 +667,7 @@ int main_99_3_4_4()
 #include <stdio.h>
 #include <math.h>
 
-int main_99_3_4_5() {
+int main_997_3_4_5() {
 	double r, h, l, s, v;
 	double pi = acos(-1.0); // 定义pi为圆周率
 	printf("请输入圆柱体横截面半径r和高h：\n");
@@ -685,7 +685,7 @@ int main_99_3_4_5() {
 //6.输人一个100 至999内的整数, 反序显示这个数, 如输人123, 则输出 321。
 
 #include <stdio.h>
-int main_99_3_4_6()
+int main_997_3_4_6()
 {
 	int num, reversed_num = 0;
 	printf("请输入一个100到999之间的整数: ");
@@ -1821,46 +1821,296 @@ int main_997_6_4_2()
 	return 0;
 }
 
-
-
 //3．一个课题小组共有6人, 按年龄从小到大排列。他们的年龄分别为23, 25, 30, 33, 40, 47, 求平均年龄, 并确定最接近且不大于平均年龄的值的位置。
 
+#include <stdio.h>
+
+int main_997_6_4_3()
+{
+	int ages[] = { 23, 25, 30, 33, 40, 47 };
+	int len = sizeof(ages) / sizeof(ages[0]); // 计算数组长度
+	int sum = 0;
+	for (int i = 0; i < len; i++)
+		sum += ages[i]; // 累加年龄总和
+	float avg = (float)sum / len; // 计算平均年龄
+	printf("平均年龄为：%.2f\n", avg);
+	int nearest = ages[0];
+	for (int i = 1; i < len; i++)
+		if (ages[i] <= avg && ages[i] > nearest)// 判断是否比最接近的年龄大且不超过平均年龄
+			nearest = ages[i]; // 更新最接近的年龄
+	printf("最接近且不大于平均年龄的值为：%d", nearest);
+	return 0;
+}
 
 //4，输入一篇不超过80个字符的短文(包括空格), 将其保存到一维字符数组中, 然后统计字母a出现的次数。
 
+#include <stdio.h>
+int main_997_6_4_4()
+{
+	char text[81]; // 定义字符数组
+	printf("请输入一篇不超过80个字符的短文：\n");
+	fgets(text, 81, stdin); // 从标准输入读取字符串，包括空格
+	int count = 0;
+	for (int i = 0; text[i] != '\0'; i++)
+		if (text[i] == 'a' || text[i] == 'A')  // 统计字母a出现的次数，不区分大小写
+			count++;
+	printf("字母a出现的次数为：%d", count);
+	return 0;
+}
 
 
 //5．某同学发表英文短文一篇, 共有5段, 每段不超过80个字母, 每个字母可获稿费0.5元, 编程计算该同学可获多少稿费(空格不计算稿费)。
 
+#include <stdio.h>
+
+int main_997_6_4_5()
+{
+	char articles[5][81]; // 定义二维字符数组
+	printf("请逐行输入同学发表的5段英文短文：\n");
+	for (int i = 0; i < 5; i++)
+		fgets(articles[i], 81, stdin); // 从标准输入逐行读取字符串，包括空格
+	float payment = 0;
+	for (int i = 0; i < 5; i++)
+		for (int j = 0; articles[i][j] != '\0'; j++)
+			if (articles[i][j] != ' ' && articles[i][j] != '\n')  // 统计字母数，不计算空格和换行符
+				payment += 0.5;
+	printf("该同学可获得的稿费为：%.2f元", payment);
+	return 0;
+}
 
 
-//6、一维整型数组ü共有20个元素, 偶数与奇数各占一半, 要求将该数组的所有元素存储到一个2x10的二维数组b中, 且奇数和偶数各成一行。
+//6、一维整型数组a共有20个元素, 偶数与奇数各占一半, 要求将该数组的所有元素存储到一个2x10的二维数组b中, 且奇数和偶数各成一行。
 
+#include <stdio.h>
+
+int main_997_6_4_6()
+{
+	int a[20];
+	int b[2][10]; // 定义二维整型数组
+	printf("请按顺序输入20个整数，偶数和奇数各占一半：\n");
+	for (int i = 0; i < 20; i++)
+		scanf("%d", &a[i]); // 从标准输入读取整数
+
+	int odd_idx = 0; // 记录奇数下标
+	int even_idx = 0; // 记录偶数下标
+	for (int i = 0; i < 20; i++)
+	{
+		if (a[i] % 2 == 0)  // 判断是否为偶数
+			b[0][even_idx++] = a[i]; // 存储到第一行中
+		else
+			b[1][odd_idx++] = a[i]; // 存储到第二行中
+	}
+	printf("转换后的二维数组为：\n");
+	for (int i = 0; i < 2; i++)
+	{
+		for (int j = 0; j < 10; j++)
+			printf("%d ", b[i][j]); // 打印二维数组
+		printf("\n");
+	}
+	return 0;
+}
 
 //7、有一篇短文不超过500个字符, 求其首字母为a的单词的个数。
+
+#include <stdio.h>
+#include <ctype.h> // 包含ctype.h头文件以使用isalpha和toupper函数
+
+int main_997_6_4_7()
+{
+	char text[501]; // 定义字符数组
+	printf("请输入一篇不超过500个字符的短文：\n");
+	fgets(text, 501, stdin); // 从标准输入读取字符串，包括空格
+	int count = 0;
+	for (int i = 0; text[i] != '\0'; i++)
+	{
+		if (i == 0 && isalpha(text[i]) && toupper(text[i]) == 'A')  // 判断首字母是否为a
+			count++;
+		if (text[i] == ' ' && isalpha(text[i + 1]) && toupper(text[i + 1]) == 'A') // 判断单词首字母是否为a
+			count++;
+	}
+	printf("首字母为a的单词个数为：%d", count);
+	return 0;
+}
+
 
 
 //8，有一个5x15的字符数组, 存放5个字符串, 用字符串连接函数将5个字符串连接并输出, 且两个字符串中间用空格隔开。
 
 
+#include <stdio.h>
+#include <string.h> // 包含string.h头文件以使用strcat和strcpy函数
+
+int main_997_6_4_8()
+{
+	char str[5][16] = { "hello", "world", "how", "are", "you" }; // 定义字符数组
+	char result[61] = ""; // 定义结果字符数组
+	for (int i = 0; i < 5; i++)
+	{
+		if (i != 0)
+			strcat(result, " "); // 连接空格
+		strcat(result, str[i]); // 连接字符串
+	}
+	printf("连接后的字符串为：%s", result);
+	return 0;
+}
+
+
 
 //9．有两个4x5的整型矩阵, 要求按以下规则形成一个新的矩阵:若两矩阵对应元素均为偶数, 则对应新矩阵的元素值为两元素值之差, 否则为两元素值之和。
 
+#include <stdio.h>
 
+int main_997_6_4_9_1()//遍历法
+{
+	int a[4][5] = { {2, 1, 4, 5, 8}, {6, 7, 2, 9, 10}, {12, 1, 6, 3, 4}, {2, 6, 8, 4, 10} };
+	int b[4][5] = { {4, 3, 8, 7, 10}, {6, 1, 4, 3, 2}, {2, 4, 3, 8, 6}, {4, 2, 6, 8, 10} };
+	int c[4][5]; // 定义新矩阵
+	for (int i = 0; i < 4; i++)
+		for (int j = 0; j < 5; j++)
+			if (a[i][j] % 2 == 0 && b[i][j] % 2 == 0)  // 判断是否均为偶数
+				c[i][j] = a[i][j] - b[i][j]; // 对应元素相减
+			else
+				c[i][j] = a[i][j] + b[i][j]; // 对应元素相加
+	printf("新矩阵为：\n");
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 5; j++)
+			printf("%d ", c[i][j]); // 打印新矩阵
+		printf("\n");
+	}
+	return 0;
+}
 
+#include <stdio.h>
+
+int main_997_6_4_9_2()//运用指针
+{
+	int a[4][5] = { {2, 1, 4, 5, 8}, {6, 7, 2, 9, 10}, {12, 1, 6, 3, 4}, {2, 6, 8, 4, 10} };
+	int b[4][5] = { {4, 3, 8, 7, 10}, {6, 1, 4, 3, 2}, {2, 4, 3, 8, 6}, {4, 2, 6, 8, 10} };
+	int c[4][5]; // 定义新矩阵
+	int* p1, * p2, * p3; // 定义指向整型数据的指针
+	for (p1 = a[0], p2 = b[0], p3 = c[0]; p1 <= &a[3][4]; p1++, p2++, p3++)
+		if (*p1 % 2 == 0 && *p2 % 2 == 0)  // 判断是否均为偶数
+			*p3 = *p1 - *p2; // 对应元素相减
+		else
+			*p3 = *p1 + *p2; // 对应元素相加
+
+	printf("新矩阵为：\n");
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 5; j++)
+			printf("%d ", c[i][j]); // 打印新矩阵
+		printf("\n");
+	}
+	return 0;
+}
+
+#include <stdio.h>
+
+int main_997_6_4_9_3()//数组的指针
+{
+	int a[4][5] = { {2, 1, 4, 5, 8}, {6, 7, 2, 9, 10}, {12, 1, 6, 3, 4}, {2, 6, 8, 4, 10} };
+	int b[4][5] = { {4, 3, 8, 7, 10}, {6, 1, 4, 3, 2}, {2, 4, 3, 8, 6}, {4, 2, 6, 8, 10} };
+	int c[4][5]; // 定义新矩阵
+	int(*p1)[5] = a, (*p2)[5] = b, (*p3)[5] = c; // 定义指向5个整型数据的指针
+	for (; p1 < a + 4; p1++, p2++, p3++)
+		for (int i = 0; i < 5; i++)
+			if ((*p1)[i] % 2 == 0 && (*p2)[i] % 2 == 0)  // 判断是否均为偶数
+				(*p3)[i] = (*p1)[i] - (*p2)[i]; // 对应元素相减
+			else
+				(*p3)[i] = (*p1)[i] + (*p2)[i]; // 对应元素相加
+
+	printf("新矩阵为：\n");
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 5; j++)
+			printf("%d ", c[i][j]); // 打印新矩阵
+		printf("\n");
+	}
+	return 0;
+}
 /*10．将一行电文译成密码, 规律如下 :
-	(1) a, b, c 、…, z这26个小写字母分别译成0、l, …, 9, a, b, e, d, e, f, g, h, i, @, #、$、%, &, !, *
+	(1) a, b, c 、…, z这26个小写字母分别译成0~9, a, b, e, d, e, f, g, h, i, @, #、$、%, &, !, *
 	(2）空格译成j
 	(3)其他字符不变
 */
 
+#include <stdio.h>
+#include <ctype.h>
+
+char translate_997_6_4_10(char c)
+{
+	switch (tolower(c))// 转为小写字母并通过 switch case 分类处理
+	{
+	case 'a': return '0';
+	case 'b': return '1';
+	case 'c': return '2';
+	case 'd': return '3';
+	case 'e': return '4';
+	case 'f': return '5';
+	case 'g': return '6';
+	case 'h': return '7';
+	case 'i': return '8';
+	case 'j': return '9';
+	case 'k': return 'a';
+	case 'l': return 'b';
+	case 'm': return 'e';
+	case 'n': return 'd';
+	case 'o': return 'e';
+	case 'p': return 'f';
+	case 'q': return 'g';
+	case 'r': return 'h';
+	case 's': return 'i';
+	case 't': return '@';
+	case 'u': return '#';
+	case 'v': return '$';
+	case 'w': return '%';
+	case 'x': return '&';
+	case 'y': return '!';
+	case 'z': return '*';
+	case ' ': return 'j';
+	default: return c;  // 其他字符不变
+	}
+}
+
+int main_997_6_4_10()
+{
+	char str[100], coded_str[100];
+	printf("请输入一行电文：");
+	fgets(str, 100, stdin);  // 读入一行电文
+	int i = 0, j = 0;
+	while (str[i] != '\0')// 逐个字符翻译
+	{
+		coded_str[j] = translate_997_6_4_10(str[i]);
+		i++;
+		j++;
+	}
+	coded_str[j] = '\0';  // 在尾部添加结束符
+	printf("密码为：%s", coded_str);
+	return 0;
+}
 
 
-//11．按照6x6 的二进制数整型矩阵打印图案, 对应元素值为Ⅰ时打印“* ”, 为0则打印“!”。
+//11．按照6x6 的二进制数整型矩阵打印图案, 对应元素值为1时打印“*”, 为0则打印“!”。
 
 
+#include <stdio.h>
 
-
+void print_pattern_997_6_4_11(int mat[][6], int rows, int columns)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < columns; j++)
+			printf("%c ", (mat[i][j] == 1) ? '*' : '!');
+		printf("\n");
+	}
+}
+int main_997_6_4_11()
+{
+	int mat[6][6] = { {1, 0, 1, 0, 0, 1},{0, 1, 0, 1, 1, 0},{1, 0, 1, 0, 0, 1},{0, 1, 0, 1, 1, 0},{1, 0, 1, 0, 0, 1},{0, 1, 0, 1, 1, 0} };
+	print_pattern_997_6_4_11(mat, 6, 6);
+	return 0;
+}
 
 
 //***************************************************************************************************************************************************
