@@ -1,4 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
+#define _USE_MATH_DEFINES
+
 //第一章		程序设计概述_P17
 
 /*
@@ -2153,23 +2155,24 @@ A.实参和与其对应的形参各占用独立的存储单元
 B.实参和与其对应的形参共用一个存储单元
 C.形参是虚拟的,不占用存储单元
 D.只有当实参和与其对应的形参同名时才共用存储单元
-6．如果要限制一个变量只能被本程序文件使用,必须通过__来实现。A。静态内部变量
+6．如果要限制一个变量只能被本程序文件使用,必须通过__来实现。
+A. 静态内部变量
 B．外部变量说明
 C．静态外部变量
 D，局部变量说明
 7.以下程序的输出结果是_
-#include<stdio. h>
-void main( )
+#include <stdio.h>
+void main()
 {
-int x = l ,y=2;
-void swap( int x , int y ) ;
-swap( y , x ) ;
-printf(" x =%d , y = %d \n"" ,x , y );
+	int x = 1, y = 2;
+	void swap(int x, int y);
+	swap(y, x);
+	printf(" x =%d , y = %d \n", x, y);
 }
-void swap( int x , int y )
+void swap(int x, int y)
 {
-printf( " x = %d , y =%d \n",x, y ) ;
-x =3 , y=4;
+	printf(" x = %d , y =%d \n", x, y);
+	x = 3, y = 4;
 }
 A. x = 1 ,y=2
 x = l ,y=2
@@ -2180,16 +2183,16 @@ x = 3 , y=4
 D，x= 2,y = l
 x = 1 ,y= 2
 8．有如下程序:
-#include<sldio. h>
-ini fune( int a , int b)
+#include <stdio.h>
+int fun(int a, int b)
 {
-return( a+b ) ;
+	return(a + b);
 }
-void main( )
+void main()
 {
-int x = 6 ,y =7,z= 8, r ;
-r = func( ( x——,y++,x+y ),z——);
-printf( "%d\n",r);
+	int x = 6, y = 7, z = 8, r;
+	r = fun((x--, y++, x + y), z--);
+	printf("%d\n", r);
 }
 运行该程序后的输出结果是
 A.11
@@ -2198,43 +2201,57 @@ c.21
 D.31
 9.下面是一个含有函数嵌套的程序:
 #include<stdio.h>
-void main( )
+void main()
 {
-int a_in , a_out ;
-int sum ( int n) ;
-int fun( int x ) ;
-printf( " Enter a number: " );
-scanf( " % d" , &a_in ) ;
-a_out = sum( a_in ) ;
-printf( " Sum= % d \n" ,a_out ) ;
+	int a_in, a_out;
+	int sum(int n);
+	int fun(int x);
+	printf(" Enter a number: ");
+	scanf("%d", &a_in);
+	a_out = sum(a_in);
+	printf(" Sum= % d \n", a_out);
 }
-int sum( int n)
+int sum(int n)
 {
-int x,s = 0 ;
-for( x = 1 ;
-x<= n ;x++)
-s+ = fun( x );
-return ( s ) ;
+	int x, s = 0;
+	for (x = 1;
+		x <= n; x++)
+		s += fun(x);
+	return (s);
 }
-int fun( int x)
-{return( x *x+1);}
+int fun(int x)
+{
+	return(x * x + 1);
+}
 运行该程序后,输入数值3,其输出的结果是
 A. sum =6
 B. sum =7
 C. sum= 17
 D. sum = 34
+
+
+1.C
+2.A
+3.D
+4.B
+5.A
+6.A
+7.D
+8.C
+9.C
+
 */
 
 
 /*
 二、分析程序题
 1.下面的程序中使用了静态存储变量,指出程序的执行结果。
-#include<stdio.h>
+#include <stdio.h>
 void myfun()
 {
 static int m;
 m = m+5;
-printf("%d ",m ) ;
+printf("%d ",m );
 }
 void main( )
 {
@@ -2243,6 +2260,9 @@ for( n= 1 ;n<5 ; n++ )
 myfun( ) ;
 printf( "\n" ) ;
 }
+
+5 10 15 20
+
 2．写出下面程序的执行结果。
 void incx ( )
 {
@@ -2252,97 +2272,420 @@ printf("x=%d\t",++x);
 void incy( )
 {
 static int y =0;
-printf( " iny = %d\n" ,++y) ;
+printf( "\ny =%d\n" ,++y) ;
 }
 void main()
 {
 incx( ) ;incy( ) ;incx ( ) ;incy( ) ;incx ( ) ;incy( );
 }
+
+x=1
+y=1
+x=1
+y=2
+x=1
+y=3
+
 3．分析下面程序的输出结果。
-#include<stdio. h>
-int i= 3 ;
-void main( )
+#include <stdio.h>
+int i = 3;
+void main()
 {
-int i= 1 ;
-int funl ( int ) ;
-int fun2 ( int ) ;
-printf( " %d" , i) ;
-fun1 ( i);
-fun2 ( i) ;
-funl ( i , fun2( i) );
+	int i = 1;
+	int funl(int);
+	int fun2(int);
+	printf("%d", i);
+	fun1(i);
+	fun2(i);
+	fun1(i, fun2(i));
 
 }
-int fun1 ( int n)
-{printf( " %d" , i+n) ;}
-int fun2( int n)
+int fun1(int n)
 {
-static int i= 2;
-printf("%d" ,i+n);
+	printf("%d", i + n);
 }
+int fun2(int n)
+{
+	static int i = 2;
+	printf("%d", i + n);
+}
+
+14334
+
 4．下面是含有两个自定义函数的程序,分析程序的执行结果。
-#include<stdio. h>
-int myfunl ( int , int ) ;
-int myfun2( int , int ) ;
-void main( )
+#include <stdio.h>
+int myfunl(int, int);
+int myfun2(int, int);
+void main()
 {
-int a= 12,b=5;
-printf( " result :% d \n " , myfunl ( b ,a) ) ;
+	int a = 12, b = 5;
+	printf(" result :% d \n ", myfunl(b, a));
 }
-int myfunl ( int a , int b)
+int myfunl(int a, int b)
 {
-int c;
-a＋=a ;
-b+= b;
-c = myfun2 ( a , b ) ;
-return( c * c ) ;
+	int c;
+	a += a;
+	b += b;
+	c = myfun2(a, b);
+	return(c * c);
 }
-int myfun2 ( int a , int b)
+int myfun2(int a, int b)
 {
-int c;
-c =a * b% 3 ;
-return( c );
+	int c;
+	c = a * b % 3;
+	return(c);
 }
+
+0
+
 */
 
-/*
+//三、编程题
+//1.设计一个将公制长度( cm )转换为英制长度(英寸)的函数,在主函数中输入公制长度,然后输出英制长度。
 
-三、编程题
-1.设计一个将公制长度( cm )转换为英制长度(英寸)的函数,在主函数中输入公制长度,然后输出英制长度。
+#include <stdio.h>
 
+float cm_to_inches_997_7_3_1(float cm) {
+	float inches = cm / 2.54;
+	return inches;
+}
 
-2．设计三个函数,分别求圆锥体的体积,表面积,质量。从主函数中输入圆锥体的高和直径,然后输出它的体积.表面积和质量的值。
-
-
-3．设计一个函数,将年/月/日格式表示的时间转换为年-月-日,如 :2007/6/23变为2007-6-23。
-
-
-4．按照如下公式,设计一个求pie的近似值的函数。--P184
-
-
-5．设计一个函数,计算下面表达式前n项中偶数项的和。
-
-
-
-l×2×3+2×3×4＋3×4×5+·…+n×(n+1 ) x( n+2)+·…
-
+int main_997_7_3_1()
+{
+	float cm, inches;
+	printf("请输入公制长度（单位：厘米）： ");
+	scanf("%f", &cm);
+	inches = cm_to_inches_997_7_3_1(cm);
+	printf("英制长度为： %.2f 英寸\n", inches);
+	return 0;
+}
 
 
-6．编写两个函数,分别求两个整数的最大公约数和最小公倍数,编写主函数调用这两个函数,计算两个数最大公约数和最小公倍数并输出结果。
+//2．设计三个函数,分别求圆锥体的体积,表面积,质量。从主函数中输入圆锥体的高、直径、密度,然后输出它的体积、表面积和质量的值。
+//_997_7_3_2
 
 
-7.设计递归函数求x”的值,并在主函数中输入x ,n ,然后调用该递归函数计算结果。其中n为正整数。
+#include <stdio.h>
+#include <math.h>
+
+// 求圆锥体积
+float cone_volume_997_7_3_2(float height, float diameter)
+{
+	float radius = diameter / 2.0;
+	float volume = M_PI * pow(radius, 2) * (height / 3.0);
+	return volume;
+}
+
+// 求圆锥体表面积
+float cone_surface_area_997_7_3_2(float height, float diameter)
+{
+	float radius = diameter / 2.0;
+	float slant_height = sqrt(pow(height, 2) + pow(radius, 2));
+	float surface_area = M_PI * radius * slant_height + M_PI * pow(radius, 2);
+	return surface_area;
+}
+
+// 求圆锥体质量
+float cone_mass_997_7_3_2(float height, float diameter, float density)
+{
+	float volume = cone_volume_997_7_3_2(height, diameter);
+	float mass = volume * density;
+	return mass;
+}
+
+int main_997_7_3_2()
+{
+	float height, diameter, density;
+	printf("请输入圆锥体的高（单位：米）：");
+	scanf("%f", &height);
+	printf("请输入圆锥体的直径（单位：米）：");
+	scanf("%f", &diameter);
+	printf("请输入圆锥体的密度（单位：千克/立方米）：");
+	scanf("%f", &density);
+	float volume = cone_volume_997_7_3_2(height, diameter);
+	float surface_area = cone_surface_area_997_7_3_2(height, diameter);
+	float mass = cone_mass_997_7_3_2(height, diameter, density);
+	printf("圆锥体的体积为：%.2f 立方米\n", volume);
+	printf("圆锥体的表面积为：%.2f 平方米\n", surface_area);
+	printf("圆锥体的质量为：%.2f 千克\n", mass);
+	return 0;
+}
 
 
-8．用递归函数编程计算1!+3!+5!+…+n ! (n为奇数)。
+//3．设计一个函数,将年/月/日格式表示的时间转换为年-月-日,如 :2007/6/23变为2007-6-23。
+
+#include <stdio.h>
+#include <string.h>
+void format_date_997_7_3_3_1(char* date_str)
+{
+	char* token;
+	char new_date_str[11];
+	int i = 0;
+
+	// 使用strtok()函数按照斜杠分割日期字符串
+	token = strtok(date_str, "/");
+	while (token != NULL)
+	{
+		// 将分割后得到的数字转换为整数，并存储到新的日期字符串中
+		sprintf(new_date_str + i, "%s", token);
+		if (strlen(token) == 1)
+			i += 2; // 如果是个位数，则在前面补0，需要i+2
+		else
+			i += 3; // 如果是两位数，则需要i+3
+		token = strtok(NULL, "/");
+		if (token != NULL)
+			new_date_str[i - 1] = '-'; // 在新日期字符串中插入横线
+	}
+
+	// 将新日期字符串拷贝回原来的日期字符串中
+	strcpy(date_str, new_date_str);
+}
+
+int main_997_7_3_3_1()//字符串处理
+{
+	char date_str[] = "2007/6/23";
+	format_date_997_7_3_3_1(date_str);
+	printf("%s\n", date_str); // 输出：2007-6-23
+
+	return 0;
+}
+
+
+#include <stdio.h>
+
+void format_date_997_7_3_3_2(char* date_str)
+{
+	int year, month, day;
+	sscanf(date_str, "%d/%d/%d", &year, &month, &day);// 使用sscanf()函数将日期字符串解析为年、月、日三个整数
+	printf("%04d-%02d-%02d", year, month, day);// 使用printf()函数按照要求的格式输出日期字符串
+}
+
+int main_997_7_3_3_2()//字符串解析
+{
+	char date_str[] = "2007/6/23";
+	format_date_997_7_3_3_2(date_str); // 输出：2007-06-23
+	return 0;
+}
+
+
+#include <stdio.h>
+void format_date_997_7_3_3_3(char* date_str)
+{
+	int year = 0, month = 0, day = 0;
+	int i = 0; // 当前字符的下标
+
+	while (date_str[i] >= '0' && date_str[i] <= '9')// 查找年份
+	{
+		year = year * 10 + (date_str[i] - '0');
+		i++;
+	}
+	while (date_str[i] < '0' || date_str[i] > '9')// 跳过非数字字符
+		i++;
+
+
+	while (date_str[i] >= '0' && date_str[i] <= '9')// 查找月份
+	{
+		month = month * 10 + (date_str[i] - '0');
+		i++;
+	}
+	while (date_str[i] < '0' || date_str[i] > '9')// 跳过非数字字符
+		i++;
+	while (date_str[i] >= '0' && date_str[i] <= '9')// 查找日期
+	{
+		day = day * 10 + (date_str[i] - '0');
+		i++;
+	}
+	printf("%04d-%02d-%02d", year, month, day);// 按照要求的格式输出日期字符串
+}
+
+int main_997_7_3_3_3()//遍历法
+{
+	char date_str[] = "2007/6/23";
+	format_date_997_7_3_3_3(date_str); // 输出：2007-06-23
+
+	return 0;
+}
+
+
+//4．按照如下公式,设计一个求pie的近似值的函数。--P184
+
+#include <stdio.h>
+#include <math.h>
+
+double calculate_pi_997_7_3_4(int n)
+{
+	double pi = 0.0;
+	int sign = 1;
+
+	for (int i = 0; i < n; i++)
+	{
+		pi += sign * 4.0 / (2 * i + 1);
+		sign = -sign;
+	}
+
+	return pi;
+}
+
+int main_997_7_3_4()
+{
+	const int N = 100000;
+
+	printf("π ≈ %.15f\n", calculate_pi_997_7_3_4(N));
+	printf("π ≈ %.15f\n", M_PI);
+
+	return 0;
+}
+
+
+//5．设计一个函数,计算下面表达式前n项中偶数项的和。l×2×3+2×3×4＋3×4×5+…+n×(n+1 )x( n+2)+…
+
+#include <stdio.h>
+
+long long  even_sum_997_7_3_5(int number)
+{
+	long long sum = 0;
+	for (int i = 1; i <= number; i++)
+		if (i % 2 == 0)
+			sum += (i * (i + 1) * (i + 2));
+	return sum;
+}
+
+int main_997_7_3_5()
+{
+	int number;
+	printf("请输入n的值：");
+	scanf("%d", &number);
+	printf("前%d项中偶数项的和为：%lld", number, even_sum_997_7_3_5(number));
+
+	return 0;
+}
+
+//6．编写两个函数,分别求两个整数的最大公约数和最小公倍数,编写主函数调用这两个函数,计算两个数最大公约数和最小公倍数并输出结果。
+
+
+#include <stdio.h>
+
+int gcd_997_7_3_6(int a, int b)// 求最大公约数
+{
+	if (b == 0)
+		return a;
+	else
+		return gcd_997_7_3_6(b, a % b);
+}
+
+int lcm_997_7_3_6(int a, int b)// 求最小公倍数
+{
+	return (a * b) / gcd_997_7_3_6(a, b);
+}
+
+int main_997_7_3_6()
+{
+	int num1, num2;
+	printf("请输入第一个整数："); scanf("%d", &num1);
+
+	printf("请输入第二个整数："); scanf("%d", &num2);
+
+	printf("最大公约数为：%d\n", gcd_997_7_3_6(num1, num2));
+	printf("最小公倍数为：%d\n", lcm_997_7_3_6(num1, num2));
+
+	return 0;
+}
 
 
 
-9．编写一个对一维数组求平均值的函数,并在主函数中调用它。要求用数组名作参数。
+
+//7.设计递归函数求x^n的值,并在主函数中输入x ,n ,然后调用该递归函数计算结果。其中n为正整数。
+
+#include <stdio.h>
+
+double power_997_7_3_7(double x, int n)
+{
+	if (n == 0)
+		return 1;
+	else if (n % 2 == 0)
+	{
+		double temp = power_997_7_3_7(x, n / 2);
+		return temp * temp;
+	}
+	else
+		return x * power_997_7_3_7(x, n - 1);
+}
+
+int main_997_7_3_7()
+{
+	double x;
+	int n;
+
+	printf("请输入X和n：");
+	scanf("%lf %d", &x, &n);
+
+	double result = power_997_7_3_7(x, n);
+	printf("%g的%d次方为%g\n", x, n, result);
+
+	return 0;
+}
+
+//8．用递归函数编程计算1!+3!+5!+…+n ! (n为奇数)。
+
+#include <stdio.h>
+
+int factorial_997_7_3_8(int n)
+{
+	if (n == 1)
+		return 1;
+	else
+		return n * factorial_997_7_3_8(n - 1);
+
+}
+
+int sum_odd_factorials_997_7_3_8(int n)
+{
+	if (n == 1)
+		return 1;
+	else if (n % 2 == 0)
+		return sum_odd_factorials_997_7_3_8(n - 1);
+	else
+		return factorial_997_7_3_8(n) + sum_odd_factorials_997_7_3_8(n - 2);
+}
+
+int main_997_7_3_8()
+{
+	int n;
+	printf("请输入n的值：");
+	scanf("%d", &n);
+	printf("%d", sum_odd_factorials_997_7_3_8(n));
+	return 0;
+}
+
+
+//9．编写一个对一维数组求平均值的函数,并在主函数中调用它。要求用数组名作参数。
 
 
 
+#include <stdio.h>
 
-*/
+double calculate_average_997_7_3_9(int arr[], int size)
+{
+	double sum = 0.0;
+	for (int i = 0; i < size; i++)
+		sum += arr[i];
+	return sum / size;
+}
+
+int main_997_7_3_9()
+{
+	int array[] = { 5,8,6,9,8,12,4 };
+	int size = sizeof(array) / sizeof(array[0]);
+	double avg = calculate_average_997_7_3_9(array, size);
+	printf("数组: ");
+	for (int i = 0; i < size; i++)
+		printf("%d ", array[i]);
+	printf("\n");
+	printf("平均值为: %f\n", avg);
+	return 0;
+}
+
+
 
 
 
