@@ -2937,56 +2937,469 @@ int length( char * s)
 
 //三、编程题
 //1.输入整型变量a,b的值,利用指针使它们的值交换,并输出交换后a,b的值。
+#include <stdio.h>
+
+void swap_997_8_3_1(int* a, int* b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+int main_997_8_3_1()
+{
+	int a, b;
+	printf("请输入a和b的值：");
+	scanf("%d%d", &a, &b);
+	printf("交换前a的值为：%d，b的值为：%d\n", a, b);
+	swap_997_8_3_1(&a, &b);
+	printf("交换后a的值为：%d，b的值为：%d\n", a, b);
+	return 0;
+}
 
 
-//2．设置指针变量pl ,p2 、p3 ,使其分别指向整型变量i,j,k。然后通过指针变量使i,j,k的值顺序交换,即把i的原值赋给k,把j的值赋给i,把k的值赋给j。变量i,j,k的初始值由键盘输入,要求输出交换后i.j、k的值。
+//2．设置指针变量p1、p2、p3 ,使其分别指向整型变量i,j,k。然后通过指针变量使i,j,k的值顺序交换,即把i的原值赋给k,把j的值赋给i,把k的值赋给j。
+//变量i,j,k的初始值由键盘输入,要求输出交换后i.j、k的值。
+#include <stdio.h>
+
+int main_997_8_3_2()
+{
+	int i, j, k, * p1, * p2, * p3;
+
+	printf("请依次输入i,j,k的值：");
+	scanf("%d%d%d", &i, &j, &k);
+	p1 = &i; p2 = &j; p3 = &k;
+
+	int temp = *p3; *p3 = *p1; *p1 = *p2; *p2 = temp;// 交换i,j,k的值
+
+	printf("交换后i的值为：%d，j的值为：%d，k的值为：%d\n", i, j, k);
+
+	return 0;
+}
 
 
-//8-3．从键盘输人三个整数,要求设三个指针变量pl ,p2,p3 ,使pl指向三个数的最大者,p2指向次大者,p3指向最小者,然后按由小到大的顺序输出这三个数。
+//8．从键盘输人三个整数,要求设三个指针变量p1,p2,p3 ,使p1指向三个数的最大者,p2指向次大者,p3指向最小者,然后按由小到大的顺序输出这三个数。
+
+#include <stdio.h>
+
+void sort_997_8_3_3_1(int* p1, int* p2, int* p3)
+{
+	int temp;
+	if (*p1 < *p2)
+	{
+		temp = *p1;
+		*p1 = *p2;
+		*p2 = temp;
+	}
+	if (*p1 < *p3)
+	{
+		temp = *p1;
+		*p1 = *p3;
+		*p3 = temp;
+	}
+	if (*p2 < *p3)
+	{
+		temp = *p2;
+		*p2 = *p3;
+		*p3 = temp;
+	}
+}
+
+int main_997_8_3_3_1()//载体交换
+{
+	int a, b, c;
+	int* p1, * p2, * p3;
+
+	printf("请依次输入a,b,c三个整数：");
+	scanf("%d%d%d", &a, &b, &c);
+
+	p1 = &a; p2 = &b; p3 = &c;
+	sort_997_8_3_3_1(p1, p2, p3);
+	printf("从小到大的顺序输出这三个数为：%d %d %d\n", *p3, *p2, *p1);
+	return 0;
+}
+
+
+
+#include <stdio.h>
+
+int main_997_8_3_3_2()//数组
+{
+	int nums[3];
+	printf("请依次输入a,b,c三个整数：");
+	scanf("%d%d%d", &nums[0], &nums[1], &nums[2]);
+
+	// 找到最大值、次大值和最小值
+	int max = nums[0], second_max = nums[0], min = nums[0];
+	for (int i = 1; i < 3; i++)
+	{
+		if (nums[i] > max)
+		{
+			second_max = max;
+			max = nums[i];
+		}
+		else if (nums[i] > second_max)
+			second_max = nums[i];
+		if (nums[i] < min)
+			min = nums[i];
+	}
+	printf("从小到大的顺序输出这三个数为：%d %d %d\n", min, second_max, max);
+	return 0;
+}
+
+
+#include <stdio.h>
+void quickSort_997_8_3_3_3(int arr[], int left, int right)//快速排序
+{
+	int i = left, j = right;
+	int tmp;
+	int pivot = arr[(left + right) / 2];
+
+	while (i <= j)
+	{
+		while (arr[i] < pivot)
+			i++;
+
+		while (arr[j] > pivot)
+			j--;
+
+		if (i <= j)
+		{
+			tmp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = tmp;
+			i++;
+			j--;
+		}
+	}
+
+	if (left < j)
+		quickSort_997_8_3_3_3(arr, left, j);
+	if (i < right)
+		quickSort_997_8_3_3_3(arr, i, right);
+
+}
+
+int main_997_8_3_3_3()//数组+排序算法
+{
+	int a, b, c;
+	int nums[3];
+	int* p1, * p2, * p3;
+
+	printf("请依次输入a,b,c三个整数：");
+	scanf("%d%d%d", &a, &b, &c);
+
+	nums[0] = a; nums[1] = b; nums[2] = c;
+
+	p1 = &nums[2]; p2 = &nums[1]; p3 = &nums[0];
+
+	quickSort_997_8_3_3_3(nums, 0, 2);
+
+	printf("从小到大的顺序输出这三个数为：%d %d %d\n", *p3, *p2, *p1);
+
+	return 0;
+}
 
 
 //4．编写程序,判断一个字符串是否是回文。若是回文,输出“yes”,否则输出“no”(回文是顺读和倒读都一样的字符串）。要求用指针实现编程。
 
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_SIZE 100
+
+int main_997_8_3_4()
+{
+	char str[MAX_SIZE];
+	char* left, * right;  // 定义左右指针
+
+	printf("请输入一个字符串：");
+	fgets(str, MAX_SIZE, stdin);  // 获取输入的字符串
+	/*str：表示要读入数据的字符串变量名。
+	MAX_SIZE：表示要读入字符串的最大长度，通常使用宏定义定义该值，避免魔法数字。
+	stdin：表示数据来源，这里是从标准输入流中读入数据，也就是从键盘输入数据*/
+	int len = strlen(str) - 1;  // 字符串长度
+
+	left = str;  // 左指针指向字符串头部
+	right = str + len - 1;  // 右指针指向字符串尾部
+
+	while (left < right)
+	{  // 循环判断左右指针指向的字符是否相等
+		if (*left != *right)
+		{  // 如果不相等，则不是回文
+			printf("no\n");
+			return 0;
+		}
+		left++;  // 移动左指针
+		right--;  // 移动右指针
+	}
+	printf("yes\n");  // 左右指针指向的字符都相等，是回文
+	return 0;
+}
+
 
 //5.将n个互不相等的整数存储到一维数组中,在存储时对已有数据进行检查,若发现当前输入的数据已经存在,则要求重新输入。要求用指针实现编程。
+#include <stdio.h>
+
+#define MAX_SIZE 100
+
+int check_997_8_3_5_1(int* p, int x, int n)// 检查x是否已经存在于p所指向的数组中的前n个元素中
+{
+	int i;
+	for (i = 0; i < n; i++)
+		if (*(p + i) == x)
+			return 1;
+	return 0;
+}
 
 
-//8-6.利用指针,向一整型数组a中输人数据并将数组a中的数据复制到另一个数组b中。
+int main_997_8_3_5_1()
+{
+	int n, num[MAX_SIZE], i, x, flag;
+	int* p;
+
+	printf("请输入要存储的整数的个数：");
+	scanf("%d", &n);
+
+	p = num;
+
+	for (i = 0; i < n; i++)
+	{
+		flag = 0;
+
+		do
+		{
+			printf("请输入第%d个整数：", i + 1);
+			scanf("%d", &x);
+			if (check_997_8_3_5_1(p, x, i))
+			{
+				printf("输入错误：输入的整数已经存在，请重新输入！\n");
+				flag = 1;
+			}
+			else
+			{
+				*(p + i) = x;
+				flag = 0;
+			}
+		} while (flag == 1);
+	}
+
+	printf("输入的整数为：\n");
+	for (i = 0; i < n; i++)
+		printf("%d ", *(p + i));
+	return 0;
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX_SIZE 100
+int main_997_8_3_5_2() // 哈希表
+{
+	int n;
+	int nums[MAX_SIZE];
+	int* p = nums;
+	int hash[MAX_SIZE] = { 0 }; // 哈希表，初始值均为0
+
+	printf("请输入要存储的整数的个数：");
+	scanf("%d", &n);
+
+	// 逐个输入数字，并检查是否重复
+	printf("请输入%d个互不相同的整数：", n);
+	for (int i = 0; i < n; i++)
+	{
+		int num;
+		scanf("%d", &num);
+
+		// 检查是否重复
+		while (hash[num])
+		{
+			printf("该数已经存在，请重新输入：");
+			scanf("%d", &num);
+		}
+
+		nums[i] = num;
+		hash[num] = 1; // 标记该数字已经存在
+	}
+
+	// 输出结果
+	printf("存储的数组为：");
+	for (int i = 0; i < n; i++)
+		printf("%d ", *(p + i));
+	printf("\n");
+	return 0;
+}
+
+
+//6.利用指针,向一整型数组a中输人数据并将数组a中的数据复制到另一个数组b中。
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_SIZE 100
+
+int main_997_8_3_6()
+{
+	int a[MAX_SIZE], b[MAX_SIZE];
+	int n, * p1, * p2;
+
+	printf("请输入整数个数：");
+	scanf("%d", &n);
+
+	printf("请输入%d个整数：", n);
+	for (p1 = a; p1 < a + n; p1++)
+		scanf("%d", p1);
+
+	printf("复制前数组a的内容：");
+	for (p1 = a; p1 < a + n; p1++)
+		printf("%d ", *p1);
+	printf("\n");
+
+	//将数组a中的数据复制到数组b中
+	for (p1 = a, p2 = b; p1 < a + n; p1++, p2++)
+		*p2 = *p1;
+
+	printf("复制后数组b的内容：");
+	for (p2 = b; p2 < b + n; p2++)
+		printf("%d ", *p2);
+	printf("\n");
+
+	return 0;
+}
 
 
 
-//8-7．编写函数,对字符数组中的字母按由大到小的顺序进行排序。
+//7．编写函数,对字符数组中的字母按由大到小的顺序进行排序。
+
+#include <stdio.h>
+#include <string.h>
+
+void sortAlphabet_997_8_3_7(char* str)
+{
+	int len = strlen(str);
+	for (int i = 0; i < len - 1; i++)
+	{
+		for (int j = i + 1; j < len; j++)
+		{
+			if (*(str + i) < *(str + j))
+			{
+				char temp = *(str + i);
+				*(str + i) = *(str + j);
+				*(str + j) = temp;
+			}
+		}
+	}
+}
 
 
-/*8．有一个数列,有20个整数,今要求编一个函数,它能够对从指定位置开始的n 个数按相反顺序重新排列。例如数列原为:
+int main_997_8_3_7()
+{
+	char str[100];
+
+	printf("请输入一个字符串：");
+	scanf("%s", str);
+
+	sortAlphabet_997_8_3_7(str);
+
+	printf("排序后的字符串为：%s\n", str);
+
+	return 0;
+}
+
+
+/*8．有一个数列,有20个整数,今要求编一个函数,它能够对从指定位置开始的n个数按相反顺序重新排列。例如数列原为:
 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
 若要求对从第五个数开始的10个数进行逆序处理,则得到的新数列为:
 1,2,3,4,14,13,12,11,10,9,8,7 ,6,5 ,15,16,17,18,19,20
 数列中的数在main()函数中输人,在调用函数时应给出从第几个位置开始(以m表示)和要处理的是多少个数(以n表示),例如对上面的情况, m =5,n= 10。最后在main（)函数中输出新的数列。*/
 
 
+#include <stdio.h>
 
-//9.编写一个 str_len()函数检测字符串的长度(说明:字符串的长度不包括字符串结束标志“1O”)。
+void reverse_997_8_3_8(int* arr, int m, int n)
+{
+	int i, j;
+	for (i = m, j = m + n - 1; i < j; i++, j--)
+	{
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+}
+
+int main_997_8_3_8()
+{
+	int arr[20];
+	int i, m, n;
+	printf("请输入20个整数：\n");
+	for (i = 0; i < 20; i++)
+		scanf("%d", &arr[i]);
+	printf("请输入起始位置和要处理的数目：\n");
+	scanf("%d%d", &m, &n);
+	reverse_997_8_3_8(arr, m - 1, n);
+	printf("处理后的数列为：\n");
+	for (i = 0; i < 20; i++)
+		printf("%d ", arr[i]);
+	printf("\n");
+	return 0;
+}
+
+
+//9.编写一个 str_len()函数检测字符串的长度(说明:字符串的长度不包括字符串结束标志'\O')。
+
+#include <stdio.h>
+
+int str_len_997_8_3_9(char* str)
+{
+	int len = 0;
+	while (*str != '\0')
+	{
+		len++;
+		str++;
+	}
+	return len;
+}
+
+int main_997_8_3_9()
+{
+	char str[100];
+	printf("请输入一个字符串：");
+	scanf("%s", str);
+	printf("字符串的长度为：%d\n", str_len_997_8_3_9(str));
+	return 0;
+}
 
 
 //10．编写函数, 删除字符串中指定位置上的字符。删除成功后返回被删字符; 否则返回空值。
 
+#include <stdio.h>
 
+char del_char_997_8_3_10(char* str, int pos)
+{
+	int len = 0;
+	while (str[len] != '\0')
+		len++;
+	if (pos >= len || pos < 0)
+		return '\0';
+	char deleted_char = str[pos];
+	for (int i = pos; i < len; i++)
+		str[i] = str[i + 1];
+	return deleted_char;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+int main_997_8_3_10()
+{
+	char str[100];
+	int pos;
+	printf("请输入一个字符串: ");
+	fgets(str, 100, stdin);
+	printf("请输入要删除的位置: ");
+	scanf("%d", &pos);
+	char deleted_char = del_char_997_8_3_10(str, pos);
+	if (deleted_char != '\0')
+		printf("删除成功，被删除的字符是: %c\n删除后的字符串是: %s\n", deleted_char, str);
+	else
+		printf("删除失败，位置超出字符串长度！\n");
+	return 0;
+}
 
 
 
