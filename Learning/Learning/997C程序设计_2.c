@@ -1066,7 +1066,8 @@ end:
 
 #include <stdio.h>
 
-int main_997_4_2_9() {
+int main_997_4_2_9() 
+{
 	int num, count = 0;
 	int digit[5] = { 0 }; // 用数组存储每一位数
 
