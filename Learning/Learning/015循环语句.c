@@ -1,14 +1,14 @@
 #include <stdio.h>
 int main_15()
 {
-    printf("Ñ§Ï°\n");
+    printf("å­¦ä¹ \n");
     int line = 0;
     while (line <= 20000)
     {
         line++;
-        printf("ÎÒÒª¼ÌÐøÅ¬Á¦ÇÃ´úÂë\n");
+        printf("æˆ‘è¦ç»§ç»­åŠªåŠ›æ•²ä»£ç \n");
     }
     if (line > 20000)
-        printf("ºÃoffer\n");
+        printf("å¥½offer\n");
     return 0;
 }
