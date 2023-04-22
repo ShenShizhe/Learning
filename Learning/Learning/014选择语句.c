@@ -1,18 +1,18 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
-//Ñ¡ÔñÓï¾ä
+//é€‰æ‹©è¯­å¥
 int main_14(void)
 {
     int coding = 0;
-    printf("Äã»áÈ¥ÇÃ´úÂëÂğ£¿£¨Ñ¡Ôñ1 or 0£©:>");
+    printf("ä½ ä¼šå»æ•²ä»£ç å—ï¼Ÿï¼ˆé€‰æ‹©1 or 0ï¼‰:>");
     scanf("%d", &coding);
     if (coding == 1)
     {
-        printf("¼á³Ö£¬Äã»áÓĞºÃoffer\n");
+        printf("åšæŒï¼Œä½ ä¼šæœ‰å¥½offer\n");
     }
     else
     {
-        printf("·ÅÆú£¬»Ø¼ÒÂôºìÊí\n");
+        printf("æ”¾å¼ƒï¼Œå›å®¶å–çº¢è–¯\n");
     }
     return 0;
 }
