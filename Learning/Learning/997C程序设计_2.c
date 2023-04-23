@@ -3846,7 +3846,7 @@ int main_997_9_3_4()
 	{
 		p = head;
 		head = head->next;
-		free(p); //free完成之后置空，防止产生悬空指针
+		free(p); // free完成之后置空，防止产生悬空指针
 		p = NULL;
 	}
 
@@ -3854,7 +3854,17 @@ int main_997_9_3_4()
 }
 
 
-
+/*
+_997_9_3_4(链表)实现过程：
+①该程序实现了建立含有3个结点的链表，存储从键盘输入的3个整数，并按照整数值由大到小的顺序链接链表结点，并输出链表各结点的值的功能。
+②程序首先定义了链表结点的结构体类型，包括整数值和指向下一个结点的指针。然后定义了3个指向结点的指针变量，并分别动态分配了3个结点的内存空间，同时将它们的值分别存储为从键盘输入的3个整数。
+③接下来，程序比较了这3个整数的大小，并按照由大到小的顺序链接了链表结点。具体实现方式是，先比较第一个和第二个整数的大小，如果第一个大于第二个，则将第一个结点设为头结点，
+将第二个结点设为第一个结点的下一个结点，否则反过来。然后再比较头结点和第三个整数的大小，如果第三个整数大于头结点，则将第三个结点设为头结点，将原头结点设为第三个结点的下一个结点，
+否则将第三个结点链接到第一个或第二个结点的后面。
+④最后，程序依次输出链表各结点的值，具体实现方式是，定义一个指向头结点的指针，然后通过遍历整个链表，输出每个结点的值。需要注意的是，在遍历链表的过程中，要注意不要让指针指向空指针，
+否则会导致程序出现错误。为此，程序使用了一个while循环，判断链表头指针是否为NULL，如果不是，则将头指针指向的结点输出并释放其内存空间。同时，为了避免指针悬空，程序在释放结点的内存空间之后，
+将指向该结点的指针设置为NULL。
+*/
 
 //***************************************************************************************************************************************************
 //***************************************************************************************************************************************************
@@ -3868,51 +3878,57 @@ int main_997_9_3_4()
 /*
 
 一、选择题
-1．下列关于C语言数据文件的叙述中正确的是___。
+1．下列关于C语言数据文件的叙述中正确的是
 A.文件由ASCII 码字符序列组成,C语言只能读写文本文件
 B.文件由二进制数据序列组成,C语言只能读写二进制文件
 C.文件由记录序列组成,可按数据的存放形式分为二进制文件和文本文件
-D，文件由数据流形式组成,可按数据的存放形式分为二进制文件和文本文件
-2．以下叙述中不正确的是_。
+D.文件由数据流形式组成,可按数据的存放形式分为二进制文件和文本文件
+
+2．以下叙述中不正确的是
 A.C语言中的文本文件以ASCII 码形式存储数据
 B.C语言中对二进制文件的访问速度比文本文件快c
-C.语言中,随机读写方式不适用于文本文件
+C.c语言中,随机读写方式不适用于文本文件
 D.C语言中,顺序读写方式不适用于二进制文件
+
 3.已知fp为文件类型指针,若要打开e盘text文件夹(目录)下的 word. dat文件，下面各选项中正确的是
 A. fp = fopen( e : text\word.dat , "r")
 B. fp = fopen( e : \text\word.dat , " r")
 C. fp = fopen ( " e : \text\word.dat" , "r")
 D. fp = fopen( " e :\\text\\ word.dat" ,"r" )
+
 4、使用fclose( fp)函数正常关闭p文件后,函数fclose( )的返回值是
 A.1
 B.0
 C.
 -1
 D．非零值
+
 5．若要用fopen()打开一个新的二进制文件,该文件要既能读也能写,则文件使用方式字符串应是
 A. " ab+"
 B. " wb+"
 C." rb+"
 D. " ab"
+
 6．若以" a+"方式打开一个已存在的文件,则以下叙述正确的是___
 A．原有文件内容不被删除,位置指针移到文件末尾,可进行追加和读操作
 B．原有文件内容不被删除,位置指针移到文件开头,可进行重写和读操作
 C．原有文件内容被删除,只可进行写操作
 D．以上各种说法都不正确
+
 7．以下程序试图把从终端输入的字符输出到名为abc. txt的文件中,直到从终端读入字符“#”号时结束输入和输出操作,但程序存在错误。
 #include <stdio.h>
 void main()
 {
-FILE * fout ;
-char ch;
-fout = fopen(' abc. txt ' ,' w ');
-ch = fgetc( stdin) ;
-while( ch != '#')
-{
-fputc( ch , fout ) ;
-ch = fgetc( stdin ) ;
-}
-fclose( fout) ;
+	FILE * fout ;
+	char ch;
+	fout = fopen(' abc. txt ' ,' w ');
+	ch = fgetc( stdin) ;
+	while( ch != '#')
+	{
+		fputc( ch , fout ) ;
+		ch = fgetc( stdin ) ;
+	}
+	fclose( fout) ;
 
 }
 出错的原因是
@@ -3920,11 +3936,13 @@ A.函数fopen()调用形式错误
 B.输入文件没有关闭
 C．函数fgetc()调用形式错误
 D．文件指针stdin没有定义
+
 8．函数调用fseek（fp,-20L,2)的含义是
 A．将文件位置指针移到距离文件头20个字节处
 B.将文件位置指针从当前位置向后移动20个字节
 C．将文件位置指针从文件末尾处向文件头方向移动20个字节
 D．将文件位置指针移到离当前位置20个字节处
+
 9．有如下定义:
 struct stu a[ 20];
 FILE * fp;
@@ -3934,6 +3952,7 @@ A. for( i=0;i<20 ;i++) fread ( &a[ i ] ,sizeof( strucstu) , 1L,fp);
 B. for( i= 0; i<20 ;i++) fread( a+i; sizeof( struct stu) ,1L,fp);
 C. fread( a , sizeof(struct stu),20L, fp ) ;
 D. for( i=0 :i<20;i++) fread( a[ i ] , sizeof( struct stu) , 1L, fp) ;
+
 10．有如下定义:
 struct stu stul [ 30];
 若要将stul中的30个元素写到硬盘文件fp中,以下不正确的形式是_
@@ -3942,96 +3961,446 @@ B. fwrite( stu1 ,30 * sizeof( struct stu) , 1 , fp );
 C. fwrite( stu1 , 15 * sizeof( struct stu), 15 ,fp ) ;
 D. for( i=0;i<30 ;i++) fwrite( stul+i,sizeof( struct stu) ,1 , fp);
 
+
+1.C.
+文件由记录序列组成，可按数据的存放形式分为二进制文件和文本文件是正确的。C语言可以读写文本文件和二进制文件，文本文件以ASCII码字符序列组成，二进制文件以二进制数据序列组成，而数据文件可按数据的存放形式分为二进制文件和文本文件。
+2.B
+3.C
+	①在字符串中表示反斜杠（\）需要使用双反斜杠（\\）。②路径中需要在磁盘名（E:）和文件夹名（text）之间加上反斜杠（\）。③打开文件的模式应该是只读模式（"r"）。
+4.B
+fclose()函数的返回值为0表示文件关闭成功，返回非0值表示文件关闭失败。
+5.C
+6.A
+7.A
+#include <stdio.h>
+int main()
+{
+	FILE *fout;
+	char ch;
+	fout = fopen("abc.txt", "w");
+	ch = getchar();
+	while (ch != '#')
+	{
+		fputc(ch, fout);
+		ch = getchar();
+	}
+	fclose(fout);
+	return 0;
+}
+8.C
+函数调用fseek(fp, -20L, 2)的含义是将文件位置指针从文件末尾处向文件头方向移动20个字节。其中，fp为文件类型指针，-20L表示将指针向前移动20个字节，2表示以文件末尾为基准进行移动。
+9.D
+应该修改为 fread(&a[i], sizeof(struct stu), 1L, fp)。a[i] 是一个 struct stu 类型的变量，应该取其地址。
+10.B
+选项B不正确。在将30个元素写入文件时，应该使用第一种形式，即将元素数量作为第三个参数，而不是将总字节数作为第二个参数。正确形式：【fwrite(stul, sizeof(struct stu), 30, fp);】
+
 */
 
 
 /*
 二、分析程序题
-1.下面程序的功能是统计文件“file. txt”中的字符数,请在程序中横线位置填人适当的代码。
+1.下面程序的功能是统计文件“file.txt”中的字符数,请在①②③位置填人适当的代码。
 #include<stdio.h>
 void main()
 {
-①;
-int count = O;
-if(( fp= fopen( " file. txt" , "r" ) )= =NULL)
+	①;
+	int count = O;
+	if(( fp= fopen( " file. txt" , "r" ) )= =NULL)
+	{
+		printf( " Can't open file!\n");
+		exit( 1);
+	}
+
+	while(②)
+	{
+		fgetc( fp );
+		count++;
+	}
+	printf( " Total = %d\n" , count) ;
+	③;
+}
+*/
+#include<stdio.h>
+void main_997_10_2_1()
 {
-printf( " Can't open file! in");
-exit( 1);
+	FILE* fp; // ①
+	int count = 0;
+	if ((fp = fopen("file.txt", "r")) == NULL)
+	{
+		printf(" Can't open file! \n");
+		exit(1);
+	}
+	while (fgetc(fp) != EOF) // ②
+	{
+		count++;
+	}
+	printf(" Total = %d\n", count);
+	fclose(fp); // ③
 }
 
-while(②)
-{
-fgetc( fp );
-count++;
-}
-printf( " Total = %d\n" , count) ;
-③;
+
+/*
 2．有如下程序:
-#include<stdio.h>
+#include <stdio.h>
 void main()
 {
-FILE * fp;
-char s[ 80] ;
-fp = fopen ( " f.txt" , " w" );
-if( fp= =NULL)
-{
-printf( " can 't open file");
-exit( O);
-}
-while(strlen( gets (s))>0)
-{
-fputs( s , fp) ;
-fputs("\n",fp);
-}
-fclose(fp);
+	FILE * fp;
+	char s[80] ;
+	fp = fopen ( "f.txt" , "w" );
+	if( fp == NULL)
+	{
+		printf( " can't open file");
+		exit(0);
+	}
+	while(strlen( gets (s))>0)
+	{
+		fputs(s,fp);
+		fputs("\n",fp);
+	}
+	fclose(fp);
 }
 
 运行以上程序,并从键盘输入如下数据:
 This_is_a_program!
-然后用“记事本”打开f. txt ,其中内容是_
+然后用“记事本”打开f.txt ,其中内容是
 */
+//#include <stdio.h>
+//void main()
+//{
+//	FILE* fp;
+//	char s[80];
+//	fp = fopen("f.txt", "w");
+//	if (fp == NULL)
+//	{
+//		printf(" can't open file");
+//		exit(0);
+//	}
+//	while (strlen(gets(s)) > 0)
+//	{
+//		fputs(s, fp);
+//		fputs("\n", fp);
+//	}
+//	fclose(fp);
+//}
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX_LENGTH 80
+
+int main_997_10_2_2()
+{
+	FILE* fp; // 文件指针
+	char s[MAX_LENGTH]; // 缓存字符串
+
+	fp = fopen("f.txt", "w");
+
+	if (fp == NULL) // 判断文件是否打开成功
+	{
+		printf("Failed to open file.");
+		return 1;
+	}
+
+
+	while (fgets(s, sizeof(s), stdin) != NULL) // 循环读取输入的字符串
+	{
+		if (strcmp(s, "\n") == 0) // 判断是否输入了回车键
+			break;
+		fputs(s, fp); // 写入字符串到文件中
+	}
+	fclose(fp);
+	return 0;
+}
 
 
 
-/*
-三、编程题
-1.从键盘输入一个字符串,然后把它输出到磁盘文件filel. dat 中。
 
 
+//三、编程题
+//1.从键盘输入一个字符串,然后把它输出到磁盘文件filel.dat 中。
 
-2．从键盘输入一个字符串,将其中的小写字母全部转换成大写字母,然后输出到另一个磁盘文件test 中保存。输入的字符串以“!”结束。
+#include <stdio.h>
+
+#define MAX_LENGTH 100
+
+int main_997_10_3_1()
+{
+	char str[MAX_LENGTH];
+	FILE* fp;
+
+	// 打开文件
+	fp = fopen("file1.dat", "w");
+	if (fp == NULL)
+	{
+		printf("Failed to open file.");
+		return 1;
+	}
+
+	// 从键盘读入字符串并写入文件
+	printf("Please enter a string: ");
+	fgets(str, MAX_LENGTH, stdin);
+	fputs(str, fp);
+
+	// 关闭文件
+	fclose(fp);
+
+	printf("String has been written to file.\n");
+
+	return 0;
+}
 
 
+//2．从键盘输入一个字符串,将其中的小写字母全部转换成大写字母,然后输出到另一个磁盘文件test 中保存。输入的字符串以“!”结束。
 
-3．有两个磁盘文件fl和2,各存放一行字母,今要求把这两个文件中的信息合并,并按字母顺序排列后输出到一个新文件3中去。
+#include <stdio.h>
+#include <ctype.h>
 
+int main_997_10_3_2()
+{
+	FILE* fp_in;
+	FILE* fp_out;
+	char ch;
 
+	fp_in = stdin;  // 标准输入
+	fp_out = fopen("test", "w");
 
-4．统计一篇文章中大写字母的个数和文章中句子数(句子的结束标志是句点后跟一个或多个空格)。
+	while ((ch = fgetc(fp_in)) != '!')
+	{
+		ch = toupper(ch);  // 转换为大写字母
+		fputc(ch, fp_out);  // 写入到输出文件
+	}
 
+	fclose(fp_out);
 
-
-5．某单位职工数据存储在磁盘文件worker中。每个职工的数据包括职工姓名、职工号、性别、年龄、住址、工资﹑健康状况,文化程度。今要求将职工名、工资的信息单独抽出来另建一个简明的职工工资文件。
-
-
-
-6.从键盘输人若干行字符(每行长度不等),输人后把它们存储到一磁盘文件中。再从该文件中读人这些数据,将其中小写字母转换成大写字母后显示在屏幕上。
-
-*/
-
-
-
-
-
-
-
-
-
-
+	return 0;
+}
 
 
+//3．有两个磁盘文件fl和2,各存放一行字母,今要求把这两个文件中的信息合并,并按字母顺序排列后输出到一个新文件3中去。
+
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_LENGTH 100
+
+int main_997_10_3_3()
+{
+	FILE* fp1, * fp2, * fp3;
+	char str1[MAX_LENGTH], str2[MAX_LENGTH], merged[MAX_LENGTH * 2];
+
+	// 打开文件1
+	fp1 = fopen("f1.txt", "r");
+	if (fp1 == NULL)
+	{
+		printf("Failed to open f1.txt\n");
+		return 1;
+	}
+	// 读取文件1中的内容到字符串str1
+	fgets(str1, MAX_LENGTH, fp1);
+	fclose(fp1);
+
+	// 打开文件2
+	fp2 = fopen("f2.txt", "r");
+	if (fp2 == NULL)
+	{
+		printf("Failed to open f2.txt\n");
+		return 1;
+	}
+	// 读取文件2中的内容到字符串str2
+	fgets(str2, MAX_LENGTH, fp2);
+	fclose(fp2);
+
+	// 合并字符串
+	strcpy(merged, str1);
+	strcat(merged, str2);
+
+	// 排序字符串
+	int i, j, n = strlen(merged);
+	char temp;
+	for (i = 0; i < n - 1; i++)
+	{
+		for (j = i + 1; j < n; j++)
+		{
+			if (merged[i] > merged[j])
+			{
+				temp = merged[i];
+				merged[i] = merged[j];
+				merged[j] = temp;
+			}
+		}
+	}
+
+	// 打开文件3
+	fp3 = fopen("f3.txt", "w");
+	if (fp3 == NULL)
+	{
+		printf("Failed to open f3.txt\n");
+		return 1;
+	}
+	// 将排好序的字符串写入文件3中
+	fputs(merged, fp3);
+	fclose(fp3);
+
+	printf("Merge and sort succeeded.\n");
+	return 0;
+}
 
 
+//4．统计一篇文章中大写字母的个数和文章中句子数(句子的结束标志是句点后跟一个或多个空格)。
+
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+#define MAX_LINE_LENGTH 1024
+
+int main_997_10_3_4()
+{
+	FILE* fp;
+	char line[MAX_LINE_LENGTH];
+	int uppercase_count = 0;
+	int sentence_count = 0;
+
+	fp = fopen("article.txt", "r");
+	if (fp == NULL)
+	{
+		printf("Failed to open file.\n");
+		return 1;
+	}
+
+	while (fgets(line, MAX_LINE_LENGTH, fp) != NULL)
+	{
+		// Count uppercase letters
+		for (int i = 0; i < strlen(line); i++)
+		{
+			if (isupper(line[i]))
+				uppercase_count++;
+		}
+
+		// Count sentences
+		char* token = strtok(line, ". ");
+		while (token != NULL)
+		{
+			sentence_count++;
+			token = strtok(NULL, ". ");
+		}
+	}
+
+	fclose(fp);
+
+	printf("Uppercase count: %d\n", uppercase_count);
+	printf("Sentence count: %d\n", sentence_count);
+
+	return 0;
+}
+
+
+//5．某单位职工数据存储在磁盘文件worker.txt中。每个职工的数据包括职工姓名、职工号、性别、年龄、住址、工资﹑健康状况,文化程度。今要求将职工名、工资的信息单独抽出来另建一个简明的职工工资文件。
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_LINE_LENGTH 100 // 假设每行数据的最大长度为100个字符
+
+typedef struct {
+	char name[20]; // 职工姓名
+	char id[10]; // 职工号
+	char gender[5]; // 性别
+	int age; // 年龄
+	char address[50]; // 住址
+	float salary; // 工资
+	char health[20]; // 健康状况
+	char education[20]; // 文化程度
+} Worker;
+
+int main_997_10_3_5() {
+	FILE* input_file, * output_file;
+	char line[MAX_LINE_LENGTH];
+	Worker worker;
+	char name[20];
+	float salary;
+
+	// 打开原始职工数据文件worker.txt
+	input_file = fopen("worker.txt", "r");
+	if (input_file == NULL)
+	{
+		printf("Failed to open worker.txt.\n");
+		return 1;
+	}
+
+	// 创建简明职工工资文件wages.txt
+	output_file = fopen("wages.txt", "w");
+	if (output_file == NULL)
+	{
+		printf("Failed to create wages.txt.\n");
+		fclose(input_file);
+		return 1;
+	}
+
+	// 逐行读取原始职工数据文件中的职工信息，抽取职工名和工资信息写入简明职工工资文件中
+	while (fgets(line, MAX_LINE_LENGTH, input_file) != NULL)
+	{
+		// 解析职工信息
+		sscanf(line, "%s %s %s %d %s %f %s %s",
+			worker.name, worker.id, worker.gender, &worker.age,
+			worker.address, &worker.salary, worker.health, worker.education);
+		// 写入简明职工工资文件中
+		fprintf(output_file, "%s %.2f\n", worker.name, worker.salary);
+	}
+
+	// 关闭文件
+	fclose(input_file);
+	fclose(output_file);
+
+	return 0;
+}
+
+
+//6.从键盘输人若干行字符(每行长度不等),输人后把它们存储到一磁盘文件中。再从该文件中读人这些数据,将其中小写字母转换成大写字母后显示在屏幕上。
+#include <stdio.h>
+#include <ctype.h>
+
+#define MAX_LENGTH 100
+
+int main_997_10_3_6()
+{
+	FILE* fp;
+	char s[MAX_LENGTH];
+
+	// 从键盘读入并写入文件
+	fp = fopen("input.txt", "w");
+	if (fp == NULL)
+	{
+		printf("无法打开文件\n");
+		return 1;
+	}
+	printf("请输入多行文本，以空行结束：\n");
+	while (fgets(s, sizeof(s), stdin) != NULL)
+	{
+		fputs(s, fp);
+	}
+	fclose(fp);
+
+	// 读入文件并转换大小写
+	fp = fopen("input.txt", "r");
+	if (fp == NULL)
+	{
+		printf("无法打开文件\n");
+		return 1;
+	}
+	printf("\n转换后的文本如下：\n");
+	while (fgets(s, sizeof(s), fp) != NULL)
+	{
+		for (int i = 0; s[i] != '\0'; i++)
+		{
+			s[i] = toupper(s[i]);  // 将小写字母转换成大写字母
+		}
+		printf("%s", s);
+	}
+	fclose(fp);
+
+	return 0;
+}
 
 
 
@@ -4050,21 +4419,21 @@ This_is_a_program!
 
 
 
-
 /*
 一、选择题
 1．有以下变量定义:
 struct variable
 {
-char name[ 100] ;
-int age[ 100] ;
+	char name[ 100] ;
+	int age[ 100] ;
 }varl ;
 union variable
 {
-char name[ 150];
-int age[ 100] ;
+	char name[ 150];
+	int age[ 100] ;
 }var2 ;
 int var3 [ 160];
+
 则执行下列程序段后,正确的输出结果是
 printf( " %d," , sizeof( var1 ) >sizeof( var2 ) &&sizeof( varl ) >sizeof( var3 ) ) ;
 printf( " %d , " , sizeof( varl )<sizeof( var2 ) &&sizeof( varl ) <sizeof( var3 ) ) ;
@@ -4074,6 +4443,8 @@ A. 1,0,1 ,0
 B. 0,0,1 ,1
 C. 1,1 ,1 ,0
 D. 0,0,1 ,0
+
+
 2．有以下程序:
 #include<stdio. h>
 void main()
@@ -4097,20 +4468,30 @@ B.60	120
 C.40	120
 D.40	100
 3．执行以下程序后,输出的结果是_
-#include<stdio. h>
+#include <stdio.h>
 union u
 {
-char a;
-char b ;}ul , u2 ='A ';
+	char a;
+	char b;
+}u1, u2 = 'A';
 void main()
 {
-ul = u2;
-printf( " ul.a = %c , u1.b= %d \n" ,ul.a,u1.b);
+	u1 = u2;
+	printf(" ul.a = %c , u1.b= %d \n", u1.a, u1.b);
 }
 A. ul.a= A ,ul.b=65
 B. ul.a= 65 , ul. b=A
 C. ul.a=A, ul.b不确定
 D. ul.a= A , ul.b=A
+
+如果将【u1, u2 = 'A';】修改为【u1, u2 = { .b = 'A' };】可以达到预期效果【ul.a= A ,ul.b=65】，否则编译错误
+
+
+1.D
+
+2.C
+
+3.A
 
 */
 
@@ -4119,19 +4500,29 @@ D. ul.a= A , ul.b=A
 /*
 二、分析程序题
 1．以下程序的输出结果是
-#include<stdio. h>
+#include <stdio.h>
 void main()
 {
-enum { Sun= 7, Mon= 1 , Tue , Wed , Thu , Fri , Sat } day ;
-day = Wed;
-printf( "%d\n" , day ) ;
+	enum { Sun= 7, Mon= 1 , Tue , Wed , Thu , Fri , Sat } day ;
+	day = Wed;
+	printf( "%d\n" , day ) ;
 }
+
+3
+
+
 2．执行下列程序后的输出结果为
-#include<stdio.h>
+
+#include <stdio.h>
 void main()
-int a= 0x17,b=Oxf6;
-printf( "%x\n" , a^b);
+{
+	int a = 0x17, b = 0xf6;
+	printf("%x\n", a ^ b);
 }
+
+
+e1
+
 3．有程序如下:
 #include<stdio.h>
 void main()
@@ -4143,6 +4534,7 @@ printf( "%x\n" , a|b) ;
 }
 运行上面的程序,输入:a6,7d ,程序的输出结果为____
 
+ff
 
 */
 
@@ -4151,15 +4543,45 @@ printf( "%x\n" , a|b) ;
 /*
 三、简答题
 1.共用体变量的成员和结构体变量的成员在引用形式上相同,但在存储上有很大差异,请说明其主要的区别。
+
+
+
+共用体（Union）是一种特殊的数据类型，它允许在同一个内存空间中存储不同的数据类型。共用体中的成员共享同一块内存空间，因此共用体中的成员变量不能同时被赋值。
+而结构体（Structure）是一种用户自定义的数据类型，它允许在同一个内存空间中存储不同的数据类型，但每个成员都占用不同的内存空间。
+共用体变量的成员和结构体变量的成员在引用形式上相同，都可以使用点号（.）访问，但是它们在存储上有很大的差异。结构体变量的内存空间是按照成员的顺序依次存放的，
+而共用体变量的内存空间是共用的，因此共用体变量的大小取决于它的最大成员变量的大小。
+共用体变量的一个成员变量被赋值后，其他成员变量的值都将被覆盖。因此，在使用共用体变量时必须小心，确保只访问当前需要的成员变量。而结构体变量的每个成员都有自己的存储空间，
+因此不会出现相互覆盖的情况。
+另外，共用体变量和结构体变量的初始化方式也有所不同。共用体变量的初始化方式和普通变量类似，可以直接赋值或使用花括号括起来的列表初始化。
+而结构体变量的初始化方式必须使用花括号括起来的列表初始化，按照成员的顺序初始化。
+总的来说，共用体变量和结构体变量都是在内存中存储数据的方式，但它们在存储方式和使用上有很大的不同，需要根据具体的需求选择使用。共用体适用于需要存储多个数据类型中的一个的情况，
+而结构体适用于需要存储多个数据类型中的多个的情况。
+
 2．以下是一个枚举变量的定义语句,请问能够对枚举元素“Wed”、“Thu”等赋值吗?说明原因。
 enum weekday{Sun , Mon , Tue , Wed , Thu , Fir , Sat }day1 , day2 ;
+
+enum weekday{ Sun= 7, Mon= 1 , Tue , Wed , Thu , Fri , Sat }day1 , day2 ;
+
+枚举类型的变量可以被赋予枚举元素中的任意一个值，但是不能给枚举元素直接赋值。枚举元素的值是由编译器自动分配的，它们是常量，不能被修改或重新赋值。
+如果需要修改枚举元素的值，需要修改枚举定义中对应元素的值，并重新编译程序。在没有为枚举元素指定值的情况下，编译器会默认为第一个枚举元素指定值为0，
+后续枚举元素的值会逐个加1。
+
 3．计算下面位运算表达式的值。
-(1）0x3F&OxA6
-(2)0x3F|OxA6
-(3）0x3F^OxA6
-(4) ~OxA6
+(1）0x3F&0xA6
+(2)0x3F|0xA6
+(3）0x3F^0xA6
+(4) ~0xA6
 (5）0xA6<<5
 (6）0xA6>>5
+
+
+26
+bf
+99
+ffffff59
+14c0
+5
+
 */
 
 
@@ -4167,31 +4589,128 @@ enum weekday{Sun , Mon , Tue , Wed , Thu , Fir , Sat }day1 , day2 ;
 //四、编程题
 //1.用位运算符使一个单元内容清零(不论该单元中原来内容是什么,经过适当的运算后全部位值为零)。
 
+#include <stdio.h>
+int main_997_11_4_1()
+{
+	int num = 12345; // 假设该单元原来的内容为 12345
+	printf("%d\n", num);
+	num &= ~num; // 使用位运算符将 num 的所有位都清零
+	printf("%d\n", num);
 
-
+	return 0;
+}
 //2.有一个整数i, 要求分别将其高字节和低字节输出（用位运算方法实现)。
+
+#include <stdio.h>
+
+int main_997_11_4_2()
+{
+	int i = 0x12345678; // 假设要处理的整数是0x12345678
+
+	// 取出低字节并输出
+	int low = i & 0xff;
+	printf("低字节: 0x%x\n", low);
+
+	// 取出高字节并输出
+	int high = (i >> 8) & 0xff;
+	printf("高字节: 0x%x\n", high);
+
+	return 0;
+}
 
 
 
 //3．编写一个函数, 测定一个整数i的最高位是0还是1, 如果是0, 则输出“正数”, 否则输出“负数”。
 
 
+#include <stdio.h>
+int testMSB(const int i)
+{
+
+	if (i & (1 << (sizeof(int) * 8 - 1)))
+		return -1;
+	else
+		return 1;
+}
+
+int main_997_11_4_3()
+{
+	printf("请输入一个整数:>>");
+	int num = 0;
+	scanf("%d", &num);
+	testMSB(num) > 0 ? printf("正数\n") : printf("负数\n");
+	return 0;
+}
 
 //4．编写一个函数, 使一个整数i的二进制表示形式中的低4位改为1, 将得到的数作为函数值返回。
 
 
+#include <stdio.h>
+int setLow4BitsToOne(int i)
+{
+	return i | 0x0F;  // 0x0F表示二进制形式为00001111，即低4位全为1
+}
+
+int main_997_11_4_4()
+{
+	printf("请输入一个整数:>>");
+	int num = 0;
+	scanf("%d", &num);
+	printf("%d\n", setLow4BitsToOne(num));
+	return 0;
+}
+
 
 //5.一个数与0进行按位异或运算, 结果是什么 ? 编一程序并上机运行, 得出结果并分析此结果。
+#include <stdio.h>
 
-
+int main_997_11_4_5()
+{
+	printf("请输入一个整数:>>");
+	int x = 0;
+	scanf("%d", &x);
+	printf("x ^ 0 = %d\n", x ^ 0); // 0和任何数异或结果都是那个数本身
+	return 0;
+}
 
 //6．编程实现将一个整数i的二进制位进行循环左移4位的运算。并给出当i为十六进制数0xFE16时的程序执行结果。
+
+
+#include <stdio.h>
+
+unsigned int left_shift(unsigned int i, int n)
+{
+	n = n % 32;  // 防止位移超过整型范围
+	return (i << n) | (i >> (32 - n));
+}
+
+int main_997_11_4_6()
+{
+	printf("请输入一个整数:>>");
+	unsigned int i = 0;
+	scanf("%d", &i);
+	printf("原始数值: %X\n", i);
+	i = left_shift(i, 4);
+	printf("左移4位后的结果: %X\n", i);
+	return 0;
+}
 
 
 
 //7．取一个整数最高端的5个二进制位。
 
 
+#include <stdio.h>
+int main_997_11_4_7()
+{
+	printf("请输入一个整数:>>");
+	int num = 0;
+	scanf("%d", &num);
+	printf("原始数值: %X\n", num);
+	int result = num >> (sizeof(int) * 8 - 5); // 将num向右移动sizeof(int)*8-5位，保留最高的5位
+	printf("取最高端的5个二进制位的结果: %X\n", result);
+	return 0;
+}
 
 
 
