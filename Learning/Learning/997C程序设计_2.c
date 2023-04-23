@@ -4734,17 +4734,21 @@ int main_997_11_4_7()
 1.C++对C语言做了很多改进,下列描述中___使得C语言发生了质变,从面向过程变成了面向对象。
 A.C++增加了一些新的运算符
 B.C++允许函数重载,并允许设置默认参数
-C.C++允许在使用变量之前的任何位置对变量进行说明D.C++引进了类和对象的概念
+C.C++允许在使用变量之前的任何位置对变量进行说明
+D.C++引进了类和对象的概念
+
 2．下列描述中,错误的是
 A.C++的内联函数主要解决程序的运行效率问题
 B．C++的内联函数通常用于处理比较复杂的问题
 C. C++内联函数中可以包括各种语句
 D.除需要使用inline关键字说明外,内联函数与其他函数的定义没有区别
+
 3．C++中,以下对函数参数默认值设置正确的是
 A. int sum( int a= 20 , int b , int c=10);
 B. int sum(int a , int b= 20 , int c= 10);
 C. int sum( int a= 20 , int b int c);
 D. int sum( int a= 20 , int b= 10, int c) ;
+
 4．以下是一些函数的原型说明,关于函数重载的描述,不正确的是
 第一个函数:float calculat( double , float , float)
 第二个函数:float calculat( float , float , int , int );
@@ -4755,6 +4759,7 @@ A．第一个函数和第二个函数可以重载
 B.第一个函数和第三个函数可以重载
 C.第二个函数和第三个函数可以重载
 D.第三个函数和第四个函数可以重载
+
 5．以下内联函数定义中,被系统视为无效的内联函数是
 
 A. inline int max2(int a, int b)
@@ -4776,6 +4781,7 @@ s= a * a+b * b+c*c;
 return(s ) ;
 }
 6．以下程序的功能是从键盘输入一个整数,然后输出它的阶乘值,具体求阶乘的运算由fun()函数实现。横线位置的正确代码是
+
 #include <iostream. h>
 void function ( int, long &);
 {
@@ -4798,6 +4804,34 @@ A. function( t, m)
 B. function( m , t)
 C. function(m , n)
 D. function( n , t)
+
+
+
+1.D.C++引进了类和对象的概念是使得C语言发生了质变,从面向过程变成了面向对象的主要原因。
+C++的类和对象机制是面向对象编程的核心，它允许程序员将数据和相关的操作封装在一起，从而实现了数据抽象、封装和继承等面向对象的概念。
+这种面向对象的编程范式与C语言中的面向过程编程完全不同，因此，引入类和对象的概念是C++对C语言做的最大的改进之一。
+
+2.B
+C++的内联函数主要用于解决程序的运行效率问题，而不是处理比较复杂的问题。内联函数在被调用时，不需要执行函数调用的过程，而是直接将函数的代码插入到调用它的地方，
+从而避免了函数调用时的开销。这样可以提高程序的运行效率，特别是对于需要频繁调用的函数而言，内联函数的效果更加明显
+
+3.B
+在B选项中，a参数没有默认值，b参数默认值为20，c参数默认值为10。
+A选项中，b参数没有默认值，但是a参数却在第一个位置上设置了默认值，这样会导致函数调用时出现二义性。
+C选项中，b和c参数都没有默认值，但是在声明参数列表时，b和c之间缺少了一个逗号，这是语法错误。
+D选项中，a和b参数都有默认值，但是c参数没有默认值，这样会导致函数调用时出现二义性
+
+4.B.
+第一个函数和第三个函数可以重载是不正确的描述。
+函数重载是指在同一个作用域中，可以定义多个同名函数，但是它们的参数列表不同。根据参数列表的不同，编译器可以区分不同的同名函数，并将函数调用与正确的函数匹配。
+在上述函数原型说明中，第一个函数和第二个函数的参数列表不同，因此它们可以重载。同样地，第二个函数和第三个函数的参数列表不同，它们也可以重载。第三个函数和第四个函数的参数列表也不同，它们也可以重载。
+但是，第一个函数和第三个函数的参数列表相同，即使它们的返回值类型不同，它们也不能重载。因为函数重载是通过函数参数列表的不同来区分不同的同名函数，
+如果参数列表相同，编译器无法区分它们，从而导致二义性错误。
+
+5.C
+
+6.B
+
 */
 
 
@@ -4806,19 +4840,143 @@ D. function( n , t)
 //1．编写C++程序,将3个整数按由小到大的顺序输出。
 
 
+
+#include <iostream>
+using namespace std;
+
+void sort_997_12_2_1(int& a, int& b, int& c)
+{
+	int tmp;
+	if (a > b) { tmp = a; a = b; b = tmp; }
+	if (b > c) { tmp = b; b = c; c = tmp; }
+	if (a > b) { tmp = a; a = b; b = tmp; }
+}
+
+int main_997_12_2_1()
+{
+	int a, b, c;
+	cout << "请输入三个整数：";
+	cin >> a >> b >> c;
+	sort_997_12_2_1(a, b, c);
+	cout << "按由小到大的顺序输出为：" << a << " " << b << " " << c << endl;
+	return 0;
+}
+
+
+
+
 //2．编写C++程序,计算(a-b)^2+( a-c)^2+(b-c)^2的值,其中平方项的计算要求由内联函数实现。
+
+
+#include <iostream>
+
+using namespace std;
+
+inline int sqr_997_12_2_2(int x)
+{
+	return x * x;
+}
+
+int main_997_12_2_2()
+{
+	int a, b, c;
+	cout << "请输入三个整数: ";
+	cin >> a >> b >> c;
+	int result = sqr_997_12_2_2(a - b) + sqr_997_12_2_2(a - c) + sqr_997_12_2_2(b - c);
+	cout << "(a-b)^2 + (a-c)^2 + (b-c)^2 = " << result << endl;
+	return 0;
+}
+
 
 //3.编写三个求绝对值的重载函数,分别用于计算int 型, long,型和double型数据的绝对值,并在主函数中调用它们。
 
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int abs(int x)
+{
+	return abs(x);
+}
+
+long abs(long x)
+{
+	return labs(x);
+}
+
+double abs(double x)
+{
+	return fabs(x);
+}
+
+int main_997_12_2_3()
+{
+	int a = -5;
+	long b = -123456789L;
+	double c = -3.14159;
+	cout << "a 的绝对值: " << abs(a) << endl;
+	cout << "b 的绝对值: " << abs(b) << endl;
+	cout << "c 的绝对值: " << abs(c) << endl;
+	return 0;
+}
 
 
 //4．在C++中,使用函数参数默认值时需要注意哪几个方面的问题?设计一个使用参数默认值的函数,并在主函数中调用它。
+
+
+#include <iostream>
+using namespace std;
+
+// 定义函数，根据第三个参数的值计算和或差
+int sum_or_diff(int a, int b, bool do_sum)
+{
+	if (do_sum)
+		return a + b;
+	else
+		return a - b;
+}
+
+int main_997_12_2_4()
+{
+	int x, y;
+	cout << "请输入两个整数：";
+	cin >> x >> y;
+
+	// 调用函数，可以只传递两个参数
+	int result = sum_or_diff(x, y);
+
+	cout << "两数之和或差为：" << result << endl;
+
+	return 0;
+}
 
 
 
 
 //5．用引用作函数的参数实现两个数的升序排列。
 
+#include <iostream>
+using namespace std;
+
+void sort(int& a, int& b)
+{
+	if (a > b)
+	{
+		int temp = a;
+		a = b;
+		b = temp;
+	}
+}
+
+int main_997_12_2_5()
+{
+	int x = 10, y = 5;
+	cout << "Before sorting: x=" << x << ", y=" << y << endl;
+	sort(x, y);
+	cout << "After sorting: x=" << x << ", y=" << y << endl;
+	return 0;
+}
 
 
 //***************************************************************************************************************************************************
