@@ -1,17 +1,17 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 # include <stdio.h>
-//³£¶¨Á¿ºÍºê
-//#define MAX 1000//define¶¨Òå±êÊ¶·û³£Á¿
-//#define ADD(x, y) ((x)+(y))//define¶¨Òåºê
+//å¸¸å®šé‡å’Œå®
+//#define MAX 1000//defineå®šä¹‰æ ‡è¯†ç¬¦å¸¸é‡
+//#define ADD(x, y) ((x)+(y))//defineå®šä¹‰å®
 
-//ÇóÁ½¸ö×Ö×î´óÖµº¯ÊýÐ´·¨£º
+//æ±‚ä¸¤ä¸ªå­—æœ€å¤§å€¼å‡½æ•°å†™æ³•ï¼š
 //int Max(int x, int y)
 //{
 //    return (x >= y ? x : y);
 //}
 
 
-//ÇóÁ½¸ö×Ö×î´óÖµºê¶¨ÒåÐ´·¨£º
+//æ±‚ä¸¤ä¸ªå­—æœ€å¤§å€¼å®å®šä¹‰å†™æ³•ï¼š
 #define MAX(x,y)(x>y?x:y)
 //extern int Max(int, int);
 int main_22()
