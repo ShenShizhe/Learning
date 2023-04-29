@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 # include <stdio.h>
-//·ÖÖ§½á¹¹µÄÒ»µÀ²âÊÔÌâ
+//åˆ†æ”¯ç»“æ„çš„ä¸€é“æµ‹è¯•é¢˜
 int main_26(void)
 {
 	int n = 1, m = 2;
@@ -29,7 +29,7 @@ int main_26(void)
 	}
 	printf("m=%d\tn=%d\n", m, n);
 
-	//ÔËĞĞ½á¹û£º
+	//è¿è¡Œç»“æœï¼š
 	//		m=5     n=3
 	return 0;
 
