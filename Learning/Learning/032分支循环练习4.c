@@ -3,9 +3,9 @@
 
 int main_32(void)
 {
-	//6.´Ó´óµ½Ğ¡Êä³öÈı¸öÊı
+	//6.ä»å¤§åˆ°å°è¾“å‡ºä¸‰ä¸ªæ•°
 	int number1 = 0, number2 = 0, number3 = 0;
-	printf("ÇëÊäÈëÈı¸öÊı£º\n");
+	printf("è¯·è¾“å…¥ä¸‰ä¸ªæ•°ï¼š\n");
 	scanf("%d%d%d", &number1, &number2, &number3);
 	if (number1 < number2)
 	{
@@ -26,8 +26,8 @@ int main_32(void)
 		number3 = temp;
 
 	}
-	printf("%d %d %d\n", number1, number2, number3);//Ëã·¨ÊµÏÖnumber1×î´ó£¬number2´ÎÖ®£¬number3×îĞ¡
-	//7.´òÓ¡1~100ËùÓĞ3µÄ±¶ÊıµÄÊı×Ö
+	printf("%d %d %d\n", number1, number2, number3);//ç®—æ³•å®ç°number1æœ€å¤§ï¼Œnumber2æ¬¡ä¹‹ï¼Œnumber3æœ€å°
+	//7.æ‰“å°1~100æ‰€æœ‰3çš„å€æ•°çš„æ•°å­—
 	for (int i = 1; i <= 100; i++)
 		if (i % 3 == 0)
 			printf("%d ", i);
