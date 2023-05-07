@@ -3,9 +3,9 @@
 
 int main_33(void)
 {
-	//8.¸ø¶¨Á½¸öÊı£¬ÇóÆä×î´ó¹«Ô¼Êı(Õ·×ªÏà³ı·¨)
+	//8.ç»™å®šä¸¤ä¸ªæ•°ï¼Œæ±‚å…¶æœ€å¤§å…¬çº¦æ•°(è¾—è½¬ç›¸é™¤æ³•)
 	int number1 = 0, number2 = 0, remainder = 0;
-	printf("ÇëÊäÈëÁ½¸öÊı£º\n");
+	printf("è¯·è¾“å…¥ä¸¤ä¸ªæ•°ï¼š\n");
 	scanf("%d%d", &number1, &number2);
 	while (remainder = number1 % number2)
 	{
