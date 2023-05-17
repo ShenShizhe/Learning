@@ -8,7 +8,7 @@
 
 int main_42(void)
 {
-	//gotoyu语句(会打乱程序原有的执行次序，尽量少的使用goto语句)
+	//gotoyu璇彞(浼氭墦涔辩▼搴忓師鏈夌殑鎵ц娆″簭锛屽敖閲忓皯鐨勪娇鐢╣oto璇彞)
 	printf("haha\n");
 again:
 	printf("Hello World!!");
@@ -16,7 +16,7 @@ again:
 	printf("hehe\n");
 
 
-	//应用场景
+	//搴旂敤鍦烘櫙
 //	for (...)
 //	{
 //		for (...)
