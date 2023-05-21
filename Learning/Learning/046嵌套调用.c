@@ -5,7 +5,7 @@
 # include <stdlib.h>
 # include <Windows.h>
 
-//º¯ÊýµÄÇ¶Ì×µ÷ÓÃ
+//ÂºÂ¯ÃŠÃ½ÂµÃ„Ã‡Â¶ÃŒÃ—ÂµÃ·Ã“Ãƒ
 void new_line()
 {
 	printf("hehe\n");
