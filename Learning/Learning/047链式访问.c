@@ -4,16 +4,16 @@
 # include <string.h>
 # include <stdlib.h>
 # include <Windows.h>
-//º¯ÊıµÄÉùÃ÷
+//å‡½æ•°çš„å£°æ˜
 # include "Function.h"
-//Á´Ê½·ÃÎÊ[°ÑÒ»¸öº¯ÊıµÄ·µ»ØÖµ×÷ÎªÁíÍâÒ»¸öº¯ÊıµÄ²ÎÊı]
+//é“¾å¼è®¿é—®[æŠŠä¸€ä¸ªå‡½æ•°çš„è¿”å›å€¼ä½œä¸ºå¦å¤–ä¸€ä¸ªå‡½æ•°çš„å‚æ•°]
 int main_47(void)
 {
 	//int len = 0;
 	////1
 	//len = strlen("abc");
 	//printf("%d\n", len);
-	////Á´Ê½·ÃÎÊ
+	////é“¾å¼è®¿é—®
 	//printf("%d\n", strlen("abc"));
 
 
