@@ -9,31 +9,31 @@
 int main_49(void)
 {
 	//************************************************************************
-	//Á·Ï°1.ÇónµÄ½×³Ë¡££¨²»¿¼ÂÇÒç³ö£©[Function.c¡ª¡ª¡ª¡ªFactorial_n]
+	//ç»ƒä¹ 1.æ±‚nçš„é˜¶ä¹˜ã€‚ï¼ˆä¸è€ƒè™‘æº¢å‡ºï¼‰[Function.câ€”â€”â€”â€”Factorial_n]
 	/*int n = 0, ret = 0;
 	scanf("%d", &n);
 	ret = Factorial_n(n);
 	printf("%d\n", ret);*/
 	//************************************************************************
-	//Á·Ï°2.ÇóµÚn¸öì³²¨ÄÇÆõÊý
-	//ì³²¨ÄÇÆõÊýÁÐ£º 1 1 2 3 5 8 13 21 ...[Function.c¡ª¡ª¡ª¡ªFibonacci_sequence]
+	//ç»ƒä¹ 2.æ±‚ç¬¬nä¸ªæ–æ³¢é‚£å¥‘æ•°
+	//æ–æ³¢é‚£å¥‘æ•°åˆ—ï¼š 1 1 2 3 5 8 13 21 ...[Function.câ€”â€”â€”â€”Fibonacci_sequence]
 
 	/*int n = 0, ret = 0;
 	scanf("%d", &n);
 	ret = Fibonacci_sequence(n);
 	printf("ret=%d\n", ret);*/
 	//************************************************************************
-	//Á·Ï°3. ººÅµËþÎÊÌâ[Function.c¡ª¡ª¡ª¡ªTower_of_Hanoi_move¡¢Tower_of_Hanoi]
-	//¼ÙÉè×Ü¹²ÐèÒªÒÆ¶¯n¸öÅÌ×Ó[1.½«AÖùÉÏµÄn-1¸öÅÌ×Ó½èÖúCÖùÒÆÏòBÖù¡¢2.½«AÖùÉÏ½öÊ£µÄ×îºóÒ»¸öÅÌ×ÓÒÆÏòCÖù¡¢3.½«BÖùÉÏµÄn-1¸öÅÌ×Ó½èÖúAÖùÒÆÏòCÖù]
+	//ç»ƒä¹ 3. æ±‰è¯ºå¡”é—®é¢˜[Function.câ€”â€”â€”â€”Tower_of_Hanoi_moveã€Tower_of_Hanoi]
+	//å‡è®¾æ€»å…±éœ€è¦ç§»åŠ¨nä¸ªç›˜å­[1.å°†AæŸ±ä¸Šçš„n-1ä¸ªç›˜å­å€ŸåŠ©CæŸ±ç§»å‘BæŸ±ã€2.å°†AæŸ±ä¸Šä»…å‰©çš„æœ€åŽä¸€ä¸ªç›˜å­ç§»å‘CæŸ±ã€3.å°†BæŸ±ä¸Šçš„n-1ä¸ªç›˜å­å€ŸåŠ©AæŸ±ç§»å‘CæŸ±]
 	/*int n = 0;
-	printf("ÐèÒªÒÆ¶¯µÄÅÌ×ÓÊýÄ¿(n):");
+	printf("éœ€è¦ç§»åŠ¨çš„ç›˜å­æ•°ç›®(n):");
 	scanf("%d", &n);
 	Tower_of_Hanoi(n, 'A', 'B', 'C');*/
 	//************************************************************************
-	//Á·Ï°4. ÇàÍÜÌøÌ¨½×ÎÊÌâ[Function.c¡ª¡ª¡ª¡ªFrog_jumping]
-	//ÓÐn¸öÌ¨½×£¬Ò»Ö»ÇàÍÜ¿ÉÒÔÒ»´ÎÌø1¸ö»òÕß2¸öÌ¨½×£¬Ìøµ½µÚn¸öÌ¨½×ÓÐ¶àÉÙÖÖÌø·¨£¿---¡¶½£Ö¸offer¡·
+	//ç»ƒä¹ 4. é’è›™è·³å°é˜¶é—®é¢˜[Function.câ€”â€”â€”â€”Frog_jumping]
+	//æœ‰nä¸ªå°é˜¶ï¼Œä¸€åªé’è›™å¯ä»¥ä¸€æ¬¡è·³1ä¸ªæˆ–è€…2ä¸ªå°é˜¶ï¼Œè·³åˆ°ç¬¬nä¸ªå°é˜¶æœ‰å¤šå°‘ç§è·³æ³•ï¼Ÿ---ã€Šå‰‘æŒ‡offerã€‹
 	long int n;
-	printf("ÇëÊäÈëÌ¨½×µÄ×ÜÊý(n):");
+	printf("è¯·è¾“å…¥å°é˜¶çš„æ€»æ•°(n):");
 	scanf("%d", &n);
 	long int frequency = Frog_jumping(n);
 	printf("%ld\n", frequency);
