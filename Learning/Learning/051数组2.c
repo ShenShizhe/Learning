@@ -13,9 +13,9 @@ int main_51(void)
 	//printf("%d\n", sizeof(arr1));//4
 	//printf("%d\n", sizeof(arr2));//3
 	//printf("%d\n", strlen(arr1));//3
-	//printf("%d\n", strlen(arr2));//随机值
+	//printf("%d\n", strlen(arr2));//脣忙禄煤脰碌
 
-	//数组的使用
+	//脢媒脳茅碌脛脢鹿脫脙
 
 
 	char arr[] = "abcdef";
